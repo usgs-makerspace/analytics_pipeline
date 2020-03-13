@@ -5,6 +5,7 @@ get_multiple_view_ga_df <- function(view_df, start_date,
   for(i in seq_along(view_df$viewID)) {
     view_id <- view_df$viewID[i]
     view_name <- view_df$shortName[i]
+    print(view_name)
     view_data <- google_analytics(view_id, 
                                   date_range = c(as.Date(start_date), as.Date(end_date)), 
                                   ...) %>% 
