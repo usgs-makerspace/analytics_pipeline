@@ -395,28 +395,6 @@
   analyticsContact: 'David Watkins'
   analyticsContactEmail: 'wwatkins@usgs.gov'
 
-- longName: Environmental Data Discovery and Transformation
-  shortName: EnDDaT
-  accountName: EnDDaT
-  viewID: '124403435'
-  accountId: '79713582'
-  webPropertyId: UA-79713582-1
-  internalWebPropertyId: '118926018'
-  viewName: All Web Site Data
-  timezone: America/Chicago
-  websiteUrl: http://cida-test.er.usgs.gov/enddat/
-  botFilteringEnabled: ''
-  description: >-
-    The Environmental Data Discovery and Transformation (EnDDaT) service can be used to discover
-    data from our natural environment. This tool accesses data from a variety of data sources,
-    compiles and processes the data, and performs common transformations. The result is that
-    environmental data from multiple sources is sorted into a single table that aids model
-    development and similar tasks.
-  projectContact: 'Jessica Lucido'
-  projectContactEmail: 'jlucido@usgs.gov'
-  analyticsContact: 'David Watkins'
-  analyticsContactEmail: 'wwatkins@usgs.gov'
-
 - longName: GCMRC Discharge, Sediment, and Water Quality Monitoring App
   shortName: GCMRC
   accountName: CIDA GCMRC Analytics
