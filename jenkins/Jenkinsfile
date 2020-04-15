@@ -1,8 +1,12 @@
 pipeline {
   agent {
         node {
-            label 'slave'
+            label 'node:slave'
         }
+    }
+    environment {
+     GA_AUTH_FILE = credentials('GOOGLE_ANALYTICS_SERVICE_JSON')   
+     GA_CLIENTID_FILE = credentials('GOOGLE_ANALYTICS_CLIENTID_JSON')
     }
     parameters {
         gitParameter name: 'BRANCH_TAG',
@@ -41,12 +45,9 @@ pipeline {
     stage('push to S3') {
       steps { 
         sh '''
-          aws s3 sync out/ s3://internal-test.wma.chs.usgs.gov/analytics/data/dashboard_test/ 
+          aws s3 sync out/ s3://internal-test.wma.chs.usgs.gov/analytics/data/dashboard_test/ --exclude "*" --include "*.parquet"
           '''
       }
     }
-
-    }
   }
 }
-
