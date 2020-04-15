@@ -27,8 +27,8 @@ pipeline {
     stage('pull Google Analytics data') {
       agent {
         docker {
-          image 'code.chs.usgs.gov:5001/wma/iidd/wbeep-data-processing:R-latest'
-          registryUrl 'https://code.chs.usgs.gov:5001/wma/iidd/wbeep-data-processing'
+          image 'code.chs.usgs.gov:5001/wma/iidd/analytics_pipeline:R-latest'
+          registryUrl 'https://code.chs.usgs.gov:5001/wma/iidd/analytics_pipeline'
           registryCredentialsId 'jenkins_ci_access_token'
           alwaysPull true
           reuseNode true
