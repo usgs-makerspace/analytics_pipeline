@@ -1,5 +1,3 @@
-#pull some data to develop visuals with
-#grab several important applications
 library(googleAnalyticsR)
 library(googleAuthR)
 library(dplyr)
@@ -38,8 +36,6 @@ landing_exit_pages <- get_multiple_view_ga_df(view_df = ga_table,
                                         metrics = c("sessions"),
                                         max= -1)
 write_df_to_parquet(landing_exit_pages, sink = "out/all_apps_landing_exit_pages.parquet")
-#system('aws s3 sync out/ s3://internal-test.wma.chs.usgs.gov/analytics/data/dashboard_test/ --profile chsprod')
-
 
 #page load data
 load_time_data <- get_multiple_view_ga_df(view_df = ga_table,
