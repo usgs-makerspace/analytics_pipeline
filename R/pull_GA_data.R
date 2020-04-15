@@ -4,7 +4,7 @@ library(googleAnalyticsR)
 library(googleAuthR)
 library(dplyr)
 library(arrow)
-gar_auth_service('~/.vizlab/VIZLAB-a48f4107248c.json')
+gar_auth_service(json_file = Sys.getenv('GA_AUTH_FILE'))
 ga_table <- do.call(bind_rows, yaml::read_yaml('gaTable.yaml')) 
 
 three_years_ago <- Sys.Date() - lubridate::years(3)
