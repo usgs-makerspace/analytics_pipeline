@@ -1,0 +1,52 @@
+pipeline {
+  agent {
+        node {
+            label 'slave'
+        }
+    }
+    parameters {
+        gitParameter name: 'BRANCH_TAG',
+                     type: 'PT_BRANCH_TAG',
+                     defaultValue: 'master'
+        choice(choices: ['test', 'prod'], description: 'Tier to deploy tiles to', name: 'TIER')
+  }
+  stages {
+    stage('Checkout repo and pull from S3') {
+      steps {
+        sh 'wget -O DOIRootCA2.cer http://sslhelp.doi.net/docs/DOIRootCA2.cer'
+        checkout([$class: 'GitSCM',
+                          branches: [[name: "${params.BRANCH_TAG}"]],
+                          doGenerateSubmoduleConfigurations: false,
+                          extensions: [],
+                          gitTool: 'Default',
+                          submoduleCfg: [],
+                          userRemoteConfigs: [[url: 'https://github.com/usgs-makerspace/analytics_pipeline']]
+                        ])
+      }
+    }
+    stage('pull Google Analytics data') {
+      agent {
+        docker {
+          image 'code.chs.usgs.gov:5001/wma/iidd/wbeep-data-processing:R-latest'
+          registryUrl 'https://code.chs.usgs.gov:5001/wma/iidd/wbeep-data-processing'
+          registryCredentialsId 'jenkins_ci_access_token'
+          alwaysPull true
+          reuseNode true
+        } 
+      }
+      steps {
+        sh 'Rscript -e "source(\'R/pull_GA_data.R\')"'
+      }
+    }
+    stage('push to S3') {
+      steps { 
+        sh '''
+          aws s3 sync out/ s3://internal-test.wma.chs.usgs.gov/analytics/data/dashboard_test/ 
+          '''
+      }
+    }
+
+    }
+  }
+}
+
