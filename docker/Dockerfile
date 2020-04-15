@@ -26,7 +26,10 @@ RUN install2.r --error \
   dplyr \
   arrow \
   lubridate \
-  yaml
+  yaml \
+  dataRetrieval
+
+RUN Rscript -e 'arrow::install_arrow()' #installs some runtime libraries
 
 RUN mkdir -p /home/analytics_pipeline
 WORKDIR wbeep-processing
