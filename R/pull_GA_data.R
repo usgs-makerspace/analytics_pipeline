@@ -4,6 +4,8 @@ library(googleAnalyticsR)
 library(googleAuthR)
 library(dplyr)
 library(arrow)
+gar_set_client(json = Sys.getenv('GA_CLIENTID_FILE'), 
+               scopes = "https://www.googleapis.com/auth/analytics.readonly")
 gar_auth_service(json_file = Sys.getenv('GA_AUTH_FILE'))
 ga_table <- do.call(bind_rows, yaml::read_yaml('gaTable.yaml')) 
 
