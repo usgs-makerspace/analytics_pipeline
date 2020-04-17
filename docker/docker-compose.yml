@@ -1,0 +1,15 @@
+version: "3.1"
+services:
+  analytics_pipeline:
+    image: code.chs.usgs.gov:5001/wma/iidd/analytics_pipeline:R-latest
+    build:
+      context: .
+    ports:
+      - "8787:8787"
+    volumes:
+      - data:/home/analytics_pipeline                                                                                      
+
+volumes:
+  data:
+
+

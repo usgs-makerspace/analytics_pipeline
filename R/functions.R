@@ -14,3 +14,10 @@ get_multiple_view_ga_df <- function(view_df, start_date,
   }
   return(all_data)
 }
+
+#' Wrapper for arrow::write_parquet to accept a dataframe/tibble
+#' @param df a data frame
+#' @param sink character sink argument to arrow::write_parquet
+write_df_to_parquet <- function(df, sink) {
+  write_parquet(Table$create(df), sink = sink)
+}

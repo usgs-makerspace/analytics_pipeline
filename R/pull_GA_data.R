@@ -2,12 +2,12 @@
 #grab several important applications
 library(googleAnalyticsR)
 library(googleAuthR)
-library(tidyverse)
-gar_auth_service('~/.vizlab/VIZLAB-a48f4107248c.json')
+library(dplyr)
+library(arrow)
+gar_set_client(json = Sys.getenv('GA_CLIENTID_FILE'), 
+               scopes = "https://www.googleapis.com/auth/analytics.readonly")
+gar_auth_service(json_file = Sys.getenv('GA_AUTH_FILE'))
 ga_table <- do.call(bind_rows, yaml::read_yaml('gaTable.yaml')) 
-# set.seed(1) #get a random selection of applications, plus NWIS web
-# ga_table_filtered <- sample_n(ga_table, 5) %>%
-#   bind_rows(filter(ga_table, shortName %in% c('NWISWebDesktop', 'New Site Pages')))
 
 three_years_ago <- Sys.Date() - lubridate::years(3)
 one_year_ago <- Sys.Date() - lubridate::years(1)
@@ -15,6 +15,7 @@ thirty_days_ago <- Sys.Date() - 30
 today <- Sys.Date()
 
 source('R/functions.R')
+source('R/group_data.R')
 traffic_data <- get_multiple_view_ga_df(view_df = ga_table,
                                         end_date = today,
                                         start_date = three_years_ago,
@@ -23,10 +24,10 @@ traffic_data <- get_multiple_view_ga_df(view_df = ga_table,
                                         max= -1)
 traffic_data_out <- traffic_data %>% mutate(year = lubridate::year(date),
                                             fiscal_year = dataRetrieval::calcWaterYear(date))
-write_csv(traffic_data_out, path = "out/all_apps_traffic_data_3_years.csv")
+write_df_to_parquet(traffic_data_out, sink = "out/all_apps_traffic_data_3_years.parquet")
 
 year_month_week_traffic <- group_day_month_year(traffic_data)
-write_csv(year_month_week_traffic, path = "out/year_month_week_traffic.csv")
+write_df_to_parquet(year_month_week_traffic, sink = "out/year_month_week_traffic.parquet")
 
 #Can you get page content groupings from the API?
 #probably want to use less sampling (samplingLevel argument to google_analytics) for final product
@@ -36,7 +37,7 @@ landing_exit_pages <- get_multiple_view_ga_df(view_df = ga_table,
                                         dimensions = c("landingPagePath", "secondPagePath", "exitPagePath"),
                                         metrics = c("sessions"),
                                         max= -1)
-write_csv(landing_exit_pages, path = "out/all_apps_landing_exit_pages.csv")
+write_df_to_parquet(landing_exit_pages, sink = "out/all_apps_landing_exit_pages.parquet")
 #system('aws s3 sync out/ s3://internal-test.wma.chs.usgs.gov/analytics/data/dashboard_test/ --profile chsprod')
 
 
@@ -47,9 +48,10 @@ load_time_data <- get_multiple_view_ga_df(view_df = ga_table,
                                         dimensions = c("pagePath"),
                                         metrics = c("pageLoadSample", "avgPageLoadTime",
                                                     "avgPageDownloadTime",
-                                                    "avgDomContentLoadedTime"),
+                                                    "avgDomContentLoadedTime",
+                                                    "exitRate"),
                                         max= -1)
 load_time_data_filtered <- load_time_data %>% 
   filter(pageLoadSample > 0)
-write_csv(load_time_data_filtered, 
-          path = "out/page_load_30_days.csv")
+write_df_to_parquet(load_time_data_filtered, 
+          sink = "out/page_load_30_days.parquet")
