@@ -69,6 +69,7 @@ traffic_data_long_term <- get_multiple_view_ga_df(view_df = ga_table,
   filter(sessions > 0) %>% 
   group_by(view_name) %>% 
   arrange(view_name, year, month) %>% 
-  slice(-1)
+  slice(-1) %>% 
+  mutate(fiscal_year = dataRetrieval::calcWaterYear(as.Date(paste(year, month, '01', sep = "-"))))
 write_df_to_parquet(traffic_data_long_term, 
                     sink = "out/long_term_monthly.parquet")
