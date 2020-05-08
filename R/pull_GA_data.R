@@ -24,12 +24,14 @@ traffic_data <- get_multiple_view_ga_df(view_df = ga_table,
                                         dimensions = c("date"),
                                         metrics = c("sessions", "users"),
                                         max= -1)
-traffic_data_out <- traffic_data %>% mutate(year = lubridate::year(date),
-                                            fiscal_year = dataRetrieval::calcWaterYear(date))
-write_df_to_parquet(traffic_data_out, sink = "out/all_apps_traffic_data_3_years.parquet")
+traffic_data_out <- traffic_data %>% mutate(year = year_to_jan_1st(lubridate::year(date)),
+                                            fiscal_year = year_to_jan_1st(dataRetrieval::calcWaterYear(date)))
+write_df_to_parquet(traffic_data_out, 
+                    sink = "out/three_year_traffic/all_apps_traffic_data_3_years.parquet")
 
 year_month_week_traffic <- group_day_month_year(traffic_data)
-write_df_to_parquet(year_month_week_traffic, sink = "out/year_month_week_traffic.parquet")
+write_df_to_parquet(year_month_week_traffic, 
+                    sink = "out/year_month_week/year_month_week_traffic.parquet")
 
 #Can you get page content groupings from the API?
 #probably want to use less sampling (samplingLevel argument to google_analytics) for final product
@@ -39,7 +41,8 @@ landing_exit_pages <- get_multiple_view_ga_df(view_df = ga_table,
                                         dimensions = c("landingPagePath", "secondPagePath", "exitPagePath"),
                                         metrics = c("sessions"),
                                         max= -1)
-write_df_to_parquet(landing_exit_pages, sink = "out/all_apps_landing_exit_pages.parquet")
+write_df_to_parquet(landing_exit_pages, 
+                    sink = "out/landing_exit_pages/all_apps_landing_exit_pages.parquet")
 
 ##### page load data #####
 load_time_data <- get_multiple_view_ga_df(view_df = ga_table,
@@ -54,7 +57,7 @@ load_time_data <- get_multiple_view_ga_df(view_df = ga_table,
 load_time_data_filtered <- load_time_data %>% 
   filter(pageLoadSample > 0)
 write_df_to_parquet(load_time_data_filtered, 
-          sink = "out/page_load_30_days.parquet")
+          sink = "out/page_load/page_load_30_days.parquet")
 
 ##### long term data #####
 traffic_data_long_term <- get_multiple_view_ga_df(view_df = ga_table,
@@ -70,6 +73,8 @@ traffic_data_long_term <- get_multiple_view_ga_df(view_df = ga_table,
   group_by(view_name) %>% 
   arrange(view_name, year, month) %>% 
   slice(-1) %>% 
-  mutate(fiscal_year = dataRetrieval::calcWaterYear(as.Date(paste(year, month, '01', sep = "-"))))
+  mutate(fiscal_year = year_to_jan_1st(
+    dataRetrieval::calcWaterYear(as.Date(paste(year, month, '01', sep = "-")))
+    ))
 write_df_to_parquet(traffic_data_long_term, 
-                    sink = "out/long_term_monthly.parquet")
+                    sink = "out/long_term_monthly/long_term_monthly.parquet")

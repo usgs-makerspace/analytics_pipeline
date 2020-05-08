@@ -13,6 +13,9 @@ pipeline {
                      type: 'PT_BRANCH_TAG',
                      defaultValue: 'master'
         choice(choices: ['test', 'prod'], description: 'Tier to deploy tiles to', name: 'TIER')
+    triggers {
+        cron('H 2 * * *')
+    }
   }
   stages {
     stage('Checkout repo and pull from S3') {
@@ -45,9 +48,27 @@ pipeline {
     stage('push to S3') {
       steps { 
         sh '''
-          aws s3 sync out/ s3://internal-test.wma.chs.usgs.gov/analytics/data/dashboard_test/ --exclude "*" --include "*.parquet"
+          # --delete flag important so old files don't hang around in S3 if file names change
+          aws s3 sync out/ s3://wma-analytics-data/data/dashboard/${TIER}/parquet/ --delete
           '''
       }
     }
   }
+      post {
+        unstable {
+            mail to: 'mhines@usgs.gov, wwatkins@usgs.gov',
+            subject: "${TIER} Unstable: ${currentBuild.fullDisplayName}",
+            body: "Pipeline is unstable ${env.BUILD_URL}"
+        }
+        failure {
+            mail to: 'mhines@usgs.gov, wwatkins@usgs.gov',
+            subject: "${TIER} Failure: ${currentBuild.fullDisplayName}",
+            body: "Pipeline failed ${env.BUILD_URL}"
+        }
+        changed {
+            mail to: 'mhines@usgs.gov, wwatkins@usgs.gov',
+            subject: "${TIER} Changes: ${currentBuild.fullDisplayName}",
+            body: "Pipeline detected changes ${env.BUILD_URL}"
+        }
+    } 
 }
