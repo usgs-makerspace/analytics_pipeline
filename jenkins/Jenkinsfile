@@ -13,10 +13,10 @@ pipeline {
                      type: 'PT_BRANCH_TAG',
                      defaultValue: 'master'
         choice(choices: ['test', 'prod'], description: 'Tier to deploy tiles to', name: 'TIER')
+    }
     triggers {
         cron('H 2 * * *')
     }
-  }
   stages {
     stage('Checkout repo and pull from S3') {
       steps {
