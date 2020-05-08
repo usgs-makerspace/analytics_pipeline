@@ -49,7 +49,7 @@ pipeline {
       steps { 
         sh '''
           # --delete flag important so old files don't hang around in S3 if file names change
-          aws s3 sync out/ s3://wma-analytics-data/data/dashboard/${TIER}/parquet/ --delete
+          aws s3 sync out/ s3://wma-analytics-data/data/dashboard/${TIER}/parquet/ --delete --exclude "*" --include "*.parquet" 
           '''
       }
     }
