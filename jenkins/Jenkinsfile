@@ -18,6 +18,11 @@ pipeline {
         cron('H 2 * * *')
     }
   stages {
+    stage('Clean Workspace') {
+      steps{
+        cleanWs()
+      }
+    }
     stage('Checkout repo and pull from S3') {
       steps {
         sh 'wget -O DOIRootCA2.cer http://sslhelp.doi.net/docs/DOIRootCA2.cer'
