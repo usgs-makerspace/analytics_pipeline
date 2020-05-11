@@ -15,6 +15,7 @@ one_year_ago <- Sys.Date() - lubridate::years(1)
 end_of_last_month <- Sys.Date() %>% floor_date(unit = "month") - 1
 thirty_days_ago <- Sys.Date() - 30
 today <- Sys.Date()
+backfill_date <- as.Date("2009-11-01") #to generate dummy data for Tableau 'relative to first'
 
 source('R/functions.R')
 source('R/group_data.R')
@@ -73,6 +74,7 @@ traffic_data_long_term <- get_multiple_view_ga_df(view_df = ga_table,
   group_by(view_name) %>% 
   arrange(view_name, year, month) %>% 
   slice(-1) %>% 
+  backfill_app_data(min_date = as.Date(backfill_date)) %>% 
   mutate(fiscal_year = year_to_jan_1st(
     dataRetrieval::calcWaterYear(as.Date(paste(year, month, '01', sep = "-")))
     ))
