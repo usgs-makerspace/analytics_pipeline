@@ -21,3 +21,10 @@ get_multiple_view_ga_df <- function(view_df, start_date,
 write_df_to_parquet <- function(df, sink) {
   write_parquet(Table$create(df), sink = sink)
 }
+
+
+#' convert a year to date of January 1st of that year
+#' @param year a character or numeric year
+year_to_jan_1st <- function(year) {
+  as.Date(paste0(year, "-01-01"))
+}
