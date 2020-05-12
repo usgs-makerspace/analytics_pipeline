@@ -28,3 +28,42 @@ write_df_to_parquet <- function(df, sink) {
 year_to_jan_1st <- function(year) {
   as.Date(paste0(year, "-01-01"))
 }
+
+#' backfill a single data frame.  Meant to be lapply-ed on a nested data frame
+#' @param x data frame of a single app
+#' @param min_date date to backfill to (inclusive)
+backfill_df <- function(x, min_date) {
+  if(min_date == min(x$first_of_month)){
+    return(x)
+  } else {
+    latest_missing_date <- min(x$first_of_month) - month(1)
+    
+    backfill_date_df <- tibble(first_of_month = seq(min_date, latest_missing_date, 
+                                                    by = "month"),
+                               year = as.character(year(first_of_month)),
+                               month = as.character(month(first_of_month)),
+                               backfill = TRUE
+    )
+    backfilled_full_df <- bind_rows(x, backfill_date_df) %>% 
+      arrange(first_of_month) %>% 
+      fill(everything(), -first_of_month, -year, -month, -backfill, .direction = "up") %>% 
+      replace_na(list(backfill = FALSE))
+    return(backfilled_full_df)
+  }
+}
+
+#' Backfill data for each application where missing to a certain date
+#' Tableau does the 'from first' percent change calculation from a fixed date.  This
+#' function repeats the first date value for each month going back to min_date
+#' @param df data.frame a df/tibble of monthly traffic values for multiple applications
+#' @param char the earliest month/year that data should be backfilled to, represented
+#' as the first day of the month
+backfill_app_data <- function(df, min_date) {
+  backfilled <- df %>%  
+    mutate(first_of_month = as.Date(paste(year, month, "01", sep = "-"))) %>% 
+    group_by(view_id, view_name) %>%
+    nest() %>% 
+    mutate(data = lapply(data, backfill_df, min_date = min_date)) %>% 
+    unnest(cols = c(data))
+  return(backfilled)
+}

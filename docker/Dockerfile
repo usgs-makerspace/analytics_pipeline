@@ -24,6 +24,7 @@ RUN install2.r --error \
   googleAuthR \
   googleAnalyticsR \
   dplyr \
+  tidyr \
   arrow \
   lubridate \
   yaml \
