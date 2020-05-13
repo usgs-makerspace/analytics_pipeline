@@ -1,6 +1,7 @@
 library(googleAnalyticsR)
 library(googleAuthR)
 library(dplyr)
+library(tidyr)
 library(arrow)
 library(lubridate)
 gar_set_client(json = Sys.getenv('GA_CLIENTID_FILE'), 
