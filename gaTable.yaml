@@ -921,3 +921,37 @@
   projectContactEmail: 'lplatt@usgs.gov'
   analyticsContact: 'David Watkins'
   analyticsContactEmail: 'wwatkins@usgs.gov'
+  
+- longName: "NWIS Tableau Data Connector"
+  shortName: "Tableau Data Connector"
+  accountName: "USGS Water Data for the Nation"
+  viewID: '216476377'
+  accountId: '25350863'
+  webPropertyId: 'UA-25350863-3'
+  internalWebPropertyId: ""
+  viewName: 'Tableau data connector'
+  timezone: America/New_York
+  websiteUrl: https://labs.waterdata.usgs.gov/
+  botFilteringEnabled: 'TRUE'
+  description: ''
+  projectContact: ''
+  projectContactEmail: ''
+  analyticsContact: 'David Watkins'
+  analyticsContactEmail: 'wwatkins@usgs.gov'
+
+- longName: "waterservices.usgs.gov web pages"
+  shortName: "waterservices.usgs.gov"
+  accountName: "USGS Mobile Water Data & Water Services"
+  viewID: '83451443'
+  accountId: '42005086'
+  webPropertyId: 'UA-42005086-2'
+  internalWebPropertyId: ""
+  viewName: 'All Web Site Data'
+  timezone: America/Chicago
+  websiteUrl: https://waterservices.usgs.gov
+  botFilteringEnabled: 'TRUE'
+  description: ''
+  projectContact: ''
+  projectContactEmail: ''
+  analyticsContact: ''
+  analyticsContactEmail: ''
