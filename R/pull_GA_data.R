@@ -91,7 +91,7 @@ state_traffic_year <- get_multiple_view_ga_df(view_df = ga_table,
                                               dimensions = c("region", "country"),
                                               metrics = c("sessions"),
                                               max= -1) %>% 
-  mutate(time = "year")
+  mutate(period = "year")
 
 state_traffic_month <- get_multiple_view_ga_df(view_df = ga_table,
                                                end_date = yesterday,
@@ -99,14 +99,14 @@ state_traffic_month <- get_multiple_view_ga_df(view_df = ga_table,
                                                dimensions = c("region", "country"),
                                                metrics = c("sessions"),
                                                max= -1) %>% 
-  mutate(time = "month")
+  mutate(period = "month")
 state_traffic_week <- get_multiple_view_ga_df(view_df = ga_table,
                                               end_date = yesterday,
                                               start_date = seven_days_ago,
                                               dimensions = c("region", "country"),
                                               metrics = c("sessions"),
                                               max= -1) %>% 
-  mutate(time = "week")
+  mutate(period = "week")
 state_traffic_all <- bind_rows(state_traffic_year, state_traffic_month, state_traffic_week)
 write_df_to_parquet(state_traffic_all, 
                     sink = "out/state_traffic/state_traffic_year_month_week.parquet")
