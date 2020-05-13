@@ -44,6 +44,7 @@ pipeline {
           registryCredentialsId 'jenkins_ci_access_token'
           alwaysPull true
           reuseNode true
+          label 'team:makerspace'
         } 
       }
       steps {
