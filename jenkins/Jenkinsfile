@@ -48,7 +48,9 @@ pipeline {
         } 
       }
       steps {
-        sh 'Rscript -e "source(\'R/pull_GA_data.R\')"'
+        retry(2){
+          sh 'Rscript -e "source(\'R/pull_GA_data.R\')"'
+        }
       }
     }
     stage('push to S3') {
