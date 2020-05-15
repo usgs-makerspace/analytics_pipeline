@@ -7,10 +7,13 @@ get_multiple_view_ga_df <- function(view_df, start_date,
     view_name <- view_df$longName[i]
     print(view_name)
     view_data <- google_analytics(view_id, 
-                                  date_range = c(as.Date(start_date), as.Date(end_date)), 
-                                  ...) %>% 
-      mutate(view_id = view_id, view_name = view_name)
-    all_data <- bind_rows(all_data, view_data)
+                                  date_range = c(as.Date(start_date), as.Date(end_date)),
+                                  ...) 
+    if(!is.null(view_data)) {
+      view_data_augmented <- view_data %>% 
+        mutate(view_id = view_id, view_name = view_name)
+      all_data <- bind_rows(all_data, view_data_augmented)
+    }
   }
   return(all_data)
 }
@@ -59,8 +62,7 @@ backfill_df <- function(x, min_date) {
 #' @param char the earliest month/year that data should be backfilled to, represented
 #' as the first day of the month
 backfill_app_data <- function(df, min_date) {
-  backfilled <- df %>%  
-    mutate(first_of_month = as.Date(paste(year, month, "01", sep = "-"))) %>% 
+  backfilled <- df %>%   
     group_by(view_id, view_name) %>%
     nest() %>% 
     mutate(data = lapply(data, backfill_df, min_date = min_date)) %>% 
