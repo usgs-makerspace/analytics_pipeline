@@ -59,8 +59,7 @@ backfill_df <- function(x, min_date) {
 #' @param char the earliest month/year that data should be backfilled to, represented
 #' as the first day of the month
 backfill_app_data <- function(df, min_date) {
-  backfilled <- df %>%  
-    mutate(first_of_month = as.Date(paste(year, month, "01", sep = "-"))) %>% 
+  backfilled <- df %>%   
     group_by(view_id, view_name) %>%
     nest() %>% 
     mutate(data = lapply(data, backfill_df, min_date = min_date)) %>% 

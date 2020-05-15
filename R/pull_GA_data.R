@@ -39,6 +39,7 @@ write_df_to_parquet(year_month_week_traffic,
 
 #Can you get page content groupings from the API?
 #probably want to use less sampling (samplingLevel argument to google_analytics) for final product
+message("Landing/exit page pull")
 landing_exit_pages <- get_multiple_view_ga_df(view_df = ga_table,
                                         end_date = yesterday,
                                         start_date = one_year_ago,
@@ -49,6 +50,7 @@ write_df_to_parquet(landing_exit_pages,
                     sink = "out/landing_exit_pages/all_apps_landing_exit_pages.parquet")
 
 ##### page load data #####
+message("Load time data pull")
 load_time_data <- get_multiple_view_ga_df(view_df = ga_table,
                                         end_date = yesterday,
                                         start_date = thirty_days_ago,
@@ -64,6 +66,7 @@ write_df_to_parquet(load_time_data_filtered,
           sink = "out/page_load/page_load_30_days.parquet")
 
 ##### long term data #####
+message("Long term data pull")
 traffic_data_long_term <- get_multiple_view_ga_df(view_df = ga_table,
                                         end_date = end_of_last_month,
                                         start_date = start_fy_2010,
@@ -73,7 +76,14 @@ traffic_data_long_term <- get_multiple_view_ga_df(view_df = ga_table,
                                                     "pageviewsPerSession",
                                                     "percentNewSessions"),
                                         max= -1) %>% 
-  filter(sessions > 0) %>% 
+  mutate(first_of_month = as.Date(paste(year, month, "01", sep = "-"))) %>% 
+  #Drop pre-launch data to eliminate massive percent increases in traffic
+  filter(sessions > 0,
+         first_of_month > '2016-06-01' | view_name != 'NWISWeb (Mapper)',
+         first_of_month > '2014-02-01' | view_name != 'NWISWeb (Mobile)',
+         first_of_month > '2019-04-01' | view_name != 'Water Science School (Drupal)',
+         first_of_month > '2013-07-01' | view_name != 'National Environmental Methods Index',
+         first_of_month > '2015-07-01' | view_name != 'Geo Data Portal') %>% 
   group_by(view_name) %>% 
   arrange(view_name, year, month) %>% 
   slice(-1) %>% 
@@ -85,6 +95,7 @@ write_df_to_parquet(traffic_data_long_term,
                     sink = "out/long_term_monthly/long_term_monthly.parquet")
 
 ##### state data ####
+message("Geographic data pull")
 state_traffic_year <- get_multiple_view_ga_df(view_df = ga_table,
                                               end_date = yesterday,
                                               start_date = one_year_ago,
