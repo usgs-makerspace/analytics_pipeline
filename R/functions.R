@@ -7,10 +7,13 @@ get_multiple_view_ga_df <- function(view_df, start_date,
     view_name <- view_df$longName[i]
     print(view_name)
     view_data <- google_analytics(view_id, 
-                                  date_range = c(as.Date(start_date), as.Date(end_date)), 
-                                  ...) %>% 
-      mutate(view_id = view_id, view_name = view_name)
-    all_data <- bind_rows(all_data, view_data)
+                                  date_range = c(as.Date(start_date), as.Date(end_date)),
+                                  ...) 
+    if(!is.null(view_data)) {
+      view_data_augmented <- view_data %>% 
+        mutate(view_id = view_id, view_name = view_name)
+      all_data <- bind_rows(all_data, view_data_augmented)
+    }
   }
   return(all_data)
 }
