@@ -76,6 +76,8 @@ traffic_data_long_term <- get_multiple_view_ga_df(view_df = ga_table,
                                                     "pageviewsPerSession",
                                                     "percentNewSessions"),
                                         max= -1) %>% 
+  add_drupal_natweb_sum(view_name_pattern = "Water Science School") %>% 
+  add_drupal_natweb_sum(view_name_pattern = "water.usgs.gov") %>% 
   mutate(first_of_month = as.Date(paste(year, month, "01", sep = "-"))) %>% 
   #Drop pre-launch data to eliminate massive percent increases in traffic
   filter(sessions > 0,
