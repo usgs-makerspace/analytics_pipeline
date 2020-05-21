@@ -123,8 +123,3 @@ state_traffic_week <- get_multiple_view_ga_df(view_df = ga_table,
 state_traffic_all <- bind_rows(state_traffic_year, state_traffic_month, state_traffic_week)
 write_df_to_parquet(state_traffic_all, 
                     sink = "out/state_traffic/state_traffic_year_month_week.parquet")
-
-##### pull pages by content groups #####
-cg <- google_analytics(viewId = view_nwis, 
-                       metrics = c("pageviews", "sessions", "users"), date_range = c(yesterday, yesterday), 
-                       dimensions = c("contentGroup1", 'contentGroup2',"date"))
