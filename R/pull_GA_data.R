@@ -146,11 +146,11 @@ ban_numbers_month <- get_multiple_view_ga_df(view_df = ga_table,
          newSessions = percentNewSessions*.01*sessions)
 
 ban_numbers_fy <- get_multiple_view_ga_df(view_df = ga_table,
-                                            end_date = yesterday,
-                                            start_date = start_current_fiscal_year,
-                                            metrics = c("sessions", "percentNewSessions", "sessionDuration"),
-                                            dimensions = c("deviceCategory", "browser","dayOfWeekName"),
-                                            max= -1) %>% 
+                                          end_date = yesterday,
+                                          start_date = start_current_fiscal_year,
+                                          metrics = c("sessions", "percentNewSessions", "sessionDuration"),
+                                          dimensions = c("deviceCategory", "browser","dayOfWeekName"),
+                                          max= -1) %>% 
   mutate(period = 'current fiscal year', 
          newSessions = percentNewSessions*.01*sessions)
 ban_numbers_year <- get_multiple_view_ga_df(view_df = ga_table,
