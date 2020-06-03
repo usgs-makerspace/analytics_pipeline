@@ -154,13 +154,5 @@ compare_sessions_to_last_year <- function(df, last_n_days, period_name) {
   return(both_years)
 }
 
-
-
-#' Reduce a df of regional traffic to US, add regionality metric
-#' all traffic
-add_regionality_metric <- function(df) {
-  
-}
-
 #' Get fraction of last year's traffic in last week for each state
 #' 
