@@ -4,24 +4,31 @@ library(dplyr)
 library(tidyr)
 library(arrow)
 library(lubridate)
+
 gar_set_client(json = Sys.getenv('GA_CLIENTID_FILE'), 
                scopes = "https://www.googleapis.com/auth/analytics.readonly")
 gar_auth_service(json_file = Sys.getenv('GA_AUTH_FILE'))
 ga_table <- do.call(bind_rows, yaml::read_yaml('gaTable.yaml')) 
 
+
+##### Time variable setup #####
+sys_date_eastern_time <- date(with_tz(Sys.time(), 'America/New_York')) #Jenkins is on UTC 
+  
 start_fy_2010 <- as.Date("2009-10-01")  #WaterWatch has data starting summer 2009
-three_years_ago_rounded_down <- (Sys.Date() - lubridate::years(3)) %>% 
+three_years_ago_rounded_down <- (sys_date_eastern_time - lubridate::years(3)) %>% 
   floor_date(unit = "quarter")
-one_year_ago <- Sys.Date() - lubridate::years(1)
-end_of_last_month <- Sys.Date() %>% floor_date(unit = "month") - 1
-thirty_days_ago <- Sys.Date() - 30
-yesterday <- Sys.Date() - 1
-seven_days_ago <- Sys.Date() - 7
-current_fiscal_year <- dataRetrieval::calcWaterYear(Sys.Date() -1)
+one_year_ago <- sys_date_eastern_time - lubridate::years(1)
+end_of_last_month <- sys_date_eastern_time %>% floor_date(unit = "month") - 1
+thirty_days_ago <- sys_date_eastern_time - 30
+yesterday <- sys_date_eastern_time - 1
+seven_days_ago <- sys_date_eastern_time - 7
+current_fiscal_year <- dataRetrieval::calcWaterYear(sys_date_eastern_time -1)
 start_current_fiscal_year <- as.Date(paste0(current_fiscal_year - 1, "-10-01")) 
+days_into_current_fiscal_year <- sys_date_eastern_time - start_current_fiscal_year
 
 backfill_date <- as.Date("2009-11-01") #to generate dummy data for Tableau 'relative to first'
 
+##### Past three years traffic #####
 source('R/functions.R')
 source('R/group_data.R')
 traffic_data <- get_multiple_view_ga_df(view_df = ga_table,
@@ -32,12 +39,22 @@ traffic_data <- get_multiple_view_ga_df(view_df = ga_table,
                                         max= -1)
 traffic_data_out <- traffic_data %>% mutate(year = year_to_jan_1st(lubridate::year(date)),
                                             fiscal_year = year_to_jan_1st(dataRetrieval::calcWaterYear(date)))
+
 write_df_to_parquet(traffic_data_out, 
                     sink = "out/three_year_traffic/all_apps_traffic_data_3_years.parquet")
 
 year_month_week_traffic <- group_day_month_year(traffic_data)
 write_df_to_parquet(year_month_week_traffic, 
                     sink = "out/year_month_week/year_month_week_traffic.parquet")
+
+week_change <- compare_sessions_to_last_year(traffic_data, last_n_days = 7, period_name = "week")
+month_change <- compare_sessions_to_last_year(traffic_data, last_n_days = 30, period_name = "month")
+fiscal_year_change <- compare_sessions_to_last_year(traffic_data, 
+                                             last_n_days = days_into_current_fiscal_year,
+                                             period_name = "fiscal_year")
+app_period_bins <- bind_rows(week_change, month_change, fiscal_year_change)
+write_df_to_parquet(app_period_bins,
+                    sink = "out/compared_to_last_year/compared_to_last_year.parquet")
 
 #Can you get page content groupings from the API?
 #probably want to use less sampling (samplingLevel argument to google_analytics) for final product
