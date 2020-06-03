@@ -114,8 +114,7 @@ remove_leap_days <- function(df) {
 #' @param period_name character time period label for each row; appended in a new column.  e.g. month, week
 compare_sessions_to_last_year <- function(df, last_n_days, period_name) {
   #filter to n days this year, last year, compare
-  #assert that each group has at least a certain number of values?
-  #need to handle leap years here? (2020 was one)  could just filter leap day out?
+  #need to handle leap years here? (2020 was one)  
   max_date <- max(df$date) #inclusive
   start_date <- max_date - last_n_days + 1 #inclusive, +1 because only have yesterday's data
   max_date_last_year <- max_date - years(1)
@@ -154,5 +153,4 @@ compare_sessions_to_last_year <- function(df, last_n_days, period_name) {
   return(both_years)
 }
 
-#' Get fraction of last year's traffic in last week for each state
-#' 
+ 
