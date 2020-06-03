@@ -100,6 +100,62 @@ add_drupal_natweb_sum <- function(df, view_name_pattern) {
   return(df_plus_new_group)
 }
 
+#' filter out leap days in a data frame with a 'date' column
+remove_leap_days <- function(df) {
+  df %>% mutate(month = month(date),
+                day = day(date)) %>% 
+    filter(!(month == 2 & day == 29))
+}
+
+
+#' Compare a certain number of days to the same time period last year
+#' @param df data.frame with a date and sessions column
+#' @param last_n_days numeric how many days from the latest date should the comparison be made over?
+#' @param period_name character time period label for each row; appended in a new column.  e.g. month, week
+compare_sessions_to_last_year <- function(df, last_n_days, period_name) {
+  #filter to n days this year, last year, compare
+  #assert that each group has at least a certain number of values?
+  #need to handle leap years here? (2020 was one)  could just filter leap day out?
+  max_date <- max(df$date) #inclusive
+  start_date <- max_date - last_n_days + 1 #inclusive, +1 because only have yesterday's data
+  max_date_last_year <- max_date - years(1)
+  start_date_last_year <- start_date - years(1)
+  n_days_this_year <- df %>% filter(date >= start_date, date <= max_date,
+                                    sessions > 0) %>% 
+    remove_leap_days() %>% 
+    group_by(view_name, view_id) %>% 
+    summarize(sessions_this_year = sum(sessions), 
+              n_this_year = n(),
+              first_non_zero_date_this_year = min(date))
+  
+  n_days_last_year <- df %>% filter(date >= start_date_last_year, 
+                                    date <= max_date_last_year,
+                                    sessions > 0) %>% 
+    remove_leap_days() %>% 
+    group_by(view_name, view_id) %>% 
+    summarize(sessions_last_year = sum(sessions), 
+              n_last_year = n(),
+              first_non_zero_date_last_year = min(date))
+  #assertthat::assert_that(all(n_days_last_year$n_last_year >= (last_n_days - 1)))
+  #assertthat::assert_that(all(n_days_this_year$n_this_year >= (last_n_days - 1)))
+  #actually do the comparison
+  both_years <- full_join(n_days_this_year, n_days_last_year, by = c("view_name", "view_id")) %>% 
+    mutate(percent_change = (sessions_this_year - sessions_last_year)/sessions_last_year * 100,
+           # percent_change = ifelse(is.infinite(percent_change) || (n_days_last_year != n_days_this_year), 
+           #                          yes = NA, 
+           #                          no = percent_change),
+           percent_change = case_when(
+             first_non_zero_date_last_year != start_date_last_year ~ NA_real_,
+             first_non_zero_date_this_year != start_date ~ NA_real_,
+             is.infinite(percent_change) ~ NA_real_,
+             TRUE ~ percent_change
+           ),
+           period = period_name)
+  return(both_years)
+}
+
+
+
 #' Reduce a df of regional traffic to US, add regionality metric
 #' all traffic
 add_regionality_metric <- function(df) {
