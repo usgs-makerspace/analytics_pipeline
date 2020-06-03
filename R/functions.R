@@ -114,8 +114,7 @@ remove_leap_days <- function(df) {
 #' @param period_name character time period label for each row; appended in a new column.  e.g. month, week
 compare_sessions_to_last_year <- function(df, last_n_days, period_name) {
   #filter to n days this year, last year, compare
-  #assert that each group has at least a certain number of values?
-  #need to handle leap years here? (2020 was one)  could just filter leap day out?
+  #need to handle leap years here? (2020 was one)  
   max_date <- max(df$date) #inclusive
   start_date <- max_date - last_n_days + 1 #inclusive, +1 because only have yesterday's data
   max_date_last_year <- max_date - years(1)
@@ -136,15 +135,11 @@ compare_sessions_to_last_year <- function(df, last_n_days, period_name) {
     summarize(sessions_last_year = sum(sessions), 
               n_last_year = n(),
               first_non_zero_date_last_year = min(date))
-  #assertthat::assert_that(all(n_days_last_year$n_last_year >= (last_n_days - 1)))
-  #assertthat::assert_that(all(n_days_this_year$n_this_year >= (last_n_days - 1)))
+
   #actually do the comparison
   both_years <- full_join(n_days_this_year, n_days_last_year, by = c("view_name", "view_id")) %>% 
     mutate(percent_change = (sessions_this_year - sessions_last_year)/sessions_last_year * 100,
-           # percent_change = ifelse(is.infinite(percent_change) || (n_days_last_year != n_days_this_year), 
-           #                          yes = NA, 
-           #                          no = percent_change),
-           percent_change = case_when(
+             percent_change = case_when(
              first_non_zero_date_last_year != start_date_last_year ~ NA_real_,
              first_non_zero_date_this_year != start_date ~ NA_real_,
              is.infinite(percent_change) ~ NA_real_,
