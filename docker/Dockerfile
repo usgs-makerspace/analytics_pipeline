@@ -28,7 +28,8 @@ RUN install2.r --error \
   arrow \
   lubridate \
   yaml \
-  dataRetrieval
+  dataRetrieval \
+  ineq
 
 RUN Rscript -e 'arrow::install_arrow()' #installs some runtime libraries
 
