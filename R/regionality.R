@@ -59,7 +59,8 @@ compute_regionality_metric <- function(df){
 #' @param df data.frame Expects view_id, view_name, region (i.e. states in Google Analytics),
 #' period (week and year values), and sessions columns
 compute_week_vs_year <- function(df) {
-  pivot_wider(df, id_cols = c(view_id, view_name, region), 
+  df %>% filter(country == "United States") %>%  
+    pivot_wider(id_cols = c(view_id, view_name, region), 
                          names_from = period,
                          values_from = sessions) %>% 
     mutate(week_over_year = week/year)

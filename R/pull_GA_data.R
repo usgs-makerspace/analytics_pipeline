@@ -143,6 +143,19 @@ state_traffic_all <- bind_rows(state_traffic_year, state_traffic_month, state_tr
 write_df_to_parquet(state_traffic_all, 
                     sink = "out/state_traffic/state_traffic_year_month_week.parquet")
 
+state_traffic_percentages <- get_state_traffic_pop_pct(state_traffic_all) %>% 
+  mutate(country = "United States")
+write_df_to_parquet(state_traffic_percentages, 
+                    sink = "out/state_traffic_population_percentages/state_traffic_population_percentages.parquet")
+
+regionality_metric <- compute_regionality_metric(state_traffic_percentages)
+write_df_to_parquet(regionality_metric,
+                    sink = 'out/regionality/regionality.parquet')
+
+state_week_vs_year <- compute_week_vs_year(state_traffic_all)
+write_df_to_parquet(state_week_vs_year,
+                    sink = 'out/state_week_vs_year/state_week_vs_year.parquet')
+
 ##### pull BAN number data #####
 #past week, month, and so far in fiscal year
 ban_numbers_week <- get_multiple_view_ga_df(view_df = ga_table,
