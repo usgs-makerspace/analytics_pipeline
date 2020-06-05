@@ -45,7 +45,10 @@ write_df_to_parquet(traffic_data_out,
                     sink = "out/three_year_traffic/all_apps_traffic_data_3_years.parquet")
 
 year_month_week_traffic <- group_day_month_year(traffic_data)
-write_df_to_parquet(year_month_week_traffic, 
+current_fy_traffic <- group_by_ndays(traffic_data, ndays = days_into_current_fiscal_year,
+                                     period_name = "current fiscal year")
+year_month_week_fy_traffic <- bind_rows(year_month_week_traffic, current_fy_traffic)
+write_df_to_parquet(year_month_week_fy_traffic, 
                     sink = "out/year_month_week/year_month_week_traffic.parquet")
 
 week_change <- compare_sessions_to_last_year(traffic_data, last_n_days = 7, period_name = "week")
