@@ -31,6 +31,7 @@ backfill_date <- as.Date("2009-11-01") #to generate dummy data for Tableau 'rela
 ##### Past three years traffic #####
 source('R/functions.R')
 source('R/group_data.R')
+source('R/regionality.R')
 traffic_data <- get_multiple_view_ga_df(view_df = ga_table,
                                         end_date = yesterday,
                                         start_date = three_years_ago_rounded_down,
