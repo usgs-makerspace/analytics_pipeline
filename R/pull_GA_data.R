@@ -51,8 +51,8 @@ year_month_week_fy_traffic <- bind_rows(year_month_week_traffic, current_fy_traf
 write_df_to_parquet(year_month_week_fy_traffic, 
                     sink = "out/year_month_week/year_month_week_traffic.parquet")
 
-week_change <- compare_sessions_to_last_year(traffic_data, last_n_days = 7, period_name = "week")
-month_change <- compare_sessions_to_last_year(traffic_data, last_n_days = 30, period_name = "month")
+week_change <- compare_sessions_to_last_year(traffic_data, last_n_days = 7, period_name = "7 days")
+month_change <- compare_sessions_to_last_year(traffic_data, last_n_days = 30, period_name = "30 days")
 fiscal_year_change <- compare_sessions_to_last_year(traffic_data, 
                                              last_n_days = days_into_current_fiscal_year,
                                              period_name = "fiscal_year")
@@ -127,7 +127,7 @@ state_traffic_year <- get_multiple_view_ga_df(view_df = ga_table,
                                               dimensions = c("region", "country"),
                                               metrics = c("sessions"),
                                               max= -1) %>% 
-  mutate(period = "year")
+  mutate(period = "365 days")
 
 state_traffic_month <- get_multiple_view_ga_df(view_df = ga_table,
                                                end_date = yesterday,
@@ -135,14 +135,14 @@ state_traffic_month <- get_multiple_view_ga_df(view_df = ga_table,
                                                dimensions = c("region", "country"),
                                                metrics = c("sessions"),
                                                max= -1) %>% 
-  mutate(period = "month")
+  mutate(period = "30 days")
 state_traffic_week <- get_multiple_view_ga_df(view_df = ga_table,
                                               end_date = yesterday,
                                               start_date = seven_days_ago,
                                               dimensions = c("region", "country"),
                                               metrics = c("sessions"),
                                               max= -1) %>% 
-  mutate(period = "week")
+  mutate(period = "7 days")
 state_traffic_all <- bind_rows(state_traffic_year, state_traffic_month, state_traffic_week)
 write_df_to_parquet(state_traffic_all, 
                     sink = "out/state_traffic/state_traffic_year_month_week.parquet")
@@ -168,7 +168,7 @@ ban_numbers_week <- get_multiple_view_ga_df(view_df = ga_table,
                                             metrics = c("sessions", "percentNewSessions", "sessionDuration"),
                                             dimensions = c("deviceCategory", "browser","dayOfWeekName"),
                                             max= -1) %>% 
-  mutate(period = 'week',
+  mutate(period = '7 days',
          newSessions = percentNewSessions*.01*sessions)
 ban_numbers_month <- get_multiple_view_ga_df(view_df = ga_table,
                                              end_date = yesterday,
@@ -176,7 +176,7 @@ ban_numbers_month <- get_multiple_view_ga_df(view_df = ga_table,
                                              metrics = c("sessions", "percentNewSessions", "sessionDuration"),
                                              dimensions = c("deviceCategory", "browser","dayOfWeekName"),
                                              max= -1) %>% 
-  mutate(period = 'month',
+  mutate(period = '30 days',
          newSessions = percentNewSessions*.01*sessions)
 
 ban_numbers_fy <- get_multiple_view_ga_df(view_df = ga_table,
@@ -193,7 +193,7 @@ ban_numbers_year <- get_multiple_view_ga_df(view_df = ga_table,
                                             metrics = c("sessions", "percentNewSessions", "sessionDuration"),
                                             dimensions = c("deviceCategory", "browser","dayOfWeekName"),
                                             max= -1) %>% 
-  mutate(period = 'year',
+  mutate(period = '365 days',
          newSessions = percentNewSessions*.01*sessions)
 all_ban_numbers <- bind_rows(ban_numbers_fy, ban_numbers_month, 
                              ban_numbers_week, ban_numbers_year)
