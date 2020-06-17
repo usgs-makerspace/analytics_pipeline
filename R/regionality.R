@@ -63,5 +63,5 @@ compute_week_vs_year <- function(df) {
     pivot_wider(id_cols = c(view_id, view_name, region), 
                          names_from = period,
                          values_from = sessions) %>% 
-    mutate(week_over_year = week/year)
+    mutate(week_over_year = `7 days` / `365 days`)
 }

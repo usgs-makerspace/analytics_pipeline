@@ -68,7 +68,7 @@ landing_exit_pages <- get_multiple_view_ga_df(view_df = ga_table,
                                               start_date = one_year_ago,
                                               dimensions = c("landingPagePath", "secondPagePath", "exitPagePath"),
                                               metrics = c("sessions"),
-                                              max= -1)
+                                              max= -1, anti_sample = TRUE)
 write_df_to_parquet(landing_exit_pages, 
                     sink = "out/landing_exit_pages/all_apps_landing_exit_pages.parquet")
 
@@ -82,7 +82,7 @@ load_time_data <- get_multiple_view_ga_df(view_df = ga_table,
                                                       "avgPageDownloadTime",
                                                       "avgDomContentLoadedTime",
                                                       "exitRate"),
-                                          max= -1)
+                                          max= -1, anti_sample = TRUE)
 load_time_data_filtered <- load_time_data %>% 
   filter(pageLoadSample > 0)
 write_df_to_parquet(load_time_data_filtered, 
