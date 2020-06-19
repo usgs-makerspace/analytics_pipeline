@@ -148,7 +148,8 @@ write_df_to_parquet(state_traffic_all,
                     sink = "out/state_traffic/state_traffic_year_month_week.parquet")
 
 state_traffic_percentages <- get_state_traffic_pop_pct(state_traffic_all) %>% 
-  mutate(country = "United States")
+  mutate(country = "United States") %>% 
+  select(-REGION)
 write_df_to_parquet(state_traffic_percentages, 
                     sink = "out/state_traffic_population_percentages/state_traffic_population_percentages.parquet")
 
