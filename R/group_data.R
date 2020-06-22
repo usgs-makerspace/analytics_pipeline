@@ -10,8 +10,8 @@ group_by_ndays <- function(df, ndays, period_name) {
 #'           expects sessions, users, view_id, view_name, date columns
 #' @return data frame with total users and sessions for previous year, month, and day for each application
 group_day_month_year <- function(df) {
-  year_df <- group_by_ndays(df, ndays = 365, period_name = "year")
-  month_df <- group_by_ndays(df, ndays = 30, period_name = "month")
-  week_df <- group_by_ndays(df, ndays = 7, period_name = "week")
+  year_df <- group_by_ndays(df, ndays = 365, period_name = "365 days")
+  month_df <- group_by_ndays(df, ndays = 30, period_name = "30 days")
+  week_df <- group_by_ndays(df, ndays = 7, period_name = "7 days")
   return_df <- bind_rows(year_df, month_df, week_df)
 }
