@@ -158,6 +158,10 @@ write_df_to_parquet(regionality_metric,
                     sink = 'out/regionality/regionality.parquet')
 
 state_week_vs_year <- compute_week_vs_year(state_traffic_all)
+state_week_vs_year <- state_week_vs_year %>% 
+  rename("365_days" = "365 days") %>%
+  rename("30_days" = "30 days") %>%
+  rename("7_days" = "7 days")
 write_df_to_parquet(state_week_vs_year,
                     sink = 'out/state_week_vs_year/state_week_vs_year.parquet')
 
