@@ -23,7 +23,7 @@ pipeline {
         cleanWs()
       }
     }
-    stage('Checkout repo and pull from S3') {
+    stage('Checkout repo and pull cache from S3') {
       steps {
         sh 'wget -O DOIRootCA2.cer http://sslhelp.doi.net/docs/DOIRootCA2.cer'
         checkout([$class: 'GitSCM',
@@ -34,6 +34,7 @@ pipeline {
                           submoduleCfg: [],
                           userRemoteConfigs: [[url: 'https://github.com/usgs-makerspace/analytics_pipeline']]
                         ])
+        sh 'aws s3 sync s3://wma-analytics-data/dashboard/${TIER}/cache/ cache/'
       }
     }
     stage('pull Google Analytics data') {
@@ -48,9 +49,6 @@ pipeline {
         } 
       }
       steps {
-        sh '''
-          aws s3 sync s3://wma-analytics-data/dashboard/${TIER}/cache/ cache/
-        '''
         retry(2){
           sh 'Rscript -e "source(\'R/pull_GA_data.R\')"'
         }
