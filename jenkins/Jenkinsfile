@@ -48,6 +48,9 @@ pipeline {
         } 
       }
       steps {
+        sh '''
+          aws s3 sync s3://wma-analytics-data/dashboard/${TIER}/cache/ cache/
+        '''
         retry(2){
           sh 'Rscript -e "source(\'R/pull_GA_data.R\')"'
         }
@@ -58,6 +61,7 @@ pipeline {
         sh '''
           # --delete flag important so old files don't hang around in S3 if file names change
           aws s3 sync out/ s3://wma-analytics-data/dashboard/${TIER}/parquet/ --delete --exclude "*/*" --include "*/*.parquet" 
+          aws s3 sync cache/ s3://wma-analytics-data/dashboard/${TIER}/cache/
           '''
       }
     }

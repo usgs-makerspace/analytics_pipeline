@@ -60,33 +60,6 @@ app_period_bins <- bind_rows(week_change, month_change, fiscal_year_change)
 write_df_to_parquet(app_period_bins,
                     sink = "out/compared_to_last_year/compared_to_last_year.parquet")
 
-#Can you get page content groupings from the API?
-#probably want to use less sampling (samplingLevel argument to google_analytics) for final product
-message("Landing/exit page pull")
-landing_exit_pages <- get_multiple_view_ga_df(view_df = ga_table,
-                                              end_date = yesterday,
-                                              start_date = one_year_ago,
-                                              dimensions = c("landingPagePath", "secondPagePath", "exitPagePath"),
-                                              metrics = c("sessions"),
-                                              max= -1, anti_sample = TRUE)
-write_df_to_parquet(landing_exit_pages, 
-                    sink = "out/landing_exit_pages/all_apps_landing_exit_pages.parquet")
-
-##### page load data #####
-message("Load time data pull")
-load_time_data <- get_multiple_view_ga_df(view_df = ga_table,
-                                          end_date = yesterday,
-                                          start_date = thirty_days_ago,
-                                          dimensions = c("pagePath"),
-                                          metrics = c("pageLoadSample", "avgPageLoadTime",
-                                                      "avgPageDownloadTime",
-                                                      "avgDomContentLoadedTime",
-                                                      "exitRate"),
-                                          max= -1, anti_sample = TRUE)
-load_time_data_filtered <- load_time_data %>% 
-  filter(pageLoadSample > 0)
-write_df_to_parquet(load_time_data_filtered, 
-                    sink = "out/page_load/page_load_30_days.parquet")
 
 ##### long term data #####
 message("Long term data pull")
@@ -201,3 +174,31 @@ all_ban_numbers <- bind_rows(ban_numbers_fy, ban_numbers_month,
                              ban_numbers_week, ban_numbers_year)
 write_df_to_parquet(all_ban_numbers,
                     sink = "out/summary_numbers/summary_numbers.parquet")
+
+gar_cache_setup(mcache = memoise::cache_filesystem("cache"))
+##### Landing/exit pages #####
+message("Landing/exit page pull")
+landing_exit_pages <- get_multiple_view_ga_df(view_df = ga_table,
+                                              end_date = yesterday,
+                                              start_date = one_year_ago,
+                                              dimensions = c("landingPagePath", "secondPagePath", "exitPagePath"),
+                                              metrics = c("sessions"),
+                                              max= -1, anti_sample = TRUE)
+write_df_to_parquet(landing_exit_pages, 
+                    sink = "out/landing_exit_pages/all_apps_landing_exit_pages.parquet")
+
+##### page load data #####
+message("Load time data pull")
+load_time_data <- get_multiple_view_ga_df(view_df = ga_table,
+                                          end_date = yesterday,
+                                          start_date = thirty_days_ago,
+                                          dimensions = c("pagePath"),
+                                          metrics = c("pageLoadSample", "avgPageLoadTime",
+                                                      "avgPageDownloadTime",
+                                                      "avgDomContentLoadedTime",
+                                                      "exitRate"),
+                                          max= -1, anti_sample = TRUE)
+load_time_data_filtered <- load_time_data %>% 
+  filter(pageLoadSample > 0)
+write_df_to_parquet(load_time_data_filtered, 
+                    sink = "out/page_load/page_load_30_days.parquet")
