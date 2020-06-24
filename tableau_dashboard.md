@@ -42,15 +42,15 @@ There are several places where there are filters or sets created in the Tableau 
   - BAN # of apps monitoring worksheet
   - BAN New Sessions worksheet
   - Trends Summary worksheet
-  - Trend List worksheet~~~~
+  - Trend List worksheet
 
 # Updating the dropdown list of applications in SharePoint List
 
-If the list of applications changes, the corresponding list of applications needs to be updated in the [SharePoint List/Form](https://doimspp.sharepoint.com/sites/USGSWaterMissionArea/SitePages/Google-Analytics-Event-Annotations---Entry-Form.aspx) to ensure POs can submit events for every app listed. With an alphabetized list in hand, visit
+If the list of applications changes, the corresponding list of applications needs to be updated in the [SharePoint List/Form](https://doimspp.sharepoint.com/sites/USGSWaterMissionArea/SitePages/Google-Analytics-Event-Annotations---Entry-Form.aspx) to ensure POs can submit events for every app listed. With an updated alphabetized list in hand/in your clipboard, visit the actual [list address](https://doimspp.sharepoint.com/sites/USGSWaterMissionArea/Lists/Google%20Analytics%20Event%20Annotations/AllItems.aspx), click on the gear icon way up in the upper right corner of the list, and click on List Settings. Scroll down to where you see the Columns section on the page, click on the View Name Column name (it is a link even though it doesn't look like a link) and paste in your updated list over the top of the existing list in the view. Click the OK link in the lower right corner to save.
 
 # Important data links/blends
 
-The worksheets displaying Google Analytics Event Annotation data from SharePoint is a little complicated. The data blends/joins required within the worksheets include matching the fields from all_apps_traffic_data_3_years on Calculated FY, EqualizerDate and View Name. Without these relationships enabled in the view, the annotations won't appear on the session/user visit data.
+The worksheets displaying Google Analytics Event Annotation data from SharePoint require several data blends to be set up in order to display correctly. The data blends/joins required within the worksheets include matching the fields from all_apps_traffic_data_3_years on Calculated FY, EqualizerDate and View Name. Without these relationships enabled in the view, the annotations won't appear on the session/user visit data.
 
 # Forcing data updates from Athena
 
