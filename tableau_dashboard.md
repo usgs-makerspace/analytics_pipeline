@@ -50,6 +50,8 @@ If the list of applications changes, the corresponding list of applications need
 
 # Important data links/blends
 
+The worksheets displaying Google Analytics Event Annotation data from SharePoint is a little complicated. The data blends/joins required within the worksheets include matching the fields from all_apps_traffic_data_3_years on Calculated FY, EqualizerDate and View Name. Without these relationships enabled in the view, the annotations won't appear on the session/user visit data.
+
 # Forcing data updates from Athena
 
 In order to force a data update in the Workbooks, navigate to the Tableau server, go to Explore -> All Data Sources, and click on the ... next to the name of the data source, and click 'Refresh Extracts' to enter a dialog window to request the extract be updated. They are currently updating automatically every weekday morning at 5AM CT.
