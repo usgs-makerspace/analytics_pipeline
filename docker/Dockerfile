@@ -29,11 +29,14 @@ RUN install2.r --error \
   lubridate \
   yaml \
   dataRetrieval \
-  ineq
+  ineq 
 
-RUN Rscript -e 'arrow::install_arrow()' #installs some runtime libraries
+RUN Rscript -e 'arrow::install_arrow()' #installs some runtime libraries 
+
+#once slow_fetch fix is on CRAN, can remove remotes and googleAnalyticsR github install
+RUN Rscript -e 'install.packages("remotes"); remotes::install_github("https://github.com/MarkEdmondson1234/googleAnalyticsR")' 
 
 RUN mkdir -p /home/analytics_pipeline
-WORKDIR wbeep-processing
+WORKDIR /home/analytics_pipeline
 CMD ["/init"]
 
