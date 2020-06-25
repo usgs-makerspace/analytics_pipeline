@@ -131,7 +131,9 @@ write_df_to_parquet(regionality_metric,
                     sink = 'out/regionality/regionality.parquet')
 
 state_week_vs_year <- compute_week_vs_year(state_traffic_all) %>%
-  rename("365_days" = "365 days", "30_days" = "30 days", "7_days" = "7 days")
+  rename("365_days" = "365 days", "30_days" = "30 days", "7_days" = "7 days") %>% 
+  mutate(weekly_average = `365_days`/52.14,
+         week_percent_from_average = (`7_days` - weekly_average)/weekly_average * 100)
 write_df_to_parquet(state_week_vs_year,
                     sink = 'out/state_week_vs_year/state_week_vs_year.parquet')
 
