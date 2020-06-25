@@ -93,3 +93,134 @@ For the EC Dashboard, we do not publish with 'Show Sheets as Tabs' option, but f
 For ADE we only publish the Dashboards themselves to the production/internal server, but for the development server, we publish all the sheets/views.
 
 Be mindful that there is a hardcoded button in the EC Dashboard that takes users from the EC view to the ADE dashboard with more detailed views, and it contains a hardcoded URL. Unfortunately this is currently a manual step that needs to be modified when publishing from one server to the other. if you make the red button active by clicking on the container for it in the EC Dashboard dashboard, you can click on the down caret/arrow and click Edit Image. This will give you the Target URL field that can be modified depending on where you're publishing to.
+
+# Athena Data Sources
+
+We currently have manually created these within the AWS S3 console (from Athena service, click on Create Table, from S3 bucket data, and fill in the dialog windows, the field name details below can be used to "bulk add" columns within each parquet file) however at some point we would like to create these via Cloudformation, although at this point in time there is some kind of permission issue we've encountered attempting to use CF.
+
+```
+table name: long_term_monthly
+filename: long_term_monthly.parquet
+path: s3://wma-analytics-data/dashboard/test/parquet/long_term_monthly/
+year string,
+month string,
+sessions double,
+avgSessionDuration double,
+pageviewsPerSession double,
+percentNewSessions double,
+view_id string,
+view_name string,
+fiscal_year date,
+backfill boolean
+
+table name: page_load_30_days
+path: s3://wma-analytics-data/dashboard/test/parquet/page_load/
+filename: page_load_30_days.parquet
+pagePath string,
+pageLoadSample double,
+avgPageLoadTime double,
+avgPageDownloadTime double,
+avgDomContentLoadedTime double,
+exitRate double,
+view_id string,
+view_name string
+
+table name: all_apps_traffic_data_3_years
+filename: all_apps_traffic_data_3_years.parquet
+path: s3://wma-analytics-data/dashboard/test/parquet/landing_exit_pages/
+date date,
+sessions double,
+users double,
+view_id string,
+view_name string,
+year date,
+fiscal_year date
+
+table name: year_month_week_traffic
+path: s3://wma-analytics-data/dashboard/test/parquet/year_month_week/
+filename: year_month_week_traffic.parquet
+year_month_week_traffic.parquet
+view_name string,
+view_id string,
+sessions double,
+users double,
+period string
+
+table name: state_traffic_year_month_week
+filename: state_traffic_year_month_week.parquet
+path: s3://wma-analytics-data/dashboard/test/parquet/state_traffic/
+state_traffic_year_month_week
+region string,
+country string,
+sessions double,
+view_id string,
+view_name string,
+period string
+
+table name: all_apps_landing_exit_pages
+path: s3://wma-analytics-data/dashboard/test/parquet/landing_exit_pages/
+filename: all_apps_landing_exit_pages.parquet
+landing_exit_pages
+landingpagepath string,
+secondpagepath string,
+exitpagepath string,
+sessions double,
+view_id string,
+view_name string
+
+table name: summary_numbers
+path: s3://wma-analytics-data/dashboard/test/parquet/summary_numbers/
+file name: summary_numbers.parquet
+deviceCategory string,
+browser string,
+dayOfWeekName string,
+sessions double,
+percentNewSessions double,
+sessionDuration double,
+view_id string,
+view_name string,
+period string,
+newSessions double
+
+table name: compared_to_last_year
+path: s3://wma-analytics-data/dashboard/test/parquet/compared_to_last_year/
+file name: compared_to_last_year.parquet
+view_name string,
+view_id string,
+sessions_this_year double,
+n_this_year bigint,
+first_non_zero_date_this_year date,
+sessions_last_year double,
+n_last_year bigint,
+first_non_zero_date_last_year date,
+percent_change double,
+period string
+
+table name state_week_vs_year
+path s3://wma-analytics-data/dashboard/test/parquet/state_week_vs_year/
+file name state_week_vs_year.parquet
+view_id string,
+view_name string,
+region string,
+365_days double,
+30_days double,
+7_days double,
+week_over_year double
+
+table name state_traffic_population_percentages
+path s3://wma-analytics-data/dashboard/test/parquet/state_traffic_population_percentages/
+file name state_traffic_population_percentages.parquet
+view_name string,
+region string,
+view_id string,
+period string,
+sessions double,
+DIVISION string,
+STATE bigint,
+POPESTIMATE2019 bigint,
+pop_pct double,
+sessions_total_period double,
+sessions_pct double,
+sessions_population_ratio double,
+country string
+```
