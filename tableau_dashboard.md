@@ -84,11 +84,9 @@ After you're sure you picked the right data source, click OK. Almost immediately
 
 After it finishes and the Processing Request dialog window goes away, you can go up to the Server menu, and you should see you're now signed into the production server, click on Publish Workbook, verify the settings are correct, and click Publish. Ignore warnings about overriding the existing workbook, that is what we want to do, often.
 
-
-
 ## Other stuff about publishing
 
-For the EC Dashboard, we do not publish with 'Show Sheets as Tabs' option, but for the ADE we do. We also only publish the EC Dashboard dashboard itself to the production/internal server, none of the other worksheets. 
+For the EC Dashboard, we do not publish with 'Show Sheets as Tabs' option, but for the ADE we do. We also only publish the EC Dashboard dashboard itself to the production/internal server, none of the other worksheets.
 
 For ADE we only publish the Dashboards themselves to the production/internal server, but for the development server, we publish all the sheets/views.
 
@@ -205,7 +203,9 @@ region string,
 365_days double,
 30_days double,
 7_days double,
-week_over_year double
+week_over_year double,
+weekly_average double,
+week_percent_from_average
 
 table name state_traffic_population_percentages
 path s3://wma-analytics-data/dashboard/test/parquet/state_traffic_population_percentages/
