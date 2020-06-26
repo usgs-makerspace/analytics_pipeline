@@ -157,6 +157,13 @@ state_week_vs_year <- compute_week_vs_year(state_traffic_all) %>%
   rename("365_days" = "365 days", "30_days" = "30 days", "7_days" = "7 days") %>% 
   mutate(weekly_average = `365_days`/52.14,
          week_percent_from_average = (`7_days` - weekly_average)/weekly_average * 100)
+if(Sys.Date() < as.Date('2021-06-25')) { #this view won't have a full year of data yet
+  message("Adjusting state vs week for views that don't have a year of data")
+  state_week_vs_year <- state_week_vs_year %>% 
+    mutate(week_percent_from_average = if_else(condition = view_name == "NWISWeb (Legacy Desktop)",
+                                              true = NA_real_,
+                                              false = week_percent_from_average))
+}
 write_df_to_parquet(state_week_vs_year,
                     sink = 'out/state_week_vs_year/state_week_vs_year.parquet')
 
