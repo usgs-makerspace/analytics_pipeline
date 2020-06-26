@@ -120,28 +120,18 @@ compare_sessions_to_last_year <- function(df, last_n_days, period_name) {
 }
 
 #splice together new legacy NWISweb view w/old data to create a continuous timeseries
-#could probably be generalized at a later time
 #' @param splice_date date at which timeseries should switch to newer data source
-splice_legacy_nwisweb <- function(df, splice_date, 
+splice_two_views <- function(df, splice_date, 
                                   view_to_fill_in,
-                                  view_to_fill_with) {
-  #fill in newer timeseries with older data before a certain date
-  # df_filtered <- df %>% 
-  #   filter(view_name %in% c("NWISWeb (Legacy Desktop)", "NWISWeb (NextGen + Legacy Desktop)")) %>% 
-  #   pivot_longer(cols = c("sessions", "users"), names_to = "metric") %>% 
-  #   pivot_wider(id_cols = c("view_id", "view_name", "date", "metric"),
-  #               names_from = c("view_name", "view_id"),
-  #               values_from = c("value")) %>% 
-  #   mutate(`NWISWeb (Legacy Desktop)_221302252` = coalesce(na_if(`NWISWeb (Legacy Desktop)_221302252`, 0),
-  #                                                      `NWISWeb (NextGen + Legacy Desktop)_49785472`)) %>% 
-  #   pivot_longer()
-  view_df_fill_in <- df %>% filter(view_name == view_to_fill_in, date >= splice_date)
-  view_df_fill_with <- df %>% filter(view_name == view_to_fill_with, date < splice_date)
+                                  view_to_fill_with,
+                              date_col) {
+  view_df_fill_in <- df %>% filter(view_name == view_to_fill_in, {{date_col}} >= splice_date)
+  view_df_fill_with <- df %>% filter(view_name == view_to_fill_with, {{date_col}} < splice_date)
   view_filled_in <- bind_rows(view_df_fill_with, view_df_fill_in) %>% 
     mutate(view_name = view_to_fill_in, view_id = tail(view_id, n = 1))
   df_out <- df %>% filter(view_name != view_to_fill_in) %>% 
     bind_rows(view_filled_in)
-  stopifnot(nrow(df_out) != nrow(df))
+  stopifnot(nrow(df_out) == nrow(df))
   return(df_out)
 }
   

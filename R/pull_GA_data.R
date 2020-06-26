@@ -46,7 +46,12 @@ traffic_data <- get_multiple_view_ga_df(view_df = ga_table,
   add_sum_of_views(view_name_pattern = "Water Science School", method = "three_year_traffic") %>% 
   add_sum_of_views(view_name_pattern = "water.usgs.gov", method = "three_year_traffic") %>% 
   add_sum_of_views(view_name_pattern = nwisweb_all_regex,
-                   new_name = nwisweb_all, method = "three_year_traffic") 
+                   new_name = nwisweb_all, method = "three_year_traffic") %>% 
+  splice_two_views(splice_date = "2020-06-16", 
+                   view_to_fill_in = "NWISWeb (Legacy Desktop)",
+                   view_to_fill_with = "NWISWeb (NextGen + Legacy Desktop)",
+                   date_col = date)
+
 traffic_data_out <- traffic_data %>% mutate(year = year_to_jan_1st(lubridate::year(date)),
                                             fiscal_year = year_to_jan_1st(dataRetrieval::calcWaterYear(date)))
 
@@ -86,6 +91,10 @@ traffic_data_long_term <- get_multiple_view_ga_df(view_df = ga_table,
   add_sum_of_views(view_name_pattern = nwisweb_all_regex,
                    new_name = nwisweb_all, method = "long_term") %>% 
   mutate(first_of_month = as.Date(paste(year, month, "01", sep = "-"))) %>% 
+  splice_two_views(splice_date = "2020-06-16", 
+                   view_to_fill_in = "NWISWeb (Legacy Desktop)",
+                   view_to_fill_with = "NWISWeb (NextGen + Legacy Desktop)",
+                   date_col = first_of_month) %>% 
   #Drop pre-launch data to eliminate massive percent increases in traffic
   filter(sessions > 0,
          first_of_month > '2016-06-01' | view_name != 'NWISWeb (Mapper)',
