@@ -70,36 +70,6 @@ backfill_app_data <- function(df, min_date) {
   return(backfilled)
 }
 
-
-#' Function to combine Water Science School and water.usgs.gov
-#' Could be generalized further to combine two groups in a grouped
-#' data.frame, but not worthwhile for now
-#' 
-#' @param df data frame expecting certain columns from Google Analytics
-#' @param view_name_pattern string that will be matched against the 
-#' view_name columns.  All rows that match it will be combined by year/month
-#'
-add_drupal_natweb_sum <- function(df, view_name_pattern) {
-  df_groups_to_sum <- df %>% filter(grepl(x = view_name, pattern = view_name_pattern)) 
-  new_group <- df_groups_to_sum %>% 
-    mutate(pageViews = sessions * pageviewsPerSession,
-           newSessions = sessions * (percentNewSessions*0.01),
-           totalSessionDuration = sessions * avgSessionDuration) %>% 
-    group_by(year, month) %>% 
-    summarize(sessions = sum(sessions),
-              pageViews = sum(pageViews),
-              newSessions = sum(newSessions),
-              totalSessionDuration = sum(totalSessionDuration)) %>% 
-    mutate(avgSessionDuration = totalSessionDuration/sessions,
-           pageviewsPerSession = pageViews/sessions,
-           percentNewSessions = newSessions/sessions*100,
-           view_name = view_name_pattern,
-           view_id = view_name_pattern) %>% 
-      select(-newSessions, -pageViews, -totalSessionDuration)
-  df_plus_new_group <- bind_rows(df, new_group)
-  return(df_plus_new_group)
-}
-
 #' filter out leap days in a data frame with a 'date' column
 remove_leap_days <- function(df) {
   df %>% mutate(month = month(date),
