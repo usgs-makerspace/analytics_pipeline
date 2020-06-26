@@ -439,7 +439,7 @@
   analyticsContact: 'Jim Kreft'
   analyticsContactEmail: 'jkreft@usgs.gov'
 
-- longName: NWISWeb (Legacy)
+- longName: NWISWeb (NextGen + Legacy Desktop)
   shortName: NWISWebDesktop
   accountName: USGS Water Data for the Nation
   viewID: '49785472'
@@ -447,6 +447,28 @@
   webPropertyId: UA-25350863-1
   internalWebPropertyId: '49291662'
   viewName: ''
+  timezone: 'America/Denver'
+  websiteUrl: http://waterdata.usgs.gov
+  botFilteringEnabled: ''
+  description: >-
+    This site is the public web interface to the USGS National Water Information System optimized
+    for desktop users (NWISWebDesktop). These
+    pages provide access to water-resources data collected at approximately 1.5 million sites
+    in all 50 States, the District of Columbia, Puerto Rico, the Virgin Islands, Guam, American
+    Samoa and the Commonwealth of the Northern Mariana Islands.
+  projectContact: 'Jim Kreft'
+  projectContactEmail: 'jkreft@usgs.gov'
+  analyticsContact: 'Jim Kreft'
+  analyticsContactEmail: 'jkreft@usgs.gov'
+
+- longName: NWISWeb (Legacy Desktop)
+  shortName: NWISWebLegacyDesktop
+  accountName: USGS Water Data for the Nation
+  viewID: '221302252'
+  accountId: '25350863'
+  webPropertyId: UA-25350863-1
+  internalWebPropertyId: '49291662'
+  viewName: 'legacy content'
   timezone: 'America/Denver'
   websiteUrl: http://waterdata.usgs.gov
   botFilteringEnabled: ''

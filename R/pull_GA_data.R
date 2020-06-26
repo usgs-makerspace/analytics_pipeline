@@ -26,18 +26,32 @@ current_fiscal_year <- dataRetrieval::calcWaterYear(sys_date_eastern_time -1)
 start_current_fiscal_year <- as.Date(paste0(current_fiscal_year - 1, "-10-01")) 
 days_into_current_fiscal_year <- sys_date_eastern_time - start_current_fiscal_year
 
-backfill_date <- as.Date("2009-11-01") #to generate dummy data for Tableau 'relative to first'
+nwisweb_all_regex <- "NWISWeb \\(NextGen \\+ Legacy Desktop\\)|NWISWeb \\(Mobile\\)|NWISWeb \\(Mapper\\)"
+nwisweb_all <- "NWISWeb (All)"
 
-##### Past three years traffic #####
+backfill_date <- as.Date("2009-11-01") #to generate dummy data for Tableau 'relative to first'
+message("Yesterday in Eastern time: ", yesterday) #depends on Jenkins tz; record what is used
+
 source('R/functions.R')
 source('R/group_data.R')
 source('R/regionality.R')
+
+##### Past three years traffic #####
 traffic_data <- get_multiple_view_ga_df(view_df = ga_table,
                                         end_date = yesterday,
                                         start_date = three_years_ago_rounded_down,
                                         dimensions = c("date"),
                                         metrics = c("sessions", "users"),
-                                        max= -1)
+                                        max= -1) %>% 
+  add_sum_of_views(view_name_pattern = "Water Science School", method = "three_year_traffic") %>% 
+  add_sum_of_views(view_name_pattern = "water.usgs.gov", method = "three_year_traffic") %>% 
+  add_sum_of_views(view_name_pattern = nwisweb_all_regex,
+                   new_name = nwisweb_all, method = "three_year_traffic") %>% 
+  splice_two_views(splice_date = "2020-06-16", 
+                   view_to_fill_in = "NWISWeb (Legacy Desktop)",
+                   view_to_fill_with = "NWISWeb (NextGen + Legacy Desktop)",
+                   date_col = date)
+
 traffic_data_out <- traffic_data %>% mutate(year = year_to_jan_1st(lubridate::year(date)),
                                             fiscal_year = year_to_jan_1st(dataRetrieval::calcWaterYear(date)))
 
@@ -72,9 +86,15 @@ traffic_data_long_term <- get_multiple_view_ga_df(view_df = ga_table,
                                                               "pageviewsPerSession",
                                                               "percentNewSessions"),
                                                   max= -1) %>% 
-  add_drupal_natweb_sum(view_name_pattern = "Water Science School") %>% 
-  add_drupal_natweb_sum(view_name_pattern = "water.usgs.gov") %>% 
+  add_sum_of_views(view_name_pattern = "Water Science School", method = "long_term") %>% 
+  add_sum_of_views(view_name_pattern = "water.usgs.gov", method = "long_term") %>% 
+  add_sum_of_views(view_name_pattern = nwisweb_all_regex,
+                   new_name = nwisweb_all, method = "long_term") %>% 
   mutate(first_of_month = as.Date(paste(year, month, "01", sep = "-"))) %>% 
+  splice_two_views(splice_date = "2020-06-16", 
+                   view_to_fill_in = "NWISWeb (Legacy Desktop)",
+                   view_to_fill_with = "NWISWeb (NextGen + Legacy Desktop)",
+                   date_col = first_of_month) %>% 
   #Drop pre-launch data to eliminate massive percent increases in traffic
   filter(sessions > 0,
          first_of_month > '2016-06-01' | view_name != 'NWISWeb (Mapper)',
@@ -116,7 +136,10 @@ state_traffic_week <- get_multiple_view_ga_df(view_df = ga_table,
                                               metrics = c("sessions"),
                                               max= -1) %>% 
   mutate(period = "7 days")
-state_traffic_all <- bind_rows(state_traffic_year, state_traffic_month, state_traffic_week)
+state_traffic_all <- bind_rows(state_traffic_year, state_traffic_month, state_traffic_week) %>% 
+  add_sum_of_views(view_name_pattern = "water.usgs.gov", method = "state") %>% 
+  add_sum_of_views(view_name_pattern = "Water Science School", method = "state") %>% 
+  add_sum_of_views(view_name_pattern = nwisweb_all_regex, new_name = nwisweb_all, method = "state")
 write_df_to_parquet(state_traffic_all, 
                     sink = "out/state_traffic/state_traffic_year_month_week.parquet")
 
@@ -131,7 +154,9 @@ write_df_to_parquet(regionality_metric,
                     sink = 'out/regionality/regionality.parquet')
 
 state_week_vs_year <- compute_week_vs_year(state_traffic_all) %>%
-  rename("365_days" = "365 days", "30_days" = "30 days", "7_days" = "7 days")
+  rename("365_days" = "365 days", "30_days" = "30 days", "7_days" = "7 days") %>% 
+  mutate(weekly_average = `365_days`/52.14,
+         week_percent_from_average = (`7_days` - weekly_average)/weekly_average * 100)
 write_df_to_parquet(state_week_vs_year,
                     sink = 'out/state_week_vs_year/state_week_vs_year.parquet')
 
