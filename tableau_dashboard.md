@@ -205,7 +205,7 @@ region string,
 7_days double,
 week_over_year double,
 weekly_average double,
-week_percent_from_average
+week_percent_from_average double
 
 table name state_traffic_population_percentages
 path s3://wma-analytics-data/dashboard/test/parquet/state_traffic_population_percentages/
