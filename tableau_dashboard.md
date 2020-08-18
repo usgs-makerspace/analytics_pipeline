@@ -64,7 +64,7 @@ There are details about the connections as well as passwords embedded in the pub
 
 The SharePoint Google Analytics Event Annotations are connected to the Tableau Workbook currently using my (mhines-usgs) USGS AD account, and while the password is embedded, it will have to be updated every time I change my password to ensure the connection remains functional. The other connection details include the [SharePoint Site](https://doimspp.sharepoint.com/sites/gs-wma-iidd-makerspace), edition (SharePoint Online), Authentication (Third-party SSO), username (mhines@usgs.gov), password (my AD password), and SSO Domain (blank/optional.)
 
-When updating the password embedded in the SharePoint connection, it can be done via the Tableau Server Data Source itself, with no need to mess with the published Tableau Workbooks. From the Explore -> All Data Sources page on both the internal (tableau.chs.usgs.gov) and external (tableau.usgs.gov) click on the . . . next to the SharePoint GA Event Annotations data source, then click Edit Connection. This will open a dialog window where the username and password can be changed.
+When updating the password embedded in the SharePoint connection, it can be done via the Tableau Server Data Source itself, with no need to mess with the published Tableau Workbooks. From the Explore -> All Data Sources page on both the internal (tableau.chs.usgs.gov) and external (tableau.usgs.gov) Tableau Servers, click on the . . . next to the SharePoint GA Event Annotations data source, then click Edit Connection. This will open a dialog window where the username and password can be changed.
 
 # Editing and publishing workflow
 
