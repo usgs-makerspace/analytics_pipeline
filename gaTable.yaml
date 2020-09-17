@@ -977,3 +977,20 @@
   projectContactEmail: ''
   analyticsContact: ''
   analyticsContactEmail: ''
+
+- longName: 'VizLab: Gages Through the Ages'
+  shortName: VizLabGagesAges
+  accountName: Gages through the Ages data visualization
+  viewID: '217860358'
+  accountId: '78530187'
+  webPropertyId: 'UA-78530187-14'
+  internalWebPropertyId: ""
+  viewName: 'All Web Site Data'
+  timezone: America/Chicago
+  websiteUrl: https://labs.waterdata.usgs.gov/visualizations/gages-through-the-ages/index.html#/
+  botFilteringEnabled: 'TRUE'
+  description: 'An interactive data visualization for gage location through time'
+  projectContact: 'Lindsay Platt'
+  projectContactEmail: 'lplatt@usgs.gov'
+  analyticsContact: 'David Watkins'
+  analyticsContactEmail: 'wwatkins@usgs.gov'
