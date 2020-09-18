@@ -29,6 +29,10 @@ days_into_current_fiscal_year <- sys_date_eastern_time - start_current_fiscal_ye
 nwisweb_all_regex <- "NWISWeb \\(NextGen \\+ Legacy Desktop\\)|NWISWeb \\(Mobile\\)|NWISWeb \\(Mapper\\)"
 nwisweb_all <- "NWISWeb (All)"
 
+#these (NWIS Web Legacy, NG Beta) are covered by the original NWISWeb view 
+#('NWISWeb (NextGen + Legacy Desktop)')
+double_count_view_ids <- c('190316048', '221302252')
+
 backfill_date <- as.Date("2009-11-01") #to generate dummy data for Tableau 'relative to first'
 message("Yesterday in Eastern time: ", yesterday) #depends on Jenkins tz; record what is used
 
@@ -169,7 +173,9 @@ write_df_to_parquet(state_week_vs_year,
 
 ##### pull BAN number data #####
 #past week, month, and so far in fiscal year
-ban_numbers_week <- get_multiple_view_ga_df(view_df = ga_table,
+ga_table_no_double_counts <- ga_table %>% 
+  filter(!viewID %in% double_count_view_ids)
+ban_numbers_week <- get_multiple_view_ga_df(view_df = ga_table_no_double_counts,
                                             end_date = yesterday,
                                             start_date = seven_days_ago,
                                             metrics = c("sessions", "percentNewSessions", "sessionDuration"),
@@ -177,7 +183,7 @@ ban_numbers_week <- get_multiple_view_ga_df(view_df = ga_table,
                                             max= -1) %>% 
   mutate(period = '7 days',
          newSessions = percentNewSessions*.01*sessions)
-ban_numbers_month <- get_multiple_view_ga_df(view_df = ga_table,
+ban_numbers_month <- get_multiple_view_ga_df(view_df = ga_table_no_double_counts,
                                              end_date = yesterday,
                                              start_date = thirty_days_ago,
                                              metrics = c("sessions", "percentNewSessions", "sessionDuration"),
@@ -186,7 +192,7 @@ ban_numbers_month <- get_multiple_view_ga_df(view_df = ga_table,
   mutate(period = '30 days',
          newSessions = percentNewSessions*.01*sessions)
 
-ban_numbers_fy <- get_multiple_view_ga_df(view_df = ga_table,
+ban_numbers_fy <- get_multiple_view_ga_df(view_df = ga_table_no_double_counts,
                                           end_date = yesterday,
                                           start_date = start_current_fiscal_year,
                                           metrics = c("sessions", "percentNewSessions", "sessionDuration"),
@@ -194,7 +200,7 @@ ban_numbers_fy <- get_multiple_view_ga_df(view_df = ga_table,
                                           max= -1) %>% 
   mutate(period = 'current fiscal year', 
          newSessions = percentNewSessions*.01*sessions)
-ban_numbers_year <- get_multiple_view_ga_df(view_df = ga_table,
+ban_numbers_year <- get_multiple_view_ga_df(view_df = ga_table_no_double_counts,
                                             end_date = yesterday,
                                             start_date = one_year_ago,
                                             metrics = c("sessions", "percentNewSessions", "sessionDuration"),
