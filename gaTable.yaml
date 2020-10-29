@@ -994,3 +994,21 @@
   projectContactEmail: 'lplatt@usgs.gov'
   analyticsContact: 'David Watkins'
   analyticsContactEmail: 'wwatkins@usgs.gov'
+  
+- longName: National Water Dashboard
+  shortName: NWD
+  accountName: ''
+  viewID: '230024567'
+  accountId: '179298358'
+  webPropertyId: UA-179298358-1
+  internalWebPropertyId: ''
+  viewName: National Water Dashboard
+  timezone: America/Chicago
+  websiteUrl: https://dashboard.waterdata.usgs.gov/
+  botFilteringEnabled: 'TRUE'
+  description: >-  
+    The National Water Dashboard is an interactive map that presents real-time stream, lake and reservoir, precipitation and groundwater data for more than 13,500 USGS real-time observation stations across the country. This information is shown along with weather data such as radar, watches and warnings, past precipitation totals, precipitation forecasts and drought conditions from other sources.
+  projectContact: 'Tom Burley'
+  projectContactEmail: 'tburley@usgs.gov'
+  analyticsContact: 'Ramona Neafie'
+  analyticsContactEmail: 'rjneafie@usgs.gov'
