@@ -15,7 +15,7 @@ pipeline {
         choice(choices: ['test', 'prod'], description: 'Tier to deploy tiles to', name: 'TIER')
     }
     triggers {
-        cron('H 9 * * *')
+        cron('H(45-59) 7 * * *')
     }
   stages {
     stage('Clean Workspace') {
