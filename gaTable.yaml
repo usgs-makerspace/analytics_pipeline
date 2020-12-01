@@ -737,7 +737,7 @@
   analyticsContact: 'Lauren Privette'
   analyticsContactEmail: 'lprivette@usgs.gov'
 
-  - longName: "Surface Water Flow Trends"
+  - longName: "Surface Water Flow Trends in the Nation's Streams and Rivers"
   shortName: "SWFlowTrends"
   accountName: WIM USGS
   viewID: "233875529"
