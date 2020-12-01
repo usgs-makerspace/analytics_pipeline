@@ -626,8 +626,8 @@
     water-resources planning and management purposes, and for engineering and design purposes.
   projectContact: 'Hans Vraga'
   projectContactEmail: 'hvraga@usgs.gov'
-  analyticsContact: 'Hans Vraga'
-  analyticsContactEmail: 'hvraga@usgs.gov'
+  analyticsContact: 'Lauren Privette'
+  analyticsContactEmail: 'lprivette@usgs.gov'
 
 - longName: "NAWQA SW Water Quality Trends"
   shortName: "NaWQASWTrends"
@@ -650,8 +650,8 @@
     1992-2012, and 2002-2012.
   projectContact: 'Hans Vraga'
   projectContactEmail: 'hvraga@usgs.gov'
-  analyticsContact: 'Hans Vraga'
-  analyticsContactEmail: 'hvraga@usgs.gov'
+  analyticsContact: 'Lauren Privette'
+  analyticsContactEmail: 'lprivette@usgs.gov'
 
 - longName: 'NAWQA GW Water Quality Trends'
   shortName: 'NaWQADecadalTrendsMapper'
@@ -672,8 +672,8 @@
     management decisions to protect and sustain our valuable groundwater resources.
   projectContact: 'Hans Vraga'
   projectContactEmail: 'hvraga@usgs.gov'
-  analyticsContact: 'Hans Vraga'
-  analyticsContactEmail: 'hvraga@usgs.gov'
+  analyticsContact: 'Lauren Privette'
+  analyticsContactEmail: 'lprivette@usgs.gov'
 
 - longName: "Flood Inundation Mapper"
   shortName: "FIM-JS"
@@ -694,8 +694,8 @@
      resources that may be at risk, and enhance their local response effort during a flooding event.
   projectContact: 'Hans Vraga'
   projectContactEmail: 'hvraga@usgs.gov'
-  analyticsContact: 'Hans Vraga'
-  analyticsContactEmail: 'hvraga@usgs.gov'
+  analyticsContact: 'Lauren Privette'
+  analyticsContactEmail: 'lprivette@usgs.gov'
 
 - longName: "Flood Event Viewer"
   shortName: "FEV"
@@ -713,8 +713,8 @@
     Information System (NWIS) database  for display of time-series water data.
   projectContact: 'Hans Vraga'
   projectContactEmail: 'hvraga@usgs.gov'
-  analyticsContact: 'Hans Vraga'
-  analyticsContactEmail: 'hvraga@usgs.gov'
+  analyticsContact: 'Lauren Privette'
+  analyticsContactEmail: 'lprivette@usgs.gov'
 
 - longName: "NWISWeb (Mapper)"
   shortName: "NWISMapper"
@@ -734,8 +734,30 @@
     parameters, as measured by a USGS real-time data-collection station, exceed user-definable thresholds.
   projectContact: 'Joseph Kalfsbeek'
   projectContactEmail: 'kalfsbek@usgs.gov'
-  analyticsContact: 'Hans Vraga'
-  analyticsContactEmail: 'hvraga@usgs.gov'
+  analyticsContact: 'Lauren Privette'
+  analyticsContactEmail: 'lprivette@usgs.gov'
+
+  - longName: "Surface Water Flow Trends"
+  shortName: "SWFlowTrends"
+  accountName: WIM USGS
+  viewID: "233875529"
+  accountId: '61219868'
+  webPropertyId: "UA-61219868-45"
+  viewName: 'All Web Site Data'
+  timezone: "America/New_York"
+  websiteUrl: 'https://iwaas.wim.usgs.gov/sw-flow-trends'
+  botFilteringEnabled: 'NA'
+  description: >-
+    The Surface Water Flow Trends mapper provides results from assessments of trends in low and high streamflows in the Nation's streams 
+    and rivers over the past 100, 75, and 50 years (1916-2015, 1941-2015 and 1966-2015). Streamflow records from 
+    more than 2,000 U.S. Geological Survey (USGS) streamgages across the conterminous U.S. were used in these 
+    assessments. Tracking changes in streamflow and investigating the reasons for these changes is crucial for 
+    informing management decisions to protect and sustain our valuable water resources and to mitigate water-related 
+    hazards.
+  projectContact: 'Nick Estes'
+  projectContactEmail: 'njestes@usgs.gov'
+  analyticsContact: 'Lauren Privette'
+  analyticsContactEmail: 'lprivette@usgs.gov'
 
 - longName: "VizLab: Hurricane Harvey's Water Footprint"
   shortName: VizLabHarvey
