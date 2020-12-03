@@ -1,15 +1,14 @@
-
 - longName: Publications Warehouse
   shortName: Pubs
   accountName: pubs.er.usgs.gov
-  viewID: '20354817'
-  accountId: '10113280'
+  viewID: "20354817"
+  accountId: "10113280"
   webPropertyId: UA-10113280-1
-  internalWebPropertyId: '22153976'
+  internalWebPropertyId: "22153976"
   viewName: pubs.er.usgs.gov
   timezone: America/Chicago
   websiteUrl: http://pubs.er.usgs.gov
-  botFilteringEnabled: 'TRUE'
+  botFilteringEnabled: "TRUE"
   description: >-
     The Publications Warehouse (Pubs) provides access to all publications written by
     USGS scientists back to the founding of the bureau and is the public face of
@@ -18,22 +17,22 @@
     providing access to USGS funded publications and linking to underlying datasets,
     and is the authoritative source of publication metadata for other USGS systems
     (WRET, Sciencebase, others).
-  projectContact: 'Jim Kreft'
-  projectContactEmail: 'jkreft@usgs.gov'
-  analyticsContact: 'David Watkins'
-  analyticsContactEmail: 'wwatkins@usgs.gov'
+  projectContact: "Jim Kreft"
+  projectContactEmail: "jkreft@usgs.gov"
+  analyticsContact: "David Watkins"
+  analyticsContactEmail: "wwatkins@usgs.gov"
 
 - longName: Water Quality Portal
   shortName: WQP
   accountName: WQP
-  viewID: '53642301'
-  accountId: '27507375'
+  viewID: "53642301"
+  accountId: "27507375"
   webPropertyId: UA-27507375-1
-  internalWebPropertyId: '52832367'
+  internalWebPropertyId: "52832367"
   viewName: WQP
   timezone: America/Chicago
   websiteUrl: http://www.waterqualitydata.us
-  botFilteringEnabled: 'TRUE'
+  botFilteringEnabled: "TRUE"
   description: >-
     The Water Quality Portal (WQP) is a collaborative project between
     the USGS and the EPA to provide a single point of access for discrete water quality
@@ -41,22 +40,22 @@
     quality results without having to engage in much of the onerous data clean-up
     otherwise required. The WQP is focused on discrete, ambient water quality data from
     both surface and groundwater.
-  projectContact: 'Jim Kreft'
-  projectContactEmail: 'jkreft@usgs.gov'
-  analyticsContact: 'David Watkins'
-  analyticsContactEmail: 'wwatkins@usgs.gov'
+  projectContact: "Jim Kreft"
+  projectContactEmail: "jkreft@usgs.gov"
+  analyticsContact: "David Watkins"
+  analyticsContactEmail: "wwatkins@usgs.gov"
 
 - longName: National Ground Water Monitoring Network Data Portal
   shortName: NGWMN
   accountName: NGWMN Data Portal
-  viewID: '56773153'
-  accountId: '29564531'
+  viewID: "56773153"
+  accountId: "29564531"
   webPropertyId: UA-29564531-2
-  internalWebPropertyId: '55739376'
+  internalWebPropertyId: "55739376"
   viewName: NGWMN Data Portal
   timezone: America/Chicago
   websiteUrl: http://cida.usgs.gov/ngwmn
-  botFilteringEnabled: ''
+  botFilteringEnabled: ""
   description: >-
     The National Ground Water Monitoring Network Data Portal (NGWMN) data portal provides
     on-demand access to groundwater data
@@ -64,22 +63,22 @@
     The NGWMN portal displays status of water levels for NGWMN sites geographically in portal
     using a statistics suite. This project continues to support data providers and develops
     and maintains connections between provider data systems and NGWMN.
-  projectContact: 'Jessica Lucido'
-  projectContactEmail: 'jlucido@usgs.gov'
-  analyticsContact: 'David Watkins'
-  analyticsContactEmail: 'wwatkins@usgs.gov'
+  projectContact: "Jessica Lucido"
+  projectContactEmail: "jlucido@usgs.gov"
+  analyticsContact: "David Watkins"
+  analyticsContactEmail: "wwatkins@usgs.gov"
 
 - longName: Geo Data Portal
   shortName: GDP
   accountName: Geo Data Portal
-  viewID: '63434149'
-  accountId: '34380265'
+  viewID: "63434149"
+  accountId: "34380265"
   webPropertyId: UA-34380265-1
-  internalWebPropertyId: '61904170'
+  internalWebPropertyId: "61904170"
   viewName: Geo Data Portal
   timezone: America/Chicago
   websiteUrl: http://cida.usgs.gov/gdp/
-  botFilteringEnabled: ''
+  botFilteringEnabled: ""
   description: >-
     The Geo Data Portal (GDP) and its data archives offer a multi-dataset processing
     service for environmental modelers to gain access to downscaled climate projections. The
@@ -88,22 +87,22 @@
     archive of climate projections and other gridded time series dataset with web services.
     Increasingly, this project relies on the Unidata programming office for help maintaining
     software associated with the project.
-  projectContact: 'Jordan Read'
-  projectContactEmail: 'jread@usgs.gov'
-  analyticsContact: 'David Watkins'
-  analyticsContactEmail: 'wwatkins@usgs.gov'
+  projectContact: "Jordan Read"
+  projectContactEmail: "jread@usgs.gov"
+  analyticsContact: "David Watkins"
+  analyticsContactEmail: "wwatkins@usgs.gov"
 
 - longName: Coastal Change Hazards Portal
   shortName: CCH
   accountName: CIDA CCH
-  viewID: '79994645'
-  accountId: '46378632'
+  viewID: "79994645"
+  accountId: "46378632"
   webPropertyId: UA-46378632-1
-  internalWebPropertyId: '77384024'
+  internalWebPropertyId: "77384024"
   viewName: All Web Site Data
   timezone: America/Chicago
   websiteUrl: http://cida.usgs.gov/coastalchangehazardsportal/
-  botFilteringEnabled: ''
+  botFilteringEnabled: ""
   description: >-
     The Coastal Change Hazards (CCH) Portal provides interactive access to coastal
     change science and data for our Nation's coasts. It provides tools to researchers to
@@ -111,22 +110,22 @@
     forecast data sharing and updates throughout events, such as hurricanes. This app
     allows users to create simple, sharable mash-ups of different coastal datasets and
     provides historical data aiding the understanding and prediction of storm impacts.
-  projectContact: 'Megan Hines'
-  projectContactEmail: 'mhines@usgs.gov'
-  analyticsContact: 'David Watkins'
-  analyticsContactEmail: 'wwatkins@usgs.gov'
+  projectContact: "Megan Hines"
+  projectContactEmail: "mhines@usgs.gov"
+  analyticsContact: "David Watkins"
+  analyticsContactEmail: "wwatkins@usgs.gov"
 
 - longName: Biodata (Internal)
   shortName: BiodataIn
   accountName: BioData
-  viewID: '91413881'
-  accountId: '47407832'
+  viewID: "91413881"
+  accountId: "47407832"
   webPropertyId: UA-47407832-1
-  internalWebPropertyId: '78657237'
+  internalWebPropertyId: "78657237"
   viewName: BioData Input with Most CIDA Traffic Filtered Out
   timezone: America/Chicago
   websiteUrl: https://internal.aquatic.biodata.usgs.gov
-  botFilteringEnabled: 'FALSE'
+  botFilteringEnabled: "FALSE"
   description: >-
     BioData is an authoritative source of high-quality data that satisfies
     FSP policies for data documentation,  preservation, and dissemination of fish,
@@ -135,65 +134,65 @@
     of aquatic bioassessment data collected by USGS. The application will be included in
     NWIS Modernization efforts to better align the system with  OWI current development
     practices, system operations, and to address significant technical debt.
-  projectContact: 'Meredith Pavlick'
-  projectContactEmail: 'mpavlick@usgs.gov'
-  analyticsContact: 'David Watkins'
-  analyticsContactEmail: 'wwatkins@usgs.gov'
+  projectContact: "Meredith Pavlick"
+  projectContactEmail: "mpavlick@usgs.gov"
+  analyticsContact: "David Watkins"
+  analyticsContactEmail: "wwatkins@usgs.gov"
 
 - longName: Biodata Retrieval (External)
   shortName: BiodataRet
   accountName: BioData
-  viewID: '84991236'
-  accountId: '47407832'
+  viewID: "84991236"
+  accountId: "47407832"
   webPropertyId: UA-47407832-2
-  internalWebPropertyId: '78668543'
+  internalWebPropertyId: "78668543"
   viewName: BioData Retrieval
   timezone: America/Chicago
   websiteUrl: https://aquatic.biodata.usgs.gov
-  botFilteringEnabled: ''
+  botFilteringEnabled: ""
   description: >-
     The BioData Retrieval (BiodataRet) system provides access to aquatic bioassessment data (biological
     community and physical habitat data) collected by USGS scientists from stream ecosystems
     across the nation. BioData Retrieval is a public system and disseminates data from over
     15,000 fish, aquatic macroinvertebrate, and algae community samples.
-  projectContact: 'Meredith Pavlick'
-  projectContactEmail: 'mpavlick@usgs.gov'
-  analyticsContact: 'David Watkins'
-  analyticsContactEmail: 'wwatkins@usgs.gov'
+  projectContact: "Meredith Pavlick"
+  projectContactEmail: "mpavlick@usgs.gov"
+  analyticsContact: "David Watkins"
+  analyticsContactEmail: "wwatkins@usgs.gov"
 
 - longName: NWIS Reporting Application (Internal)
   shortName: NWIS-RA
   accountName: NWIS-RA
-  viewID: '150563516'
-  accountId: '50379402'
+  viewID: "150563516"
+  accountId: "50379402"
   webPropertyId: UA-50379402-5
-  internalWebPropertyId: '82341003'
+  internalWebPropertyId: "82341003"
   viewName: All Web Site Data
   timezone: America/Chicago
   websiteUrl: https://nwisdata.usgs.gov
-  botFilteringEnabled: 'FALSE'
+  botFilteringEnabled: "FALSE"
   description: >-
     The NWIS Reporting Application (NWIS-RA) provides USGS staff with retrieval and reporting capabilities for
     internal-only and public data in the National Water Information System (NWIS). Users
     can access site information, surface water, groundwater, water quality, and water use
     records. Discrete (non-continuous) data as well as time-series (continuous) data are
     available from active and inactive sites.
-  projectContact: 'Meredith Pavlick'
-  projectContactEmail: 'mpavlick@usgs.gov'
-  analyticsContact: 'David Watkins'
-  analyticsContactEmail: 'wwatkins@usgs.gov'
+  projectContact: "Meredith Pavlick"
+  projectContactEmail: "mpavlick@usgs.gov"
+  analyticsContact: "David Watkins"
+  analyticsContactEmail: "wwatkins@usgs.gov"
 
 - longName: National Water Census
   shortName: NWC
   accountName: National Water Census
-  viewID: '86002663'
-  accountId: '50928997'
+  viewID: "86002663"
+  accountId: "50928997"
   webPropertyId: UA-50928997-1
-  internalWebPropertyId: '83038855'
+  internalWebPropertyId: "83038855"
   viewName: All Web Site Data
   timezone: America/Chicago
   websiteUrl: http://cida.usgs.gov/nwc
-  botFilteringEnabled: ''
+  botFilteringEnabled: ""
   description: >-
     The Water Availablity and Use Science Program National Water Census (NWC) will provide a baseline data resource for
     water planning and management. The NWC curates research tools and outcomes of the
@@ -201,81 +200,81 @@
     budget data resources, is developing a framework for archiving and visualization
     of national-scale hydrologic modeling, and provides value-added tools for evaluation of
     ecological water needs.
-  projectContact: 'Dave Blodgett'
-  projectContactEmail: 'dblodgett@usgs.gov'
-  analyticsContact: 'David Watkins'
-  analyticsContactEmail: 'wwatkins@usgs.gov'
+  projectContact: "Dave Blodgett"
+  projectContactEmail: "dblodgett@usgs.gov"
+  analyticsContact: "David Watkins"
+  analyticsContactEmail: "wwatkins@usgs.gov"
 
 - longName: USGS-R Resources
   shortName: USGS-R
   accountName: USGS-R
-  viewID: '98740675'
-  accountId: '53797708'
+  viewID: "98740675"
+  accountId: "53797708"
   webPropertyId: UA-53797708-5
-  internalWebPropertyId: '94745748'
+  internalWebPropertyId: "94745748"
   viewName: All Web Site Data
   timezone: America/Chicago
   websiteUrl: http://owi.usgs.gov/R
-  botFilteringEnabled: ''
+  botFilteringEnabled: ""
   description: >-
     USGS-R is a community of support for users of the R scientific programming language. USGS-R
     resources include R training materials, R tools for the retrieval and analysis of USGS data,
     and support for a growing group of USGS-R developers.
-  projectContact: 'USGS-R Admin Team'
-  projectContactEmail: 'gs-w_r_admin@usgs.gov'
-  analyticsContact: 'David Watkins'
-  analyticsContactEmail: 'wwatkins@usgs.gov'
+  projectContact: "USGS-R Admin Team"
+  projectContactEmail: "gs-w_r_admin@usgs.gov"
+  analyticsContact: "David Watkins"
+  analyticsContactEmail: "wwatkins@usgs.gov"
 
-- longName: 'VizLab: California Drought'
+- longName: "VizLab: California Drought"
   shortName: VizLabCADrought
   accountName: CIDA drought app
-  viewID: '94771699'
-  accountId: '57400827'
+  viewID: "94771699"
+  accountId: "57400827"
   webPropertyId: UA-57400827-1
-  internalWebPropertyId: '91087966'
+  internalWebPropertyId: "91087966"
   viewName: All Web Site Data
   timezone: America/Chicago
   websiteUrl: http://cida.usgs.gov/ca_drought
-  botFilteringEnabled: ''
+  botFilteringEnabled: ""
   description: >-
     The Vizlab California Drought (VizLabCADrought) website graphically visualizes water data from State, Federal, and Tribal agencies
     to help understand the effect of drought on rivers, streams, lakes, and reservoirs in the State of California.
-  projectContact: 'Emily Read'
-  projectContactEmail: 'eread@usgs.gov'
-  analyticsContact: 'David Watkins'
-  analyticsContactEmail: 'wwatkins@usgs.gov'
+  projectContact: "Emily Read"
+  projectContactEmail: "eread@usgs.gov"
+  analyticsContact: "David Watkins"
+  analyticsContactEmail: "wwatkins@usgs.gov"
 
 - longName: NAWQA Water Quality Mapper
   shortName: NAR
   accountName: NAWQA Annual Reports
-  viewID: '105752773'
-  accountId: '65551512'
+  viewID: "105752773"
+  accountId: "65551512"
   webPropertyId: UA-65551512-1
-  internalWebPropertyId: '101784549'
+  internalWebPropertyId: "101784549"
   viewName: NAR Website Excluding Internal Traffic
   timezone: America/Chicago
   websiteUrl: http://cida.usgs.gov/quality/rivers/sites
-  botFilteringEnabled: 'TRUE'
+  botFilteringEnabled: "TRUE"
   description: >-
     The USGS National Water-Quality Assessment (NAWQA) Water Quality Mapper (NAR) characterizes the status and
     trends of the Nation’s surface-water quality through a National Water Quality Network. This
     website provides data on national ambient water-quality conditions for rivers and streams from the NAWQA project.
-  projectContact: 'Jim Kreft'
-  projectContactEmail: 'jkreft@usgs.gov'
-  analyticsContact: 'David Watkins'
-  analyticsContactEmail: 'wwatkins@usgs.gov'
+  projectContact: "Jim Kreft"
+  projectContactEmail: "jkreft@usgs.gov"
+  analyticsContact: "David Watkins"
+  analyticsContactEmail: "wwatkins@usgs.gov"
 
-- longName: 'VizLab: Colorado River Drought'
+- longName: "VizLab: Colorado River Drought"
   shortName: VizLabCRBDrought
   accountName: OWDI Drought Vizzy
-  viewID: '106583560'
-  accountId: '66155743'
+  viewID: "106583560"
+  accountId: "66155743"
   webPropertyId: UA-66155743-1
-  internalWebPropertyId: '102550529'
+  internalWebPropertyId: "102550529"
   viewName: All Web Site Data
   timezone: America/Chicago
   websiteUrl: https://www.doi.gov/water/owdi.cr.drought/en/
-  botFilteringEnabled: ''
+  botFilteringEnabled: ""
   description: >-
     The VizLab Colorado River Drought application (VizLabCRBDrought) was developed by the USGS and the Bureau of
     Reclamation in support of the Department of the Interior’s Open Water Data Initiative
@@ -283,86 +282,86 @@
     of open data (i.e., data provided in a discoverable, sharable, and machine-readable
     format) by exploring the current 16-year drought and its effects on the Colorado River
     Basin.
-  projectContact: 'Emily Read'
-  projectContactEmail: 'eread@usgs.gov'
-  analyticsContact: 'David Watkins'
-  analyticsContactEmail: 'wwatkins@usgs.gov'
+  projectContact: "Emily Read"
+  projectContactEmail: "eread@usgs.gov"
+  analyticsContact: "David Watkins"
+  analyticsContactEmail: "wwatkins@usgs.gov"
 
 - longName: OWI blog (Legacy)
   shortName: OWI
   accountName: OWI Website
-  viewID: '119859676'
-  accountId: '76112553'
+  viewID: "119859676"
+  accountId: "76112553"
   webPropertyId: UA-76112553-1
-  internalWebPropertyId: '114685767'
+  internalWebPropertyId: "114685767"
   viewName: All Web Site Data
   timezone: America/Chicago
   websiteUrl: http://owi.usgs.gov
-  botFilteringEnabled: ''
+  botFilteringEnabled: ""
   description: >-
     The Office of Water Information (OWI) is committed to advancing USGS science by integrating data across scales and domains,
     improving access to data and research, and developing tools for analysis and visualization,
     fostering collaboration with the international community. This website highlights the people,
     partners, products, and efforts of OWI.
-  projectContact: 'Emily Read'
-  projectContactEmail: 'eread@usgs.gov'
-  analyticsContact: 'David Watkins'
-  analyticsContactEmail: 'wwatkins@usgs.gov'
+  projectContact: "Emily Read"
+  projectContactEmail: "eread@usgs.gov"
+  analyticsContact: "David Watkins"
+  analyticsContactEmail: "wwatkins@usgs.gov"
 
-- longName: 'VizLab: Climate Change and Fisheries'
+- longName: "VizLab: Climate Change and Fisheries"
   shortName: VizLabClimateFish
   accountName: Vizlab
-  viewID: '129299951'
-  accountId: '78530187'
+  viewID: "129299951"
+  accountId: "78530187"
   webPropertyId: UA-78530187-2
-  internalWebPropertyId: '124964749'
+  internalWebPropertyId: "124964749"
   viewName: All Web Site Data
   timezone: America/Chicago
   websiteUrl: https://owi.usgs.gov/vizlab/climate-change-walleye-bass/
-  botFilteringEnabled: ''
+  botFilteringEnabled: ""
   description: >-
     The VizLab Climate Change and Fisheries website (VizLabClimateFish) explains to a general audience the source
     of shifts in Wisconsin fish habitat due to climate change. Warming lakes are changing fish
     communities in Wisconsin, walleye populations are declining, and large mouth bass
     populations are increasing.
-  projectContact: 'Jordan Read'
-  projectContactEmail: 'jread@usgs.gov'
-  analyticsContact: 'David Watkins'
-  analyticsContactEmail: 'wwatkins@usgs.gov'
+  projectContact: "Jordan Read"
+  projectContactEmail: "jread@usgs.gov"
+  analyticsContact: "David Watkins"
+  analyticsContactEmail: "wwatkins@usgs.gov"
 
-- longName: 'VizLab: Microplastics in Our Waterways'
+- longName: "VizLab: Microplastics in Our Waterways"
   shortName: VizLabMicroplastics
   accountName: Vizlab
-  viewID: '129289964'
-  accountId: '78530187'
+  viewID: "129289964"
+  accountId: "78530187"
   webPropertyId: UA-78530187-3
-  internalWebPropertyId: '124954360'
+  internalWebPropertyId: "124954360"
   viewName: All Web Site Data
   timezone: America/Chicago
   websiteUrl: https://owi.usgs.gov/vizlab/microplastics/
-  botFilteringEnabled: ''
+  botFilteringEnabled: ""
   description: >-
     The VizLab Microplastics in Our Waterways (ViaLabMicroplastics) website describes the importance of
     microplastics, plastic particles less than 5 millimeters in diameter, which are a contaminant
     of emerging concern in aquatic environments. Microplastics come from a wide range of
     potential sources (see Microplastics Sources sidebar), and are commonly grouped by size,
     as well as by particle types including fibers/lines, pellets/beads, foams, films, and fragments.
-  projectContact: 'Laura DeCicco'
-  projectContactEmail: 'ldecicco@usgs.gov'
-  analyticsContact: 'David Watkins'
-  analyticsContactEmail: 'wwatkins@usgs.gov'
+  projectContact: "Laura DeCicco"
+  projectContactEmail: "ldecicco@usgs.gov"
+  analyticsContact: "David Watkins"
+  analyticsContactEmail: "wwatkins@usgs.gov"
 
-- longName: 'VizLab: Water Use'
+- longName: "VizLab: Water Use"
   shortName: VizLabWaterUse
   accountName: Vizlab
-  viewID: '135016013'
-  accountId: '78530187'
+  viewID: "135016013"
+  accountId: "78530187"
   webPropertyId: UA-78530187-5
-  internalWebPropertyId: '131088296'
+  internalWebPropertyId: "131088296"
   viewName: All Web Site Data
   timezone: America/Chicago
   websiteUrl: https://owi.usgs.gov/vizlab/water-use
-  botFilteringEnabled: 'TRUE'
+  botFilteringEnabled: "TRUE"
   description: >-
     The VizLab Water Use (VizLabWaterUse) application features water use data has been collected and compiled
     by the USGS since 1950. This data has
@@ -370,22 +369,22 @@
     summarized to. This visualization shows that change over time as this dataset has
     become more powerful, and attempts to illustrate where the data can go in the future
     to be a more useful dataset going forward.
-  projectContact: 'Emily Read'
-  projectContactEmail: 'eread@usgs.gov'
-  analyticsContact: 'David Watkins'
-  analyticsContactEmail: 'wwatkins@usgs.gov'
+  projectContact: "Emily Read"
+  projectContactEmail: "eread@usgs.gov"
+  analyticsContact: "David Watkins"
+  analyticsContactEmail: "wwatkins@usgs.gov"
 
 - longName: GCMRC Discharge, Sediment, and Water Quality Monitoring App
   shortName: GCMRC
   accountName: CIDA GCMRC Analytics
-  viewID: '80089136'
-  accountId: '46435687'
+  viewID: "80089136"
+  accountId: "46435687"
   webPropertyId: UA-46435687-1
-  internalWebPropertyId: ''
+  internalWebPropertyId: ""
   viewName: All Web Site Data
   timezone: America/Chicago
   websiteUrl: https://www.gcmrc.gov/discharge_qw_sediment/
-  botFilteringEnabled: ''
+  botFilteringEnabled: ""
   description: >-
     The Grand Canyon Monitoring and Research Center's (GCMRC) decision-support tools provide accurate,
     near-real-time data and user-friendly interactive visualizations by continuous aggregation
@@ -393,165 +392,165 @@
     The GCMRC Web app provides resource managers and decision makers access to continuous, aggregated data of interest in support of the Glen
     Canyon Dam Adaptive Management Program (GCDAMP) and numerous other water projects in the
     Western US to plan and implement controlled floods for rebuilding sandbars, and evaluate effects of hydropower and local floods on sand and sediment resources.
-  projectContact: 'Megan Hines'
-  projectContactEmail: 'mhines@usgs.gov'
-  analyticsContact: 'David Watkins'
-  analyticsContactEmail: 'wwatkins@usgs.gov'
+  projectContact: "Megan Hines"
+  projectContactEmail: "mhines@usgs.gov"
+  analyticsContact: "David Watkins"
+  analyticsContactEmail: "wwatkins@usgs.gov"
 
 - longName: National Environmental Methods Index
   shortName: NEMI
   accountName: nemi_usgs
-  viewID: '71090861'
-  accountId: '39958467'
-  webPropertyId: 'UA-39958467-1'
-  internalWebPropertyId: '69003499'
+  viewID: "71090861"
+  accountId: "39958467"
+  webPropertyId: "UA-39958467-1"
+  internalWebPropertyId: "69003499"
   viewName: All Web Site Data
-  timezone: 'America/Chicago'
+  timezone: "America/Chicago"
   websiteUrl: https://www.nemi.gov
-  botFilteringEnabled: ''
+  botFilteringEnabled: ""
   description: >-
     The National Environmental Methods Index (NEMI) is a publicly-accessible searchable
     interface for monitoring methods and their associated
     analytes of interest.
-  projectContact: 'Jim Kreft'
-  projectContactEmail: 'jkreft@usgs.gov'
-  analyticsContact: 'David Watkins'
-  analyticsContactEmail: 'wwatkins@usgs.gov'
+  projectContact: "Jim Kreft"
+  projectContactEmail: "jkreft@usgs.gov"
+  analyticsContact: "David Watkins"
+  analyticsContactEmail: "wwatkins@usgs.gov"
 
 - longName: NWISWeb (Mobile)
   shortName: NWISWebMobile
   accountName: USGS Mobile Water Data & Water Services
-  viewID: '73906131'
-  accountId: '42005086'
+  viewID: "73906131"
+  accountId: "42005086"
   webPropertyId: UA-42005086-1
-  internalWebPropertyId: '71636360'
-  viewName: ''
-  timezone: 'America/New_York'
+  internalWebPropertyId: "71636360"
+  viewName: ""
+  timezone: "America/New_York"
   websiteUrl: http://m.waterdata.usgs.gov
-  botFilteringEnabled: ''
+  botFilteringEnabled: ""
   description: >-
     This site is an instance of the National Water Information System Website designed for mobile users (NWISWebMobile).
     It highlights USGS current conditions water data.
     For example, you can use it to monitor conditions at a favorite river or stream. All USGS
     current conditions water data are available.
-  projectContact: 'Jim Kreft'
-  projectContactEmail: 'jkreft@usgs.gov'
-  analyticsContact: 'Jim Kreft'
-  analyticsContactEmail: 'jkreft@usgs.gov'
+  projectContact: "Jim Kreft"
+  projectContactEmail: "jkreft@usgs.gov"
+  analyticsContact: "Jim Kreft"
+  analyticsContactEmail: "jkreft@usgs.gov"
 
 - longName: NWISWeb (NextGen + Legacy Desktop)
   shortName: NWISWebDesktop
   accountName: USGS Water Data for the Nation
-  viewID: '49785472'
-  accountId: '25350863'
+  viewID: "49785472"
+  accountId: "25350863"
   webPropertyId: UA-25350863-1
-  internalWebPropertyId: '49291662'
-  viewName: ''
-  timezone: 'America/Denver'
+  internalWebPropertyId: "49291662"
+  viewName: ""
+  timezone: "America/Denver"
   websiteUrl: http://waterdata.usgs.gov
-  botFilteringEnabled: ''
+  botFilteringEnabled: ""
   description: >-
     This site is the public web interface to the USGS National Water Information System optimized
     for desktop users (NWISWebDesktop). These
     pages provide access to water-resources data collected at approximately 1.5 million sites
     in all 50 States, the District of Columbia, Puerto Rico, the Virgin Islands, Guam, American
     Samoa and the Commonwealth of the Northern Mariana Islands.
-  projectContact: 'Jim Kreft'
-  projectContactEmail: 'jkreft@usgs.gov'
-  analyticsContact: 'Jim Kreft'
-  analyticsContactEmail: 'jkreft@usgs.gov'
+  projectContact: "Jim Kreft"
+  projectContactEmail: "jkreft@usgs.gov"
+  analyticsContact: "Jim Kreft"
+  analyticsContactEmail: "jkreft@usgs.gov"
 
 - longName: NWISWeb (Legacy Desktop)
   shortName: NWISWebLegacyDesktop
   accountName: USGS Water Data for the Nation
-  viewID: '221302252'
-  accountId: '25350863'
+  viewID: "221302252"
+  accountId: "25350863"
   webPropertyId: UA-25350863-1
-  internalWebPropertyId: '49291662'
-  viewName: 'legacy content'
-  timezone: 'America/Denver'
+  internalWebPropertyId: "49291662"
+  viewName: "legacy content"
+  timezone: "America/Denver"
   websiteUrl: http://waterdata.usgs.gov
-  botFilteringEnabled: ''
+  botFilteringEnabled: ""
   description: >-
     This site is the public web interface to the USGS National Water Information System optimized
     for desktop users (NWISWebDesktop). These
     pages provide access to water-resources data collected at approximately 1.5 million sites
     in all 50 States, the District of Columbia, Puerto Rico, the Virgin Islands, Guam, American
     Samoa and the Commonwealth of the Northern Mariana Islands.
-  projectContact: 'Jim Kreft'
-  projectContactEmail: 'jkreft@usgs.gov'
-  analyticsContact: 'Jim Kreft'
-  analyticsContactEmail: 'jkreft@usgs.gov'
+  projectContact: "Jim Kreft"
+  projectContactEmail: "jkreft@usgs.gov"
+  analyticsContact: "Jim Kreft"
+  analyticsContactEmail: "jkreft@usgs.gov"
 
 - longName: Health Based Screening Levels
   shortName: HBSL
   accountName: NAWQA Data Warehouse
-  viewID: '83069807'
-  accountId: '27722501'
+  viewID: "83069807"
+  accountId: "27722501"
   webPropertyId: UA-27722501-13
-  internalWebPropertyId: '80288862'
+  internalWebPropertyId: "80288862"
   viewName: All Web Site Data
   timezone: America/Chicago
   websiteUrl: http://water.usgs.gov/nawqa/HBSL
-  botFilteringEnabled: ''
+  botFilteringEnabled: ""
   description: >-
     The Health-Based Screening Levels (HBSL) application communicates the potential
     relevance of water-quality findings from the USGS National Water-Quality Assessment
     (NAWQA) Program in a human-health context. Federal drinking-water standards or
     guidelines are not available for many of the hundreds of contaminants analyzed by
     USGS in sources of drinking water.
-  projectContact: 'Alice McCarthy'
-  projectContactEmail: 'ajmccart@usgs.gov'
-  analyticsContact: 'David Watkins'
-  analyticsContactEmail: 'wwatkins@usgs.gov'
+  projectContact: "Alice McCarthy"
+  projectContactEmail: "ajmccart@usgs.gov"
+  analyticsContact: "David Watkins"
+  analyticsContactEmail: "wwatkins@usgs.gov"
 
 - longName: Groundwater Watch
   shortName: GroundwaterWatch
-  accountName: 'Groundwater Watch'
-  viewID: '77121234'
-  accountId: '44392125'
-  webPropertyId: 'UA-44392125-1'
-  internalWebPropertyId: '74703043'
-  viewName: ''
-  timezone: 'America/New_York'
+  accountName: "Groundwater Watch"
+  viewID: "77121234"
+  accountId: "44392125"
+  webPropertyId: "UA-44392125-1"
+  internalWebPropertyId: "74703043"
+  viewName: ""
+  timezone: "America/New_York"
   websiteUrl: http://groundwaterwatch.usgs.gov
-  botFilteringEnabled: ''
+  botFilteringEnabled: ""
   description: >-
     The Groundwater Watch (GroundwaterWatch) application provides easy access to geospatial
     summaries of current and historical USGS groundwater data.
-  projectContact: 'Steven Brady'
-  projectContactEmail: 'sbrady@usgs.gov'
-  analyticsContact: 'Steven Brady'
-  analyticsContactEmail: 'sbrady@usgs.gov'
+  projectContact: "Steven Brady"
+  projectContactEmail: "sbrady@usgs.gov"
+  analyticsContact: "Steven Brady"
+  analyticsContactEmail: "sbrady@usgs.gov"
 
 - longName: WaterWatch
   shortName: WaterWatch
-  accountName: ''
-  viewID: '18857756'
-  accountId: '9370142'
-  webPropertyId: 'UA-9370142-1'
-  internalWebPropertyId: '20799689'
-  viewName: ''
-  timezone: 'America/New_York'
+  accountName: ""
+  viewID: "18857756"
+  accountId: "9370142"
+  webPropertyId: "UA-9370142-1"
+  internalWebPropertyId: "20799689"
+  viewName: ""
+  timezone: "America/New_York"
   websiteUrl: waterwatch.usgs.gov
-  botFilteringEnabled: ''
+  botFilteringEnabled: ""
   description: >-
     WaterWatch displays maps, graphs, and tables describing real-time, recent, and past
     streamflow conditions for the United States. WaterWatch summarizes streamflow conditions
     in a region (state or hydrologic unit) in terms of the long-term typical condition at
     streamgages in the region.
-  projectContact: 'WaterWatch Team'
-  projectContactEmail: 'gs-w_waterwatch@usgs.gov'
-  analyticsContact: 'Steven Brady'
-  analyticsContactEmail: 'sbrady@usgs.gov'
+  projectContact: "WaterWatch Team"
+  projectContactEmail: "gs-w_waterwatch@usgs.gov"
+  analyticsContact: "Steven Brady"
+  analyticsContactEmail: "sbrady@usgs.gov"
 
-- longName: 'Water Science School (Natweb)'
-  shortName: 'WaterSciSchool'
+- longName: "Water Science School (Natweb)"
+  shortName: "WaterSciSchool"
   accountName: ""
-  viewID: '83658557'
-  accountId: '22425935'
+  viewID: "83658557"
+  accountId: "22425935"
   webPropertyId: UA-22425935-1
-  internalWebPropertyId: '44153450'
+  internalWebPropertyId: "44153450"
   viewName: 1-Water Science School
   timezone: America/New_York
   websiteUrl: https://water.usgs.gov/edu/
@@ -560,18 +559,18 @@
     The Water Science School (WaterSciSchool) website offers information on many aspects of water, along with pictures, data,
     maps, and an interactive center where you can give opinions and test your water knowledge.  Large parts
     of this content was migrated to Drupal in spring 2019.
-  projectContact: 'Emily Read'
-  projectContactEmail: 'eread@usgs.gov'
-  analyticsContact: 'David Watkins'
-  analyticsContactEmail: 'wwatkins@usgs.gov'
+  projectContact: "Emily Read"
+  projectContactEmail: "eread@usgs.gov"
+  analyticsContact: "David Watkins"
+  analyticsContactEmail: "wwatkins@usgs.gov"
 
-- longName: 'water.usgs.gov (Natweb)'
-  shortName: 'water.usgs.gov'
+- longName: "water.usgs.gov (Natweb)"
+  shortName: "water.usgs.gov"
   accountName: ""
-  viewID: '83660223'
-  accountId: '22425935'
+  viewID: "83660223"
+  accountId: "22425935"
   webPropertyId: UA-22425935-1
-  internalWebPropertyId: '44153450'
+  internalWebPropertyId: "44153450"
   viewName: 2-Not W.S. School
   timezone: America/New_York
   websiteUrl: http://water.usgs.gov
@@ -584,58 +583,58 @@
 
     Since the launch of the new WMA Drupal pages in spring 2019, this site now only contains
     content that was not migrated to Drupal.  Traffic has decreased substantially as a result.
-  projectContact: 'Emily Read'
-  projectContactEmail: 'eread@usgs.gov'
-  analyticsContact: 'David Watkins'
-  analyticsContactEmail: 'wwatkins@usgs.gov'
+  projectContact: "Emily Read"
+  projectContactEmail: "eread@usgs.gov"
+  analyticsContact: "David Watkins"
+  analyticsContactEmail: "wwatkins@usgs.gov"
 
 - longName: "Streamer (TX WSC)"
-  shortName: 'Streamer'
+  shortName: "Streamer"
   accountName: txwscwebgroup
-  viewID: '183233225'
-  accountId: '37706584'
+  viewID: "183233225"
+  accountId: "37706584"
   webPropertyId: UA-37706584-2
-  internalWebPropertyId: '66373103'
+  internalWebPropertyId: "66373103"
   viewName: Streamer
   timezone: America/Chicago
   websiteUrl: https://txpub.usgs.gov/DSS/streamer/web/
-  botFilteringEnabled: 'TRUE'
+  botFilteringEnabled: "TRUE"
   description: >-
     Streamer - TX WSC (Streamer) is a web-based mapper that visualizes water flow across America. Streamer allows users to explore our
     Nation's major streams by tracing upstream to their source or downstream to where they empty. It
     also creates reports about your stream traces and the places they pass through.
-  projectContact: 'Streamer Team'
-  projectContactEmail: 'streamer@usgs.gov'
-  analyticsContact: 'Ramona Neafie'
-  analyticsContactEmail: 'rjneafie@usgs.gov'
+  projectContact: "Streamer Team"
+  projectContactEmail: "streamer@usgs.gov"
+  analyticsContact: "Ramona Neafie"
+  analyticsContactEmail: "rjneafie@usgs.gov"
 
-- longName: 'StreamStats'
-  shortName: 'StreamStats'
+- longName: "StreamStats"
+  shortName: "StreamStats"
   accountName: WIM USGS
-  viewID: '116153556'
-  accountId: '61219868'
+  viewID: "116153556"
+  accountId: "61219868"
   webPropertyId: UA-61219868-6
-  internalWebPropertyId: '111309349'
+  internalWebPropertyId: "111309349"
   viewName: All Web Site Data
   timezone: America/New_York
   websiteUrl: http://streamstatsags.cr.usgs.gov/streamstats/
-  botFilteringEnabled: 'FALSE'
+  botFilteringEnabled: "FALSE"
   description: >-
     StreamStats is a Web-based Geographic Information Systems (GIS) application that provides
     users with access to an assortment of analytical tools that are useful for a variety of
     water-resources planning and management purposes, and for engineering and design purposes.
-  projectContact: 'Hans Vraga'
-  projectContactEmail: 'hvraga@usgs.gov'
-  analyticsContact: 'Hans Vraga'
-  analyticsContactEmail: 'hvraga@usgs.gov'
+  projectContact: "Hans Vraga"
+  projectContactEmail: "hvraga@usgs.gov"
+  analyticsContact: "Lauren Privette"
+  analyticsContactEmail: "lprivette@usgs.gov"
 
 - longName: "NAWQA SW Water Quality Trends"
   shortName: "NaWQASWTrends"
   accountName: WIM USGS
-  viewID: '139280803'
-  accountId: '61219868'
+  viewID: "139280803"
+  accountId: "61219868"
   webPropertyId: UA-61219868-19
-  internalWebPropertyId: '135107854'
+  internalWebPropertyId: "135107854"
   viewName: All Web Site Data
   timezone: America/New_York
   websiteUrl: https://nawqatrends.wim.usgs.gov/swtrends/
@@ -648,18 +647,18 @@
     shows stream trends in water chemistry (nutrients, pesticides, sediment, carbon, and salinity)
     and aquatic ecology (fish, invertebrates, and algae) for four time periods, 1972-2012, 1982-2012,
     1992-2012, and 2002-2012.
-  projectContact: 'Hans Vraga'
-  projectContactEmail: 'hvraga@usgs.gov'
-  analyticsContact: 'Hans Vraga'
-  analyticsContactEmail: 'hvraga@usgs.gov'
+  projectContact: "Hans Vraga"
+  projectContactEmail: "hvraga@usgs.gov"
+  analyticsContact: "Lauren Privette"
+  analyticsContactEmail: "lprivette@usgs.gov"
 
-- longName: 'NAWQA GW Water Quality Trends'
-  shortName: 'NaWQADecadalTrendsMapper'
+- longName: "NAWQA GW Water Quality Trends"
+  shortName: "NaWQADecadalTrendsMapper"
   accountName: WIM USGS
-  viewID: '116129201'
-  accountId: '61219868'
+  viewID: "116129201"
+  accountId: "61219868"
   webPropertyId: UA-61219868-5
-  internalWebPropertyId: '111279201'
+  internalWebPropertyId: "111279201"
   viewName: All Web Site Data
   timezone: America/Los_Angeles
   websiteUrl: http://nawqatrends.wim.usgs.gov/Decadal/
@@ -670,37 +669,37 @@
     in groundwater are changing during decadal periods across the Nation. Tracking changes in
     groundwater quality and investigating the reasons for these changes is crucial for informing
     management decisions to protect and sustain our valuable groundwater resources.
-  projectContact: 'Hans Vraga'
-  projectContactEmail: 'hvraga@usgs.gov'
-  analyticsContact: 'Hans Vraga'
-  analyticsContactEmail: 'hvraga@usgs.gov'
+  projectContact: "Hans Vraga"
+  projectContactEmail: "hvraga@usgs.gov"
+  analyticsContact: "Lauren Privette"
+  analyticsContactEmail: "lprivette@usgs.gov"
 
 - longName: "Flood Inundation Mapper"
   shortName: "FIM-JS"
   accountName: WIM USGS
-  viewID: '147316934'
-  accountId: '61219868'
+  viewID: "147316934"
+  accountId: "61219868"
   webPropertyId: UA-61219868-23
-  internalWebPropertyId: '142720692'
+  internalWebPropertyId: "142720692"
   viewName: All Web Site Data
   timezone: America/Los_Angeles
   websiteUrl: https://fim.wim.usgs.gov/fim/
   botFilteringEnabled: .na.character
   description: >-
-     The Flood Inundation Mapper (FIM) allows users to explore the full set of inundation maps that shows where
-     flooding would occur given a selected stream condition. Users can also access historical
-     flood information and potential loss estimates based on the severity of the flood. The
-     FIM Mapper helps communities visualize potential flooding scenarios, identify areas and
-     resources that may be at risk, and enhance their local response effort during a flooding event.
-  projectContact: 'Hans Vraga'
-  projectContactEmail: 'hvraga@usgs.gov'
-  analyticsContact: 'Hans Vraga'
-  analyticsContactEmail: 'hvraga@usgs.gov'
+    The Flood Inundation Mapper (FIM) allows users to explore the full set of inundation maps that shows where
+    flooding would occur given a selected stream condition. Users can also access historical
+    flood information and potential loss estimates based on the severity of the flood. The
+    FIM Mapper helps communities visualize potential flooding scenarios, identify areas and
+    resources that may be at risk, and enhance their local response effort during a flooding event.
+  projectContact: "Hans Vraga"
+  projectContactEmail: "hvraga@usgs.gov"
+  analyticsContact: "Lauren Privette"
+  analyticsContactEmail: "lprivette@usgs.gov"
 
 - longName: "Flood Event Viewer"
   shortName: "FEV"
-  viewID: '131080146'
-  accountId: '61219868'
+  viewID: "131080146"
+  accountId: "61219868"
   webPropertyId: UA-61219868-14
   viewName: All Web Site Data
   timezone: "America/New_York"
@@ -711,103 +710,125 @@
     Short-Term Network (STN) database. Data viewable and downloadable from this page
     are from the STN database. This application integrates with the USGS National Water
     Information System (NWIS) database  for display of time-series water data.
-  projectContact: 'Hans Vraga'
-  projectContactEmail: 'hvraga@usgs.gov'
-  analyticsContact: 'Hans Vraga'
-  analyticsContactEmail: 'hvraga@usgs.gov'
+  projectContact: "Hans Vraga"
+  projectContactEmail: "hvraga@usgs.gov"
+  analyticsContact: "Lauren Privette"
+  analyticsContactEmail: "lprivette@usgs.gov"
 
 - longName: "NWISWeb (Mapper)"
   shortName: "NWISMapper"
   accountName: WIM USGS
   viewID: "120202187"
-  accountId: '61219868'
+  accountId: "61219868"
   webPropertyId: "UA-61219868-8"
-  viewName: 'All Web Site Data'
+  viewName: "All Web Site Data"
   timezone: "America/New_York"
-  websiteUrl: 'http://maps.waterdata.usgs.gov'
-  botFilteringEnabled: 'NA'
+  websiteUrl: "http://maps.waterdata.usgs.gov"
+  botFilteringEnabled: "NA"
   description: >-
     The National Water Information System Mapper (NWISMapper) is a web mapping application for interfacing with NWIS data.
     The National Water Information System Mapper - Water Alert (NWISMapper-WaterAlert) is a web-based map that links to
     USGS gage data and allows users to subscribe to site notifications
     through WaterAlert. WaterAlert service sends e-mail or text (SMS) messages when certain
     parameters, as measured by a USGS real-time data-collection station, exceed user-definable thresholds.
-  projectContact: 'Joseph Kalfsbeek'
-  projectContactEmail: 'kalfsbek@usgs.gov'
-  analyticsContact: 'Hans Vraga'
-  analyticsContactEmail: 'hvraga@usgs.gov'
+  projectContact: "Joseph Kalfsbeek"
+  projectContactEmail: "kalfsbek@usgs.gov"
+  analyticsContact: "Lauren Privette"
+  analyticsContactEmail: "lprivette@usgs.gov"
+
+- longName: "Surface Water Flow Trends in the Nation's Streams and Rivers"
+  shortName: "SWFlowTrends"
+  accountName: WIM USGS
+  viewID: "233875529"
+  accountId: "61219868"
+  webPropertyId: "UA-61219868-45"
+  viewName: "All Web Site Data"
+  timezone: "America/New_York"
+  websiteUrl: "https://iwaas.wim.usgs.gov/sw-flow-trends"
+  botFilteringEnabled: "NA"
+  description: >-
+    The Surface Water Flow Trends mapper provides results from assessments of trends in low and high streamflows in the Nation's streams 
+    and rivers over the past 100, 75, and 50 years (1916-2015, 1941-2015 and 1966-2015). Streamflow records from 
+    more than 2,000 U.S. Geological Survey (USGS) streamgages across the conterminous U.S. were used in these 
+    assessments. Tracking changes in streamflow and investigating the reasons for these changes is crucial for 
+    informing management decisions to protect and sustain our valuable water resources and to mitigate water-related 
+    hazards.
+  projectContact: "Nick Estes"
+  projectContactEmail: "njestes@usgs.gov"
+  analyticsContact: "Lauren Privette"
+  analyticsContactEmail: "lprivette@usgs.gov"
 
 - longName: "VizLab: Hurricane Harvey's Water Footprint"
   shortName: VizLabHarvey
   accountName: Vizlab
-  viewID: '159018840'
-  accountId: '78530187'
+  viewID: "159018840"
+  accountId: "78530187"
   webPropertyId: UA-78530187-7
-  internalWebPropertyId: '157530047'
+  internalWebPropertyId: "157530047"
   viewName: All Web Site Data
   timezone: America/Chicago
   websiteUrl: https://owi.usgs.gov/vizlab/hurricane-harvey
-  botFilteringEnabled: ''
+  botFilteringEnabled: ""
   description: >-
     The VizLab Hurricane Harvey Water Footprint (VizLabHarvey) application demonstrates
     Hurricane Harvey's approach to the U.S. Gulf coast on August 25-31, 2017. This
     visualization shows the hurricane's impact on precipitation and streamflow.
-  projectContact: 'Jordan Read'
-  projectContactEmail: 'jread@usgs.gov'
-  analyticsContact: 'David Watkins'
-  analyticsContactEmail: 'wwatkins@usgs.gov'
+  projectContact: "Jordan Read"
+  projectContactEmail: "jread@usgs.gov"
+  analyticsContact: "David Watkins"
+  analyticsContactEmail: "wwatkins@usgs.gov"
 
 - longName: "VizLab: Hurricane Irma's Water Footprint"
   shortName: VizLabIrma
   accountName: Vizlab
-  viewID: '159805194'
-  accountId: '78530187'
+  viewID: "159805194"
+  accountId: "78530187"
   webPropertyId: UA-78530187-8
-  internalWebPropertyId: '158389592'
+  internalWebPropertyId: "158389592"
   viewName: All Web Site Data
   timezone: America/Chicago
   websiteUrl: https://owi.usgs.gov/vizlab/hurricane-irma
-  botFilteringEnabled: ''
+  botFilteringEnabled: ""
   description: >-
     The VizLab Hurricane Irma Water Footprint (VizLabIrma) application demonstrates
     Hurricane Irma's approach to Florida on Sept 8-12, 2017. This
     visualization shows the hurricane's impact on precipitation and streamflow.
-  projectContact: 'Jordan Read'
-  projectContactEmail: 'jread@usgs.gov'
-  analyticsContact: 'David Watkins'
-  analyticsContactEmail: 'wwatkins@usgs.gov'
+  projectContact: "Jordan Read"
+  projectContactEmail: "jread@usgs.gov"
+  analyticsContact: "David Watkins"
+  analyticsContactEmail: "wwatkins@usgs.gov"
 
 - longName: "VizLab: Hurricane Maria's Water Footprint"
   shortName: VizLabMaria
   accountName: Vizlab
-  viewID: '160717710'
-  accountId: '78530187'
+  viewID: "160717710"
+  accountId: "78530187"
   webPropertyId: UA-78530187-9
-  internalWebPropertyId: ''
+  internalWebPropertyId: ""
   viewName: All Web Site Data
   timezone: America/Chicago
   websiteUrl: https://owi.usgs.gov/vizlab/hurricane-maria
-  botFilteringEnabled: ''
+  botFilteringEnabled: ""
   description: >-
     The VizLab Hurricane Maria Water Footprint (VizLabMaria) application demonstrates
     Hurricane Maria's approach to Puerto Rico on Sept 18-25, 2017. This
     visualization shows the hurricane's impact on precipitation and streamflow.
-  projectContact: 'Jordan Read'
-  projectContactEmail: 'jread@usgs.gov'
-  analyticsContact: 'David Watkins'
-  analyticsContactEmail: 'wwatkins@usgs.gov'
+  projectContact: "Jordan Read"
+  projectContactEmail: "jread@usgs.gov"
+  analyticsContact: "David Watkins"
+  analyticsContactEmail: "wwatkins@usgs.gov"
 
 - longName: "VizLab: 2015 Water Use"
   shortName: VizLabWaterUse15
   accountName: Vizlab
-  viewID: '177200146'
-  accountId: '78530187'
+  viewID: "177200146"
+  accountId: "78530187"
   webPropertyId: UA-78530187-12
-  internalWebPropertyId: ''
+  internalWebPropertyId: ""
   viewName: All Web Site Data
   timezone: America/Chicago
   websiteUrl: https://owi.usgs.gov/vizlab/water-use-15
-  botFilteringEnabled: 'TRUE'
+  botFilteringEnabled: "TRUE"
   description: >-
     Water touches almost every aspect of American life: from food to electricity to
     consumer products. Understanding how we use water is crucial for learning how
@@ -815,42 +836,42 @@
     Geological Survey is displaying the national compilation of water use data for
     every U.S. county. Explore the variety of water use across the U.S. to understand
     how we use our current resources.
-  projectContact: 'Jordan Read'
-  projectContactEmail: 'jread@usgs.gov'
-  analyticsContact: 'David Watkins'
-  analyticsContactEmail: 'wwatkins@usgs.gov'
+  projectContact: "Jordan Read"
+  projectContactEmail: "jread@usgs.gov"
+  analyticsContact: "David Watkins"
+  analyticsContactEmail: "wwatkins@usgs.gov"
 
 - longName: "NWISWeb (NG BETA)"
   shortName: "New Site Pages"
   accountName: "USGS Water Data for the Nation"
-  viewID: '190316048'
-  accountId: '25350863'
+  viewID: "190316048"
+  accountId: "25350863"
   webPropertyId: UA-25350863-1
-  internalWebPropertyId: ''
+  internalWebPropertyId: ""
   viewName: All Web Site Data
   timezone: America/Chicago
   websiteUrl: https://waterdata.usgs.gov/monitoring-location/03597860/
-  botFilteringEnabled: 'TRUE'
+  botFilteringEnabled: "TRUE"
   description: >-
     New site pages.  Note that data starts on February 21st
     (after the public soft release), and only contains URLs starting
     with /monitoring-location/.
-  projectContact: 'Jim Kreft'
-  projectContactEmail: 'jkreft@usgs.gov'
-  analyticsContact: 'Jim Kreft'
-  analyticsContactEmail: 'jkreft@usgs.gov'
+  projectContact: "Jim Kreft"
+  projectContactEmail: "jkreft@usgs.gov"
+  analyticsContact: "Jim Kreft"
+  analyticsContactEmail: "jkreft@usgs.gov"
 
 - longName: "National Network of Reference Watersheds"
   shortName: "NNRW"
   accountName: "NNRW"
-  viewID: '140384607'
-  accountId: '61918505'
+  viewID: "140384607"
+  accountId: "61918505"
   webPropertyId: UA-61918505-2
-  internalWebPropertyId: '136174803'
+  internalWebPropertyId: "136174803"
   viewName: Anti-spam
   timezone: America/Chicago
   websiteUrl: http://my.usgs.gov/nnrw
-  botFilteringEnabled: 'TRUE'
+  botFilteringEnabled: "TRUE"
   description: >-
     The National Network of Reference Watersheds is a collaborative
     and multipurpose network of minimally disturbed watersheds and monitoring
@@ -860,155 +881,155 @@
     freshwater streams. Membership in the network is voluntary and open to individuals,
     agencies, and institutions interested in participating in monitoring and (or) research
     in minimally disturbed and pristine watersheds.
-  projectContact: 'Mike McHale'
-  projectContactEmail: 'mmchale@usgs.gov'
-  analyticsContact: 'Don Brown'
-  analyticsContactEmail: 'brownd@usgs.gov'
+  projectContact: "Mike McHale"
+  projectContactEmail: "mmchale@usgs.gov"
+  analyticsContact: "Don Brown"
+  analyticsContactEmail: "brownd@usgs.gov"
 
 - longName: "WMA NSDI Node"
   shortName: "Water NSDI node"
   accountName: "Water NSDI node"
-  viewID: '196097632'
-  accountId: '141213604'
+  viewID: "196097632"
+  accountId: "141213604"
   webPropertyId: UA-141213604-1
-  internalWebPropertyId: '202273746'
+  internalWebPropertyId: "202273746"
   viewName: All Web Site Data
   timezone: America/Chicago
   websiteUrl: https://water.usgs.gov/lookup/getgislist
-  botFilteringEnabled: 'TRUE'
+  botFilteringEnabled: "TRUE"
   description: >-
     The USGS Water Resources NSDI Node provides data, photographs and maps produced
     by the U.S. Geological Survey.
-  projectContact: 'Mike Ierardi'
-  projectContactEmail: 'mierardi@usgs.gov'
-  analyticsContact: 'David Watkins'
-  analyticsContactEmail: 'wwatkins@usgs.gov'
+  projectContact: "Mike Ierardi"
+  projectContactEmail: "mierardi@usgs.gov"
+  analyticsContact: "David Watkins"
+  analyticsContactEmail: "wwatkins@usgs.gov"
 
 - longName: "water.usgs.gov (Drupal)"
   shortName: "WMA Drupal"
   accountName: "WMA Drupal"
-  viewID: '176409830'
-  accountId: '1084444827'
+  viewID: "176409830"
+  accountId: "1084444827"
   webPropertyId: UA-1084444827
   internalWebPropertyId: ""
   viewName: WMA Drupal Content
   timezone: America/Chicago
   websiteUrl: www.usgs.gov/mission-areas/water-resources
-  botFilteringEnabled: 'TRUE'
+  botFilteringEnabled: "TRUE"
   description: >-
     WMA's pages in the Drupal content management system, launched in spring of 2019.  WMA content is defined
     by page paths starting with "water-resources/", "mission-areas/water-resources",
     or "/products/data-and-tools/real-time-data/water".
-  projectContact: 'Jen Bruce'
-  projectContactEmail: 'jbruce@usgs.gov'
-  analyticsContact: 'Mario Martin-Alciati'
-  analyticsContactEmail: 'mmartin-alciati@usgs.gov'
+  projectContact: "Jen Bruce"
+  projectContactEmail: "jbruce@usgs.gov"
+  analyticsContact: "Mario Martin-Alciati"
+  analyticsContactEmail: "mmartin-alciati@usgs.gov"
 
 - longName: "Water Science School (Drupal)"
   shortName: "Water Science School (Drupal)"
   accountName: "WMA Drupal"
-  viewID: '186591251'
-  accountId: '1084444827'
+  viewID: "186591251"
+  accountId: "1084444827"
   webPropertyId: UA-1084444827
   internalWebPropertyId: ""
   viewName: WMA Drupal Content
   timezone: America/Chicago
   websiteUrl: www.usgs.gov/special-topic/water-science-school
-  botFilteringEnabled: 'TRUE'
+  botFilteringEnabled: "TRUE"
   description: >-
     The Water Science School (WaterSciSchool) website offers information on many aspects of water, along with pictures, data,
     maps, and an interactive center where you can give opinions and test your water knowledge.  This content was
     migrated from Natweb in spring of 2019.
-  projectContact: 'Jen Bruce'
-  projectContactEmail: 'jbruce@usgs.gov'
-  analyticsContact: 'Mario Martin-Alciati'
-  analyticsContactEmail: 'mmartin-alciati@usgs.gov'
+  projectContact: "Jen Bruce"
+  projectContactEmail: "jbruce@usgs.gov"
+  analyticsContact: "Mario Martin-Alciati"
+  analyticsContactEmail: "mmartin-alciati@usgs.gov"
 
 - longName: "National Integrated Water Availability Assessments-Concept Map"
   shortName: "IWAAs Water Availability Map"
   accountName: "WBEEP"
-  viewID: '209651718'
-  accountId: '149352326'
-  webPropertyId: 'UA-149352326-1'
+  viewID: "209651718"
+  accountId: "149352326"
+  webPropertyId: "UA-149352326-1"
   internalWebPropertyId: ""
   viewName: Prod Only
   timezone: America/Chicago
   websiteUrl: https://labs.waterdata.usgs.gov/estimated-availability/#/
-  botFilteringEnabled: 'TRUE'
+  botFilteringEnabled: "TRUE"
   description: >-
     This map shows the latest available daily estimates of natural water storage for approximately 110,000 regions
     across the lower forty-eight states. Map shading indicates the current natural water storage relative to historical
     conditions for this time of year.
-  projectContact: 'Lindsay Platt'
-  projectContactEmail: 'lplatt@usgs.gov'
-  analyticsContact: 'David Watkins'
-  analyticsContactEmail: 'wwatkins@usgs.gov'
-  
+  projectContact: "Lindsay Platt"
+  projectContactEmail: "lplatt@usgs.gov"
+  analyticsContact: "David Watkins"
+  analyticsContactEmail: "wwatkins@usgs.gov"
+
 - longName: "NWIS Tableau Data Connector"
   shortName: "Tableau Data Connector"
   accountName: "USGS Water Data for the Nation"
-  viewID: '216476377'
-  accountId: '25350863'
-  webPropertyId: 'UA-25350863-3'
+  viewID: "216476377"
+  accountId: "25350863"
+  webPropertyId: "UA-25350863-3"
   internalWebPropertyId: ""
-  viewName: 'Tableau data connector'
+  viewName: "Tableau data connector"
   timezone: America/New_York
   websiteUrl: https://labs.waterdata.usgs.gov/
-  botFilteringEnabled: 'TRUE'
-  description: ''
-  projectContact: ''
-  projectContactEmail: ''
-  analyticsContact: 'David Watkins'
-  analyticsContactEmail: 'wwatkins@usgs.gov'
+  botFilteringEnabled: "TRUE"
+  description: ""
+  projectContact: ""
+  projectContactEmail: ""
+  analyticsContact: "David Watkins"
+  analyticsContactEmail: "wwatkins@usgs.gov"
 
 - longName: "waterservices.usgs.gov web pages"
   shortName: "waterservices.usgs.gov"
   accountName: "USGS Mobile Water Data & Water Services"
-  viewID: '83451443'
-  accountId: '42005086'
-  webPropertyId: 'UA-42005086-2'
+  viewID: "83451443"
+  accountId: "42005086"
+  webPropertyId: "UA-42005086-2"
   internalWebPropertyId: ""
-  viewName: 'All Web Site Data'
+  viewName: "All Web Site Data"
   timezone: America/Chicago
   websiteUrl: https://waterservices.usgs.gov
-  botFilteringEnabled: 'TRUE'
-  description: ''
-  projectContact: ''
-  projectContactEmail: ''
-  analyticsContact: ''
-  analyticsContactEmail: ''
+  botFilteringEnabled: "TRUE"
+  description: ""
+  projectContact: ""
+  projectContactEmail: ""
+  analyticsContact: ""
+  analyticsContactEmail: ""
 
-- longName: 'VizLab: Gages Through the Ages'
+- longName: "VizLab: Gages Through the Ages"
   shortName: VizLabGagesAges
   accountName: Gages through the Ages data visualization
-  viewID: '217860358'
-  accountId: '78530187'
-  webPropertyId: 'UA-78530187-14'
+  viewID: "217860358"
+  accountId: "78530187"
+  webPropertyId: "UA-78530187-14"
   internalWebPropertyId: ""
-  viewName: 'All Web Site Data'
+  viewName: "All Web Site Data"
   timezone: America/Chicago
   websiteUrl: https://labs.waterdata.usgs.gov/visualizations/gages-through-the-ages/index.html#/
-  botFilteringEnabled: 'TRUE'
-  description: 'An interactive data visualization for gage location through time'
-  projectContact: 'Lindsay Platt'
-  projectContactEmail: 'lplatt@usgs.gov'
-  analyticsContact: 'David Watkins'
-  analyticsContactEmail: 'wwatkins@usgs.gov'
-  
+  botFilteringEnabled: "TRUE"
+  description: "An interactive data visualization for gage location through time"
+  projectContact: "Lindsay Platt"
+  projectContactEmail: "lplatt@usgs.gov"
+  analyticsContact: "David Watkins"
+  analyticsContactEmail: "wwatkins@usgs.gov"
+
 - longName: National Water Dashboard
   shortName: NWD
-  accountName: ''
-  viewID: '230024567'
-  accountId: '179298358'
+  accountName: ""
+  viewID: "230024567"
+  accountId: "179298358"
   webPropertyId: UA-179298358-1
-  internalWebPropertyId: ''
+  internalWebPropertyId: ""
   viewName: National Water Dashboard
   timezone: America/Chicago
   websiteUrl: https://dashboard.waterdata.usgs.gov/
-  botFilteringEnabled: 'TRUE'
-  description: >-  
+  botFilteringEnabled: "TRUE"
+  description: >-
     The National Water Dashboard is an interactive map that presents real-time stream, lake and reservoir, precipitation and groundwater data for more than 13,500 USGS real-time observation stations across the country. This information is shown along with weather data such as radar, watches and warnings, past precipitation totals, precipitation forecasts and drought conditions from other sources.
-  projectContact: 'Tom Burley'
-  projectContactEmail: 'tburley@usgs.gov'
-  analyticsContact: 'Ramona Neafie'
-  analyticsContactEmail: 'rjneafie@usgs.gov'
+  projectContact: "Tom Burley"
+  projectContactEmail: "tburley@usgs.gov"
+  analyticsContact: "Ramona Neafie"
+  analyticsContactEmail: "rjneafie@usgs.gov"
