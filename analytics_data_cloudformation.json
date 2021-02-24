@@ -337,7 +337,9 @@
               {"Name": "365_days", "Type": "double"},
               {"Name": "30_days", "Type": "double"},
               {"Name": "7_days", "Type": "double"},
-              {"Name": "week_over_year", "Type": "double"}
+              {"Name": "week_over_year", "Type": "double"},
+              {"Name": "weekly_average", "Type": "double"},
+              {"Name": "week_percent_from_average", "Type": "double"}		  
             ],
             "SerdeInfo": {
               "SerializationLibrary": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
