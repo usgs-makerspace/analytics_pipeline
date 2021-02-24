@@ -111,7 +111,7 @@
           "StorageDescriptor": {
             "OutputFormat": "org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat",
             "InputFormat": "org.apache.hadoop.mapred.TextInputFormat",
-            "Location": "s3://wma-analytics-data/dashboard/test/parquet/landing_exit_pages/",
+            "Location": "s3://wma-analytics-data/dashboard/test/parquet/three_year_traffic/",
             "Columns": [
               {"Name": "date", "Type": "date"},
               {"Name": "sessions", "Type": "double"},
@@ -200,7 +200,7 @@
         }
       }
     },
-    "AllAppsLandingExitPages": {
+    "LandingExitPages": {
       "Type": "AWS::Glue::Table",
       "DependsOn": "AnalyticsData",
       "Properties": {
@@ -208,7 +208,7 @@
         "DatabaseName": {"Ref": "athenaDatabaseName"},
         "TableInput": {
           "Description": "Table to hold all app landing and exit pages from Parquet files",
-          "Name": "all_apps_landing_exit_pages",
+          "Name": "landing_exit_pages",
           "TableType": "EXTERNAL_TABLE",
           "Parameters": {
             "has_encrypted_data": "false"
