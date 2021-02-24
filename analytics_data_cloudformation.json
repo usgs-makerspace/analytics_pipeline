@@ -188,7 +188,7 @@
               {"Name": "sessions", "Type": "double"},
               {"Name": "view_id", "Type": "string"},
               {"Name": "view_name", "Type": "string"},
-			  {"Name": "period", "Type": "string"}
+              {"Name": "period", "Type": "string"}
             ],
             "SerdeInfo": {
               "SerializationLibrary": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
@@ -223,7 +223,7 @@
               {"Name": "exitpagepath", "Type": "string"},
               {"Name": "sessions", "Type": "double"},
               {"Name": "view_id", "Type": "string"},
-			  {"Name": "view_name", "Type": "string"}
+              {"Name": "view_name", "Type": "string"}
             ],
             "SerdeInfo": {
               "SerializationLibrary": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
@@ -258,11 +258,11 @@
               {"Name": "dayOfWeekName", "Type": "string"},
               {"Name": "sessions", "Type": "double"},
               {"Name": "percentNewSessions", "Type": "double"},
-			  {"Name": "sessionDuration", "Type": "double"},
-			  {"Name": "view_id", "Type": "string"},
-			  {"Name": "view_name", "Type": "string"},
-			  {"Name": "period", "Type": "string"},
-			  {"Name": "newSessions", "Type": "double"},
+              {"Name": "sessionDuration", "Type": "double"},
+              {"Name": "view_id", "Type": "string"},
+              {"Name": "view_name", "Type": "string"},
+              {"Name": "period", "Type": "string"},
+              {"Name": "newSessions", "Type": "double"},
             ],
             "SerdeInfo": {
               "SerializationLibrary": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
@@ -297,11 +297,11 @@
               {"Name": "sessions_this_year", "Type": "double"},
               {"Name": "n_this_year", "Type": "bigint"},
               {"Name": "first_non_zero_date_this_year", "Type": "date"},
-			  {"Name": "sessions_last_year", "Type": "double"},
-			  {"Name": "n_last_year", "Type": "bigint"},
-			  {"Name": "first_non_zero_date_last_year", "Type": "date"},
-			  {"Name": "percent_change", "Type": "double"},
-			  {"Name": "period", "Type": "string"},
+              {"Name": "sessions_last_year", "Type": "double"},
+              {"Name": "n_last_year", "Type": "bigint"},
+              {"Name": "first_non_zero_date_last_year", "Type": "date"},
+              {"Name": "percent_change", "Type": "double"},
+              {"Name": "period", "Type": "string"},
             ],
             "SerdeInfo": {
               "SerializationLibrary": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
@@ -336,8 +336,8 @@
               {"Name": "region", "Type": "string"},
               {"Name": "365_days", "Type": "double"},
               {"Name": "30_days", "Type": "double"},
-			  {"Name": "7_days", "Type": "double"},
-			  {"Name": "week_over_year", "Type": "double"}
+              {"Name": "7_days", "Type": "double"},
+              {"Name": "week_over_year", "Type": "double"}
             ],
             "SerdeInfo": {
               "SerializationLibrary": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
@@ -348,7 +348,7 @@
           }
         }
       }
-    },	
+    },
     "StateTrafficPopulationPercentages": {
       "Type": "AWS::Glue::Table",
       "DependsOn": "AnalyticsData",
@@ -372,14 +372,14 @@
               {"Name": "view_id", "Type": "string"},
               {"Name": "period", "Type": "string"},
               {"Name": "sessions", "Type": "double"},
-			  {"Name": "DIVISION", "Type": "string"},
-			  {"Name": "STATE", "Type": "bigint"},
-			  {"Name": "POPESTIMATE2019", "Type": "bigint"},
-			  {"Name": "pop_pct", "Type": "double"},
-			  {"Name": "sessions_total_period", "Type": "double"},
-			  {"Name": "sessions_pct", "Type": "double"},
-			  {"Name": "sessions_population_ratio", "Type": "double"},
-			  {"Name": "country", "Type": "string"},
+              {"Name": "DIVISION", "Type": "string"},
+              {"Name": "STATE", "Type": "bigint"},
+              {"Name": "POPESTIMATE2019", "Type": "bigint"},
+              {"Name": "pop_pct", "Type": "double"},
+              {"Name": "sessions_total_period", "Type": "double"},
+              {"Name": "sessions_pct", "Type": "double"},
+              {"Name": "sessions_population_ratio", "Type": "double"},
+              {"Name": "country", "Type": "string"},
             ],
             "SerdeInfo": {
               "SerializationLibrary": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
@@ -390,6 +390,6 @@
           }
         }
       }
-    },	
+    },
   }
 }
