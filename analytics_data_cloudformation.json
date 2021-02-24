@@ -1,0 +1,395 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "Template defining Athena resources for analytics data",
+  "Parameters": {
+    "athenaDatabaseName": {
+      "Type": "String",
+      "Default": "analytics_test",
+      "Description": "Name of the Athena database"
+    }
+  },
+  "Resources": {
+    "AnalyticsData": {
+      "Type": "AWS::Glue::Database",
+      "Properties": {
+        "DatabaseInput": {
+          "Description": "WMA application analytics data",
+          "Name": {"Ref": "athenaDatabaseName"}
+        },
+        "CatalogId": {"Ref":  "AWS::AccountId"}
+      }
+    },
+    "LongTermMonthly": {
+      "Type": "AWS::Glue::Table",
+      "DependsOn": "AnalyticsData",
+      "Properties": {
+        "CatalogId": {"Ref":  "AWS::AccountId"},
+        "DatabaseName": {"Ref": "athenaDatabaseName"},
+        "TableInput": {
+          "Description": "Table to hold long term monthly data from Parquet files",
+          "Name": "long_term_monthly",
+          "TableType": "EXTERNAL_TABLE",
+          "Parameters": {
+            "has_encrypted_data": "false"
+          },
+          "StorageDescriptor": {
+            "OutputFormat": "org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat",
+            "InputFormat": "org.apache.hadoop.mapred.TextInputFormat",
+            "Location": "s3://wma-analytics-data/dashboard/test/parquet/long_term_monthly/",
+            "Columns": [
+              {"Name": "year", "Type": "string"},
+              {"Name": "month", "Type": "string"},
+              {"Name": "sessions", "Type": "double"},
+              {"Name": "avgSessionDuration", "Type": "double"},
+              {"Name": "pageviewsPerSession", "Type": "double"},
+              {"Name": "percentNewSessions", "Type": "double"},
+              {"Name": "view_id", "Type": "string"},
+              {"Name": "view_name", "Type": "string"},
+              {"Name": "fiscal_year", "Type": "date"},
+              {"Name": "backfill", "Type": "boolean"}
+            ],
+            "SerdeInfo": {
+              "SerializationLibrary": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+              "Parameters": {
+                "has_encrypted_data": "false"
+              }
+            }
+          }
+        }
+      }
+    },
+    "PageLoadThirtyDays": {
+      "Type": "AWS::Glue::Table",
+      "DependsOn": "AnalyticsData",
+      "Properties": {
+        "CatalogId": {"Ref":  "AWS::AccountId"},
+        "DatabaseName": {"Ref": "athenaDatabaseName"},
+        "TableInput": {
+          "Description": "Table to hold page load data for last 30 days from Parquet files",
+          "Name": "page_load_30_days",
+          "TableType": "EXTERNAL_TABLE",
+          "Parameters": {
+            "has_encrypted_data": "false"
+          },
+          "StorageDescriptor": {
+            "OutputFormat": "org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat",
+            "InputFormat": "org.apache.hadoop.mapred.TextInputFormat",
+            "Location": "s3://wma-analytics-data/dashboard/test/parquet/page_load/",
+            "Columns": [
+              {"Name": "pagePath", "Type": "string"},
+              {"Name": "pageLoadSample", "Type": "double"},
+              {"Name": "avgPageLoadTime", "Type": "double"},
+              {"Name": "avgPageDownloadTime", "Type": "double"},
+              {"Name": "avgDomContentLoadedTime", "Type": "double"},
+              {"Name": "exitRate", "Type": "double"},
+              {"Name": "view_id", "Type": "string"},
+              {"Name": "view_name", "Type": "string"}
+            ],
+            "SerdeInfo": {
+              "SerializationLibrary": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+              "Parameters": {
+                "has_encrypted_data": "false"
+              }
+            }
+          }
+        }
+      }
+    },
+    "AllAppsTrafficDataThreeYears": {
+      "Type": "AWS::Glue::Table",
+      "DependsOn": "AnalyticsData",
+      "Properties": {
+        "CatalogId": {"Ref":  "AWS::AccountId"},
+        "DatabaseName": {"Ref": "athenaDatabaseName"},
+        "TableInput": {
+          "Description": "Table to hold all app traffic data for 3 years from Parquet files",
+          "Name": "all_apps_traffic_data_3_years",
+          "TableType": "EXTERNAL_TABLE",
+          "Parameters": {
+            "has_encrypted_data": "false"
+          },
+          "StorageDescriptor": {
+            "OutputFormat": "org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat",
+            "InputFormat": "org.apache.hadoop.mapred.TextInputFormat",
+            "Location": "s3://wma-analytics-data/dashboard/test/parquet/landing_exit_pages/",
+            "Columns": [
+              {"Name": "date", "Type": "date"},
+              {"Name": "sessions", "Type": "double"},
+              {"Name": "users", "Type": "double"},
+              {"Name": "view_id", "Type": "string"},
+              {"Name": "view_name", "Type": "string"},
+              {"Name": "year", "Type": "date"},
+              {"Name": "fiscal_year", "Type": "date"}
+            ],
+            "SerdeInfo": {
+              "SerializationLibrary": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+              "Parameters": {
+                "has_encrypted_data": "false"
+              }
+            }
+          }
+        }
+      }
+    },
+    "YearMonthWeekTraffic": {
+      "Type": "AWS::Glue::Table",
+      "DependsOn": "AnalyticsData",
+      "Properties": {
+        "CatalogId": {"Ref":  "AWS::AccountId"},
+        "DatabaseName": {"Ref": "athenaDatabaseName"},
+        "TableInput": {
+          "Description": "Table to hold all app year month week summary traffic data from Parquet files",
+          "Name": "year_month_week_traffic",
+          "TableType": "EXTERNAL_TABLE",
+          "Parameters": {
+            "has_encrypted_data": "false"
+          },
+          "StorageDescriptor": {
+            "OutputFormat": "org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat",
+            "InputFormat": "org.apache.hadoop.mapred.TextInputFormat",
+            "Location": "s3://wma-analytics-data/dashboard/test/parquet/year_month_week/",
+            "Columns": [
+              {"Name": "view_name", "Type": "string"},
+              {"Name": "view_id", "Type": "string"},
+              {"Name": "sessions", "Type": "double"},
+              {"Name": "users", "Type": "double"},
+              {"Name": "period", "Type": "string"}
+            ],
+            "SerdeInfo": {
+              "SerializationLibrary": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+              "Parameters": {
+                "has_encrypted_data": "false"
+              }
+            }
+          }
+        }
+      }
+    },
+    "StateYearMonthWeekTraffic": {
+      "Type": "AWS::Glue::Table",
+      "DependsOn": "AnalyticsData",
+      "Properties": {
+        "CatalogId": {"Ref":  "AWS::AccountId"},
+        "DatabaseName": {"Ref": "athenaDatabaseName"},
+        "TableInput": {
+          "Description": "Table to hold all app year month week summary traffic data for states from Parquet files",
+          "Name": "state_traffic_year_month_week",
+          "TableType": "EXTERNAL_TABLE",
+          "Parameters": {
+            "has_encrypted_data": "false"
+          },
+          "StorageDescriptor": {
+            "OutputFormat": "org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat",
+            "InputFormat": "org.apache.hadoop.mapred.TextInputFormat",
+            "Location": "s3://wma-analytics-data/dashboard/test/parquet/state_traffic/",
+            "Columns": [
+              {"Name": "region", "Type": "string"},
+              {"Name": "country", "Type": "string"},
+              {"Name": "sessions", "Type": "double"},
+              {"Name": "view_id", "Type": "string"},
+              {"Name": "view_name", "Type": "string"},
+			  {"Name": "period", "Type": "string"}
+            ],
+            "SerdeInfo": {
+              "SerializationLibrary": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+              "Parameters": {
+                "has_encrypted_data": "false"
+              }
+            }
+          }
+        }
+      }
+    },
+    "AllAppsLandingExitPages": {
+      "Type": "AWS::Glue::Table",
+      "DependsOn": "AnalyticsData",
+      "Properties": {
+        "CatalogId": {"Ref":  "AWS::AccountId"},
+        "DatabaseName": {"Ref": "athenaDatabaseName"},
+        "TableInput": {
+          "Description": "Table to hold all app landing and exit pages from Parquet files",
+          "Name": "all_apps_landing_exit_pages",
+          "TableType": "EXTERNAL_TABLE",
+          "Parameters": {
+            "has_encrypted_data": "false"
+          },
+          "StorageDescriptor": {
+            "OutputFormat": "org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat",
+            "InputFormat": "org.apache.hadoop.mapred.TextInputFormat",
+            "Location": "s3://wma-analytics-data/dashboard/test/parquet/landing_exit_pages/",
+            "Columns": [
+              {"Name": "landingpagepath", "Type": "string"},
+              {"Name": "secondpagepath", "Type": "string"},
+              {"Name": "exitpagepath", "Type": "string"},
+              {"Name": "sessions", "Type": "double"},
+              {"Name": "view_id", "Type": "string"},
+			  {"Name": "view_name", "Type": "string"}
+            ],
+            "SerdeInfo": {
+              "SerializationLibrary": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+              "Parameters": {
+                "has_encrypted_data": "false"
+              }
+            }
+          }
+        }
+      }
+    },
+    "SummaryNumbers": {
+      "Type": "AWS::Glue::Table",
+      "DependsOn": "AnalyticsData",
+      "Properties": {
+        "CatalogId": {"Ref":  "AWS::AccountId"},
+        "DatabaseName": {"Ref": "athenaDatabaseName"},
+        "TableInput": {
+          "Description": "Table to hold big a$$ numbers summary data from Parquet files",
+          "Name": "summary_numbers",
+          "TableType": "EXTERNAL_TABLE",
+          "Parameters": {
+            "has_encrypted_data": "false"
+          },
+          "StorageDescriptor": {
+            "OutputFormat": "org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat",
+            "InputFormat": "org.apache.hadoop.mapred.TextInputFormat",
+            "Location": "s3://wma-analytics-data/dashboard/test/parquet/summary_numbers/",
+            "Columns": [
+              {"Name": "deviceCategory", "Type": "string"},
+              {"Name": "browser", "Type": "string"},
+              {"Name": "dayOfWeekName", "Type": "string"},
+              {"Name": "sessions", "Type": "double"},
+              {"Name": "percentNewSessions", "Type": "double"},
+			  {"Name": "sessionDuration", "Type": "double"},
+			  {"Name": "view_id", "Type": "string"},
+			  {"Name": "view_name", "Type": "string"},
+			  {"Name": "period", "Type": "string"},
+			  {"Name": "newSessions", "Type": "double"},
+            ],
+            "SerdeInfo": {
+              "SerializationLibrary": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+              "Parameters": {
+                "has_encrypted_data": "false"
+              }
+            }
+          }
+        }
+      }
+    },
+    "ComparedToLastYear": {
+      "Type": "AWS::Glue::Table",
+      "DependsOn": "AnalyticsData",
+      "Properties": {
+        "CatalogId": {"Ref":  "AWS::AccountId"},
+        "DatabaseName": {"Ref": "athenaDatabaseName"},
+        "TableInput": {
+          "Description": "Table to hold app data with summary info for comparing traffic to previous year from Parquet files",
+          "Name": "compared_to_last_year",
+          "TableType": "EXTERNAL_TABLE",
+          "Parameters": {
+            "has_encrypted_data": "false"
+          },
+          "StorageDescriptor": {
+            "OutputFormat": "org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat",
+            "InputFormat": "org.apache.hadoop.mapred.TextInputFormat",
+            "Location": "s3://wma-analytics-data/dashboard/test/parquet/compared_to_last_year/",
+            "Columns": [
+              {"Name": "view_name", "Type": "string"},
+              {"Name": "view_id", "Type": "string"},
+              {"Name": "sessions_this_year", "Type": "double"},
+              {"Name": "n_this_year", "Type": "bigint"},
+              {"Name": "first_non_zero_date_this_year", "Type": "date"},
+			  {"Name": "sessions_last_year", "Type": "double"},
+			  {"Name": "n_last_year", "Type": "bigint"},
+			  {"Name": "first_non_zero_date_last_year", "Type": "date"},
+			  {"Name": "percent_change", "Type": "double"},
+			  {"Name": "period", "Type": "string"},
+            ],
+            "SerdeInfo": {
+              "SerializationLibrary": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+              "Parameters": {
+                "has_encrypted_data": "false"
+              }
+            }
+          }
+        }
+      }
+    },
+    "StateWeekVsYear": {
+      "Type": "AWS::Glue::Table",
+      "DependsOn": "AnalyticsData",
+      "Properties": {
+        "CatalogId": {"Ref":  "AWS::AccountId"},
+        "DatabaseName": {"Ref": "athenaDatabaseName"},
+        "TableInput": {
+          "Description": "Table to hold state traffic data with summary info for comparing periods to previous year from Parquet files",
+          "Name": "state_week_vs_year",
+          "TableType": "EXTERNAL_TABLE",
+          "Parameters": {
+            "has_encrypted_data": "false"
+          },
+          "StorageDescriptor": {
+            "OutputFormat": "org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat",
+            "InputFormat": "org.apache.hadoop.mapred.TextInputFormat",
+            "Location": "s3://wma-analytics-data/dashboard/test/parquet/state_week_vs_year/",
+            "Columns": [
+              {"Name": "view_id", "Type": "string"},
+              {"Name": "view_name", "Type": "string"},
+              {"Name": "region", "Type": "string"},
+              {"Name": "365_days", "Type": "double"},
+              {"Name": "30_days", "Type": "double"},
+			  {"Name": "7_days", "Type": "double"},
+			  {"Name": "week_over_year", "Type": "double"}
+            ],
+            "SerdeInfo": {
+              "SerializationLibrary": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+              "Parameters": {
+                "has_encrypted_data": "false"
+              }
+            }
+          }
+        }
+      }
+    },	
+    "StateTrafficPopulationPercentages": {
+      "Type": "AWS::Glue::Table",
+      "DependsOn": "AnalyticsData",
+      "Properties": {
+        "CatalogId": {"Ref":  "AWS::AccountId"},
+        "DatabaseName": {"Ref": "athenaDatabaseName"},
+        "TableInput": {
+          "Description": "Table to hold app data comparing period to previous year from Parquet files",
+          "Name": "state_traffic_population_percentages",
+          "TableType": "EXTERNAL_TABLE",
+          "Parameters": {
+            "has_encrypted_data": "false"
+          },
+          "StorageDescriptor": {
+            "OutputFormat": "org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat",
+            "InputFormat": "org.apache.hadoop.mapred.TextInputFormat",
+            "Location": "s3://wma-analytics-data/dashboard/test/parquet/state_traffic_population_percentages/",
+            "Columns": [
+              {"Name": "view_name", "Type": "string"},
+              {"Name": "region", "Type": "string"},
+              {"Name": "view_id", "Type": "string"},
+              {"Name": "period", "Type": "string"},
+              {"Name": "sessions", "Type": "double"},
+			  {"Name": "DIVISION", "Type": "string"},
+			  {"Name": "STATE", "Type": "bigint"},
+			  {"Name": "POPESTIMATE2019", "Type": "bigint"},
+			  {"Name": "pop_pct", "Type": "double"},
+			  {"Name": "sessions_total_period", "Type": "double"},
+			  {"Name": "sessions_pct", "Type": "double"},
+			  {"Name": "sessions_population_ratio", "Type": "double"},
+			  {"Name": "country", "Type": "string"},
+            ],
+            "SerdeInfo": {
+              "SerializationLibrary": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+              "Parameters": {
+                "has_encrypted_data": "false"
+              }
+            }
+          }
+        }
+      }
+    },	
+  }
+}
