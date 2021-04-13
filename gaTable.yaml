@@ -1051,3 +1051,20 @@
   analyticsContact: "David Watkins"
   analyticsContactEmail: "wwatkins@usgs.gov"
   
+- longName: "VizLab: Fire-Hydrology"
+  shortName: VizLabFireHydro
+  accountName: How wildfires threaten U.S. water supplies
+  viewID: ""
+  accountId: "250646489"
+  webPropertyId: "250646489"
+  internalWebPropertyId: ""
+  viewName: "All Web Site Data"
+  timezone: America/Chicago
+  websiteUrl: https://labs.waterdata.usgs.gov/visualizations/fire-hydro/index.html#/
+  botFilteringEnabled: "TRUE"
+  description: "An interactive website about wildfire impacts to U.S. water supplies"
+  projectContact: "Colleen Nell"
+  projectContactEmail: "cnell@usgs.gov"
+  analyticsContact: "David Watkins"
+  analyticsContactEmail: "wwatkins@usgs.gov"
+  
