@@ -1033,3 +1033,21 @@
   projectContactEmail: "tburley@usgs.gov"
   analyticsContact: "Ramona Neafie"
   analyticsContactEmail: "rjneafie@usgs.gov"
+
+- longName: "VizLab: Delaware Basin Story"
+  shortName: VizLabDRBstory
+  accountName: Water Science in the Delaware River Basin visualization
+  viewID: "222356746"
+  accountId: "78530187"
+  webPropertyId: "UA-78530187-15"
+  internalWebPropertyId: ""
+  viewName: "All Web Site Data"
+  timezone: America/Chicago
+  websiteUrl: https://labs.waterdata.usgs.gov/visualizations/delaware-basin-story/index.html#/
+  botFilteringEnabled: "TRUE"
+  description: "A scrollytelling website about water management in the Delaware River Basin"
+  projectContact: "Colleen Nell"
+  projectContactEmail: "cnell@usgs.gov"
+  analyticsContact: "David Watkins"
+  analyticsContactEmail: "wwatkins@usgs.gov"
+  
