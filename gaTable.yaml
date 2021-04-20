@@ -1068,3 +1068,20 @@
   analyticsContact: "David Watkins"
   analyticsContactEmail: "wwatkins@usgs.gov"
   
+- longName: "VizLab: Snow to flow"
+  shortName: VizLabSnowToFlow
+  accountName: Snowmelt and water supply visualization
+  viewID: "241431169"
+  accountId: "78530187"
+  webPropertyId: "UA-78530187-18"
+  internalWebPropertyId: ""
+  viewName: "All Web Site Data"
+  timezone: America/Chicago
+  websiteUrl: https://labs.waterdata.usgs.gov/visualizations/snow-to-flow/index.html#/
+  botFilteringEnabled: "TRUE"
+  description: "An interactive website about snowmelt in the western U.S."
+  projectContact: "Colleen Nell"
+  projectContactEmail: "cnell@usgs.gov"
+  analyticsContact: "David Watkins"
+  analyticsContactEmail: "wwatkins@usgs.gov"
+  
