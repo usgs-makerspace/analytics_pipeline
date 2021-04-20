@@ -17,6 +17,9 @@ pipeline {
     triggers {
         cron('H(45-59) 7 * * *')
     }
+    options {
+      buildDiscarder(logRotator(numToKeepStr: '5'))
+    }
   stages {
     stage('Clean Workspace') {
       steps{
