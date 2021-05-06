@@ -11,11 +11,14 @@ pipeline {
     parameters {
         gitParameter name: 'BRANCH_TAG',
                      type: 'PT_BRANCH_TAG',
-                     defaultValue: 'v0.0.4'
+                     defaultValue: 'v0.0.5'
         choice(choices: ['test', 'prod'], description: 'Tier to deploy tiles to', name: 'TIER')
     }
     triggers {
         cron('H(45-59) 7 * * *')
+    }
+    options {
+      buildDiscarder(logRotator(numToKeepStr: '5'))
     }
   stages {
     stage('Clean Workspace') {
