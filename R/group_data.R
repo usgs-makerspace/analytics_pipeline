@@ -68,48 +68,24 @@ add_sum_of_views <- function(df, view_name_pattern, method, new_name = view_name
 #'           expects pagepath, date, uniquePageviews and pageviews
 #' @return data frame with daily unique pageviews and site ids
 group_by_site_id <- function(df) {
-  # clean up yucky url bits like encoded things and different param names
-  df$pagePath <- gsub("&amp;","&",df$pagePath)
-  df$pagePath <- gsub("search_site_no","site_no",df$pagePath)
-  df$pagePath <- gsub("Site_no","site_no",df$pagePath)
-  df$pagePath <- gsub("multiple_site_no","site_no",df$pagePath)
-  df$pagePath <- gsub(", ",",",df$pagePath)
   
-  #pull out site_no data in to their own column
-  df$site_no <- param_get(urls = df$pagePath, parameter_names = c("site_no"))
-  
-  #site_no column data character instead of df
-  df$site_no <- df$site_no$site_no
-  
-  #break up multiple site nos separated by commas
-  df <- separate_rows(df, site_no, sep=",")
-  
-  #trim extraneous white space from around site_no
-  df$site_no <- trimws(df$site_no, which=c("both"))
-
-  #drop empty site_no rows
-  df <- df[!(is.na(df$site_no) | df$site_no==""), ]
-  
-  #if any exist, break up multiple site nos separated by spaces
-  df <- separate_rows(df, site_no, sep=" ")
-  
-  #only keep numeric site_no data
-  df <- subset(df, grepl('^\\d+$', df$site_no))
-  
-  #keep values at 8 or more characters, likely erroneous if less
-  df <- subset(df, nchar(as.character(site_no)) >= 8)
-  
-  #grab date to put back in data after summarizing totals per site_no
-  date <- df$date[1]
-  
-  #add together uniquePageviews by site_no
-  df <- ddply(df,"site_no",numcolwise(sum))
-  
-  #put date back
-  df$date <- date
-  
-  #keep only columns that we need
-  df <- select(df, date, uniquePageviews, site_no)
+  df1 <- df1 %>%
+    mutate(pagePath = gsub("&amp;", "&", pagePath)) %>% #clean up yucky url bits like encodings and diff param names
+    mutate(pagePath = gsub("search_site_no","site_no",pagePath))  %>%
+    mutate(pagePath = gsub("Site_no","site_no",pagePath))  %>%
+    mutate(pagePath = gsub("multiple_site_no","site_no",pagePath)) %>%
+    mutate(pagePath = gsub(", ",",",pagePath)) %>%
+    mutate(site_no = param_get(urls = pagePath, parameter_names = c("site_no"))) %>% #pull out site_no data in to their own column
+    mutate(site_no = site_no$site_no) %>% #site_no column data character instead of df
+    separate_rows(site_no, sep=",") %>% #break up multiple site nos separated by commas
+    mutate(site_no = trimws(site_no, which=c("both"))) %>% #trim extraneous white space from around site_no
+    filter(!(is.na(site_no) | site_no=="")) %>% #drop empty site_no rows
+    separate_rows(site_no, sep=" ") %>% #if any exist, break up multiple site nos separated by spaces
+    filter(grepl('^\\d+$', site_no)) %>% #only keep numeric site_no data
+    filter(nchar(as.character(site_no)) >=8) %>% #keep values at 8 or more characters, likely erroneous if less
+    ddply("site_no",numcolwise(sum)) %>% #add together uniquePageviews by site_no
+    mutate(date = date) %>% #put date back
+    select(date, site_no, uniquePageviews) #keep only columns that we need
   
   return(df)
 }
