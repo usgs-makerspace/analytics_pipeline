@@ -4,7 +4,6 @@ library(dplyr)
 library(arrow)
 library(lubridate)
 library(urltools)
-library(plyr)
 
 get_nwisweb_google_analytics <- function(date_range = c('2020-01-01', '2020-02-01')) {
   gar_auth_service('~/.vizlab/VIZLAB-a48f4107248c.json')
