@@ -1,4 +1,4 @@
-FROM rocker/r-ver:3.6.3
+FROM artifactory.wma.chs.usgs.gov/docker-official-mirror/rocker/r-ver:3.6.3
 
 ARG BUILD_DATE
 
