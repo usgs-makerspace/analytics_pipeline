@@ -2,7 +2,9 @@ library(googleAnalyticsR)
 library(googleAuthR)
 library(dplyr)
 library(arrow)
+library(tidyr)
 library(lubridate)
+library(plyr)
 library(urltools)
 
 get_nwisweb_google_analytics <- function(date_range = c('2020-01-01', '2020-02-01')) {
@@ -45,4 +47,4 @@ df <- group_by_site_id(df)
 filename <- paste0("noms_daily","_",yesterday,".parquet")
 
 write_df_to_parquet(df, 
-                    sink = filename)
+                    sink = paste0("out/noms/",filename))
