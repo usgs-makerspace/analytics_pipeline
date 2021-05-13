@@ -69,7 +69,7 @@ add_sum_of_views <- function(df, view_name_pattern, method, new_name = view_name
 #' @return data frame with daily unique pageviews and site ids
 group_by_site_id <- function(df) {
   
-  df1 <- df1 %>%
+  df <- df %>%
     mutate(pagePath = gsub("&amp;", "&", pagePath)) %>% #clean up yucky url bits like encodings and diff param names
     mutate(pagePath = gsub("search_site_no","site_no",pagePath))  %>%
     mutate(pagePath = gsub("Site_no","site_no",pagePath))  %>%
