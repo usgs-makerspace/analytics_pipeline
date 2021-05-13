@@ -30,7 +30,8 @@ RUN install2.r --error \
   yaml \
   dataRetrieval \
   ineq \
-  urltools
+  urltools \
+  plyr
 
 RUN Rscript -e 'arrow::install_arrow()' #installs some runtime libraries 
 
