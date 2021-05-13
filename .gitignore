@@ -4,3 +4,6 @@
 .Ruserdata
 out/*
 !out/*/.empty
+*.parquet
+.Rproj
+analytics_pipeline.Rproj
