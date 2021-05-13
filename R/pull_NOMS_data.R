@@ -1,7 +1,6 @@
 library(googleAnalyticsR)
 library(googleAuthR)
 library(dplyr)
-library(tidyr)
 library(arrow)
 library(lubridate)
 library(urltools)
@@ -33,9 +32,18 @@ get_nwisweb_google_analytics <- function(date_range = c('2020-01-01', '2020-02-0
   
 }
 
-df <- get_nwisweb_google_analytics(date_range = c('2021-05-11', '2021-05-11'))
+##### Time variable setup #####
+sys_date_eastern_time <- date(with_tz(Sys.time(), 'America/New_York')) #Jenkins is on UTC 
+yesterday <- sys_date_eastern_time - 1
+
+df <- get_nwisweb_google_analytics(date_range = c(yesterday, yesterday))
 
 source('R/functions.R')
 source('R/group_data.R')
 
 df <- group_by_site_id(df)
+
+filename <- paste0("noms_daily","_",yesterday,".parquet")
+
+write_df_to_parquet(df, 
+                    sink = filename)
