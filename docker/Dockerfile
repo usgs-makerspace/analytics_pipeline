@@ -29,7 +29,8 @@ RUN install2.r --error \
   lubridate \
   yaml \
   dataRetrieval \
-  ineq 
+  ineq \
+  urltools
 
 RUN Rscript -e 'arrow::install_arrow()' #installs some runtime libraries 
 
