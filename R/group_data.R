@@ -72,7 +72,7 @@ group_by_site_id <- function(df) {
   date <- df$date[1]
   
   df <- df %>%
-    mutate(site_no = regmatches(df$pagePath, gregexpr("[[:digit:]]+", df$pagePath))) %>% #get all numeric values into new column
+    mutate(site_no = regmatches(pagePath, gregexpr("[[:digit:]]+", pagePath))) %>% #get all numeric values into new column
     unnest(site_no) %>% #unlist list column
     filter(nchar(as.character(site_no)) >= 8) %>% #keep values at 8 or more characters, likely erroneous if less
     ddply("site_no",numcolwise(sum)) %>% #add together uniquePageviews by site_no
