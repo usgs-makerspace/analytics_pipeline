@@ -72,19 +72,9 @@ group_by_site_id <- function(df) {
   date <- df$date[1]
   
   df <- df %>%
-    mutate(pagePath = gsub("&amp;", "&", pagePath)) %>% #clean up yucky url bits like encodings and diff param names
-    mutate(pagePath = gsub("search_site_no","site_no",pagePath))  %>%
-    mutate(pagePath = gsub("Site_no","site_no",pagePath))  %>%
-    mutate(pagePath = gsub("multiple_site_no","site_no",pagePath)) %>%
-    mutate(pagePath = gsub(", ",",",pagePath)) %>%
-    mutate(site_no = param_get(urls = pagePath, parameter_names = c("site_no"))) %>% #pull out site_no data in to their own column
-    mutate(site_no = site_no$site_no) %>% #site_no column data character instead of df
-    separate_rows(site_no, sep=",") %>% #break up multiple site nos separated by commas
-    mutate(site_no = trimws(site_no, which=c("both"))) %>% #trim extraneous white space from around site_no
-    filter(!(is.na(site_no) | site_no=="")) %>% #drop empty site_no rows
-    separate_rows(site_no, sep=" ") %>% #if any exist, break up multiple site nos separated by spaces
-    filter(grepl('^\\d+$', site_no)) %>% #only keep numeric site_no data
-    filter(nchar(as.character(site_no)) >=8) %>% #keep values at 8 or more characters, likely erroneous if less
+    mutate(site_no = regmatches(df$pagePath, gregexpr("[[:digit:]]+", df$pagePath))) %>% #get all numeric values into new column
+    unnest(site_no) %>% #unlist list column
+    filter(nchar(as.character(site_no)) >= 8) %>% #keep values at 8 or more characters, likely erroneous if less
     ddply("site_no",numcolwise(sum)) %>% #add together uniquePageviews by site_no
     mutate(date = date) %>% #put date back
     select(date, site_no, uniquePageviews) #keep only columns that we need

@@ -1,26 +1,24 @@
 library(googleAnalyticsR)
 library(googleAuthR)
-library(dplyr)
 library(arrow)
 library(tidyr)
 library(lubridate)
 library(plyr)
+library(dplyr)
 library(urltools)
 
-get_nwisweb_google_analytics <- function(date_range = c('2020-01-01', '2020-02-01')) {
+get_nwis_site_page_views <- function(date_range = c('2020-01-01', '2020-02-01')) {
   gar_auth_service('~/.vizlab/VIZLAB-a48f4107248c.json')
   nwis_web_view <- '49785472'
   
   #filters 
-  #all requests should 1st and either 2nd or third of these:
-  filter_eight_digit_site <- dim_filter("pagePath", "REGEXP", expressions = "site_no=[0-9]{8,8}[^0-9]")
-  filter_8_15_digit_site <- dim_filter("pagePath", "REGEXP", expressions = "site_no=[0-9]{8,15}[^0-9]")
-  #########
+  #get all pagePaths with numeric data between 8 and 15 digits long in it:
+  filter_8_15_digit_site <- dim_filter("pagePath", "REGEXP", expressions = "[0-9]{8,15}")
+  #########^
   #plus, one of these two filters
   
   ###########
-  filter_clause_site_page <- filter_clause_ga4(list(filter_eight_digit_site, 
-                                                    filter_8_15_digit_site),
+  filter_clause_site_page <- filter_clause_ga4(list(filter_8_15_digit_site),
                                                operator = "AND")
   
   #uncomment the dimensions arg to retrieve the actual data --- this just
@@ -37,7 +35,7 @@ get_nwisweb_google_analytics <- function(date_range = c('2020-01-01', '2020-02-0
 sys_date_eastern_time <- date(with_tz(Sys.time(), 'America/New_York')) #Jenkins is on UTC 
 yesterday <- sys_date_eastern_time - 1
 
-df <- get_nwisweb_google_analytics(date_range = c(yesterday, yesterday))
+df <- get_nwis_site_page_views(date_range = c(yesterday, yesterday))
 
 source('R/functions.R')
 source('R/group_data.R')
