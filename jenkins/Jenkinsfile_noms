@@ -62,8 +62,7 @@ pipeline {
     stage('push to S3') {
       steps { 
         sh '''
-          # --delete flag important so old files don't hang around in S3 if file names change
-          aws s3 sync out/noms s3://wma-analytics-data/noms/${TIER}/parquet/ --delete --exclude "*/*" --include "*/*.parquet" 
+          aws s3 sync out/noms s3://wma-analytics-data/noms/${TIER}/parquet/ --exclude "*/*" --include "*/*.parquet" 
           '''
       }
     }
