@@ -12,10 +12,13 @@ pipeline {
         gitParameter name: 'BRANCH_TAG',
                      type: 'PT_BRANCH_TAG',
                      defaultValue: 'v0.0.6'
-        choice(choices: ['test', 'prod'], description: 'Tier to deploy tiles to', name: 'TIER')
+        choice(choices: ['test', 'prod'], description: 'Tier to deploy files to', name: 'TIER')
     }
     triggers {
-        cron('H(45-59) 7 * * *')
+        parameterizedCron('''
+          # leave spaces where you want them around the parameters. They'll be trimmed.
+          H(45-59) 7 * * * %BRANCH_TAG=v0.0.6; TIER=test
+        ''') 
     }
     options {
       buildDiscarder(logRotator(numToKeepStr: '5'))
