@@ -78,7 +78,6 @@ group_by_site_id <- function(df) {
     filter(uniquePageviews>0) %>% #remove rows where uniquePageviews are zero
     group_by(date, site_no) %>% 
     summarize(uniquePageviews = sum(uniquePageviews)) %>% #add together uniquePageviews by site_no
-    mutate(date = date) %>% #put date back
     select(date, site_no, uniquePageviews) #keep only columns that we need
   
   return(df)
