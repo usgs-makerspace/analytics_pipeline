@@ -136,7 +136,6 @@ splice_two_views <- function(df, splice_date,
 }
   
 get_nwis_site_page_views <- function(date_range = c('2020-01-01', '2020-02-01')) {
-  gar_auth_service('~/.vizlab/VIZLAB-a48f4107248c.json')
   nwis_web_view <- '49785472'
   
   #filter 
