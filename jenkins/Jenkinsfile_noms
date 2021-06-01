@@ -11,13 +11,13 @@ pipeline {
     parameters {
         gitParameter name: 'BRANCH_TAG',
                      type: 'PT_BRANCH_TAG',
-                     defaultValue: 'v0.0.6'
+                     defaultValue: 'master'
         choice(choices: ['test', 'prod'], description: 'Tier to deploy files to', name: 'TIER')
     }
     triggers {
         parameterizedCron('''
           # leave spaces where you want them around the parameters. They'll be trimmed.
-          H(45-59) 7 * * * %BRANCH_TAG=v0.0.6; TIER=test
+          H(45-59) 7 * * * %BRANCH_TAG=master; TIER=test
         ''') 
     }
     options {
