@@ -55,7 +55,7 @@ pipeline {
       }
       steps {
         retry(2){
-          sh 'Rscript -e "source(\'R/pull_NOMS_data.R\')"'
+          sh 'Rscript -e "source(\'R/noms_date_range_pull.R\')"'
         }
       }
     }
