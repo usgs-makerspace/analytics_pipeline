@@ -9,6 +9,10 @@ yesterday <- Sys.Date()-1
 
 yesterday <- seq(from=yesterday, to=yesterday, by='days')
 
+gar_set_client(json = Sys.getenv('GA_CLIENTID_FILE'), 
+               scopes = "https://www.googleapis.com/auth/analytics.readonly")
+gar_auth_service(json_file = Sys.getenv('GA_AUTH_FILE'))
+
 source('R/functions.R')
 source('R/group_data.R')
 
