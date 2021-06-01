@@ -63,3 +63,22 @@ add_sum_of_views <- function(df, view_name_pattern, method, new_name = view_name
   df_plus_new_group <- bind_rows(df, new_group)
   return(df_plus_new_group)
 }
+
+#' @param df data.frame of daily unique pageviews and page paths with site ids for noms
+#'           expects pagepath, date, uniquePageviews and pageviews
+#' @return data frame with date, uniquePageviews and site_no
+group_by_site_id <- function(df) {
+  
+  date <- df$date[1]
+  
+  df <- df %>%
+    mutate(site_no = regmatches(pagePath, gregexpr("[[:digit:]]+", pagePath))) %>% #get all numeric values into new column
+    unnest(site_no) %>% #unlist list column
+    filter(nchar(as.character(site_no)) == 8 | nchar(as.character(site_no))==15) %>% #keep values at 8 or 15 characters, erroneous otherwise
+    filter(uniquePageviews>0) %>% #remove rows where uniquePageviews are zero
+    group_by(date, site_no) %>% 
+    summarize(uniquePageviews = sum(uniquePageviews)) %>% #add together uniquePageviews by site_no
+    select(date, site_no, uniquePageviews) #keep only columns that we need
+  
+  return(df)
+}
