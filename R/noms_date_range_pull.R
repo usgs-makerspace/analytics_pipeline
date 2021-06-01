@@ -7,9 +7,7 @@ library(dplyr)
 
 yesterday <- Sys.Date()-1
 
-fromDate <- yesterday
-toDate <- yesterday
-yesterday <- seq(from=fromDate, to=toDate, by='days')
+yesterday <- seq(from=yesterday, to=yesterday, by='days')
 
 source('R/pull_GA_data.R')
 
