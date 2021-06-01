@@ -5,7 +5,11 @@ library(tidyr)
 library(lubridate)
 library(dplyr)
 
-yesterday <- seq(from=as.Date('2021-05-20'), to=as.Date('2021-05-31'), by='days')
+yesterday <- Sys.Date()-1
+
+fromDate <- yesterday
+toDate <- yesterday
+yesterday <- seq(from=fromDate, to=toDate, by='days')
 
 source('R/pull_GA_data.R')
 
