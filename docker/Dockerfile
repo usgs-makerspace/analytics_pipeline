@@ -1,9 +1,9 @@
-FROM rocker/r-ver:3.6.3
+FROM artifactory.wma.chs.usgs.gov/docker-official-mirror/rocker/r-ver:4.0.4
 
 ARG BUILD_DATE
 
 LABEL maintainer="wwatkins@usgs.gov"
-LABEL version=0.0.1
+LABEL version=0.0.2
 LABEL org.label-schema.build-date=$BUILD_DATE
 
 RUN apt-get update \
@@ -29,7 +29,8 @@ RUN install2.r --error \
   lubridate \
   yaml \
   dataRetrieval \
-  ineq 
+  ineq \
+  plyr
 
 RUN Rscript -e 'arrow::install_arrow()' #installs some runtime libraries 
 

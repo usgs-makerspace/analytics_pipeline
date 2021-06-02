@@ -135,3 +135,22 @@ splice_two_views <- function(df, splice_date,
   return(df_out)
 }
   
+get_nwis_site_page_views <- function(date_range = c('2020-01-01', '2020-02-01')) {
+  nwis_web_view <- '49785472'
+  
+  #filter 
+  #get all pagePaths with numeric data between 8 and 15 digits long in it:
+  filter_8_15_digit_site <- dim_filter("pagePath", "REGEXP", expressions = "[0-9]{8,15}")
+  #########
+  
+  ###########
+  filter_clause_site_page <- filter_clause_ga4(list(filter_8_15_digit_site),
+                                               operator = "AND")
+  
+  site_number_page_views <- google_analytics(nwis_web_view, date_range = date_range,
+                                             dimensions = c("pagePath", "date"), slow_fetch = TRUE,
+                                             metrics = c("uniquePageviews","pageViews"),
+                                             max = -1, dim_filters = filter_clause_site_page,
+                                             rows_per_call = 100000, anti_sample = TRUE)
+  
+}

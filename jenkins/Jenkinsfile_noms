@@ -11,11 +11,14 @@ pipeline {
     parameters {
         gitParameter name: 'BRANCH_TAG',
                      type: 'PT_BRANCH_TAG',
-                     defaultValue: 'v0.0.6'
-        choice(choices: ['test', 'prod'], description: 'Tier to deploy tiles to', name: 'TIER')
+                     defaultValue: 'master'
+        choice(choices: ['test', 'prod'], description: 'Tier to deploy files to', name: 'TIER')
     }
     triggers {
-        cron('H(45-59) 7 * * *')
+        parameterizedCron('''
+          # leave spaces where you want them around the parameters. They'll be trimmed.
+          H(45-59) 7 * * * %BRANCH_TAG=master; TIER=test
+        ''') 
     }
     options {
       buildDiscarder(logRotator(numToKeepStr: '5'))
@@ -26,8 +29,9 @@ pipeline {
         cleanWs()
       }
     }
-    stage('Checkout repo and pull cache from S3') {
+    stage('Checkout repo') {
       steps {
+        sh 'wget -O DOIRootCA2.cer http://sslhelp.doi.net/docs/DOIRootCA2.cer'
         checkout([$class: 'GitSCM',
                           branches: [[name: "${params.BRANCH_TAG}"]],
                           doGenerateSubmoduleConfigurations: false,
@@ -36,7 +40,6 @@ pipeline {
                           submoduleCfg: [],
                           userRemoteConfigs: [[url: 'https://github.com/usgs-makerspace/analytics_pipeline']]
                         ])
-        sh 'aws s3 sync s3://wma-analytics-data/dashboard/${TIER}/cache/ cache/'
       }
     }
     stage('pull Google Analytics data') {
@@ -52,16 +55,14 @@ pipeline {
       }
       steps {
         retry(2){
-          sh 'Rscript -e "source(\'R/pull_GA_data.R\')"'
+          sh 'Rscript -e "source(\'R/noms_date_range_pull.R\')"'
         }
       }
     }
     stage('push to S3') {
       steps { 
         sh '''
-          # --delete flag important so old files don't hang around in S3 if file names change
-          aws s3 sync out/ s3://wma-analytics-data/dashboard/${TIER}/parquet/ --delete --exclude "*/*" --include "*/*.parquet" 
-          aws s3 sync cache/ s3://wma-analytics-data/dashboard/${TIER}/cache/
+          aws s3 sync out/noms s3://wma-analytics-data/noms/${TIER}/parquet/ --exclude "*/*" --include "*/*.parquet" 
           '''
       }
     }
