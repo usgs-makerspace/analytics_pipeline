@@ -55,14 +55,14 @@ pipeline {
       }
       steps {
         retry(2){
-          sh 'Rscript -e "source(\'R/noms_date_range_pull.R\')"'
+          sh 'Rscript -e "source(\'R/nmonitoring_location_pages_date_range_pull.R\')"'
         }
       }
     }
     stage('push to S3') {
       steps { 
         sh '''
-          aws s3 sync out/noms s3://wma-analytics-data/noms/${TIER}/parquet/ --exclude "*/*" --include "*/*.parquet" 
+          aws s3 sync out/monitoring_location_pages s3://wma-analytics-data/monitoring_location_pages/${TIER}/parquet/ --exclude "*/*" --include "*/*.parquet" 
           '''
       }
     }

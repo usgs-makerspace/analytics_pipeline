@@ -26,10 +26,10 @@ for ( i in seq_along(yesterday) ) {
   df <- group_by_site_id(df)
   message(paste0("summarized ", nrow(df)," rows."))
   
-  filename <- paste0("noms_daily","_",yesterday[i],".parquet")
+  filename <- paste0("monitoring_location_pages_daily","_",yesterday[i],".parquet")
   
   write_df_to_parquet(df, 
-                      sink = paste0("out/noms/",filename))
+                      sink = paste0("out/monitoring_location_pages/",filename))
   message(paste0("done with ", yesterday[i]))
 }
   

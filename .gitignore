@@ -2,7 +2,6 @@
 .Rhistory
 .RData
 .Ruserdata
-out/*
 !out/*/.empty
 *.parquet
 .Rproj
