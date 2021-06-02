@@ -64,7 +64,7 @@ add_sum_of_views <- function(df, view_name_pattern, method, new_name = view_name
   return(df_plus_new_group)
 }
 
-#' @param df data.frame of daily unique pageviews and page paths with site ids for noms
+#' @param df data.frame of daily unique pageviews and page paths with site ids
 #'           expects pagepath, date, uniquePageviews and pageviews
 #' @return data frame with date, uniquePageviews and site_no
 group_by_site_id <- function(df) {
