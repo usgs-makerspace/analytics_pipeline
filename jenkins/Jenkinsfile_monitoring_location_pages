@@ -55,7 +55,7 @@ pipeline {
       }
       steps {
         retry(2){
-          sh 'Rscript -e "source(\'R/nmonitoring_location_pages_date_range_pull.R\')"'
+          sh 'Rscript -e "source(\'R/monitoring_location_pages_date_range_pull.R\')"'
         }
       }
     }
