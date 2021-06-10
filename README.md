@@ -23,8 +23,12 @@ fromDate <- as.Date("2021-06-01")
 toDate <- as.Date("2021-06-08")
 yesterday <- seq(from=fromDate, to=toDate, by='days')
 ```
-4. ctrl+enter on the rest of the lines in the file to complete the data pull. files will write out to out/monitoring_location_pages 
-5. to push them to s3, use the (saml2aws tool)[https://code.chs.usgs.gov/ctek/documentation/-/blob/master/how/onboarding.md#install-saml2aws-utility] in order to authenticate with aws and then push the parquet files you want to s3 using the cli, with a command such as the one below to copy all parquet files from the current directory 
+4. to authenticate, save the secret JSON contents from Vault secret iidd-analytics/google_analytics_api to a local copy of the file (e.g. somefile.json) and then load it instead of using lines 12-14,, e.g.
+```
+gar_auth_service('~/.vizlab/somefile.json') 
+``` 
+5. ctrl+enter on the rest of the lines in the file (the for loop) to complete the data pull. files will write out to out/monitoring_location_pages 
+6. to push them to s3, use the (saml2aws tool)[https://code.chs.usgs.gov/ctek/documentation/-/blob/master/how/onboarding.md#install-saml2aws-utility] in order to authenticate with aws and then push the parquet files you want to s3 using the cli, with a command such as the one below to copy all parquet files from the current directory 
 ```
 aws s3 cp . s3://wma-analytics-data/monitoring_location_pages/production/parquet/ --recursive --include "*.parquet"
 ```
