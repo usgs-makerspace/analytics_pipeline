@@ -12,7 +12,7 @@ pipeline {
         gitParameter name: 'BRANCH_TAG',
                      type: 'PT_BRANCH_TAG',
                      defaultValue: 'master'
-        choice(choices: ['test', 'prod'], description: 'Tier to deploy files to', name: 'TIER')
+        choice(choices: ['test','qa','production'], description: 'Tier to deploy files to', name: 'TIER')
     }
     triggers {
         parameterizedCron('''
