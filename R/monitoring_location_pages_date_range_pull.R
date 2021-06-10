@@ -5,7 +5,7 @@ library(tidyr)
 library(lubridate)
 library(dplyr)
 
-yesterday <- Sys.Date()-1
+yesterday <- as.Date(Sys.time(), tz = 'America/New_York') - 1
 
 yesterday <- seq(from=yesterday, to=yesterday, by='days')
 
