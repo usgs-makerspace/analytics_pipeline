@@ -28,7 +28,7 @@ yesterday <- seq(from=fromDate, to=toDate, by='days')
 gar_auth_service('~/.vizlab/somefile.json') 
 ``` 
 5. ctrl+enter on the rest of the lines in the file (the for loop) to complete the data pull. files will write out to out/monitoring_location_pages 
-6. to push them to s3, use the (saml2aws tool)[https://code.chs.usgs.gov/ctek/documentation/-/blob/master/how/onboarding.md#install-saml2aws-utility] in order to authenticate with aws and then push the parquet files you want to s3 using the cli, with a command such as the one below to copy all parquet files from the current directory 
+6. to push them to s3, use the [saml2aws tool](https://code.chs.usgs.gov/ctek/documentation/-/blob/master/how/onboarding.md#install-saml2aws-utility) in order to authenticate with aws and then push the parquet files you want to s3 using the cli, with a command such as the one below to copy all parquet files from the current directory 
 ```
 aws s3 cp . s3://wma-analytics-data/monitoring_location_pages/production/parquet/ --recursive --include "*.parquet"
 ```
