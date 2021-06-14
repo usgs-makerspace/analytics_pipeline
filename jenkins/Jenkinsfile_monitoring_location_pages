@@ -17,7 +17,7 @@ pipeline {
     triggers {
         parameterizedCron('''
           # leave spaces where you want them around the parameters. They'll be trimmed.
-          H(45-59) 7 * * * %BRANCH_TAG=master; TIER=test
+          H(45-59) 7 * * * %BRANCH_TAG=v0.0.8; TIER=production
         ''') 
     }
     options {
