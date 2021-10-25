@@ -11,7 +11,7 @@ pipeline {
     parameters {
         gitParameter name: 'BRANCH_TAG',
                      type: 'PT_BRANCH_TAG',
-                     defaultValue: 'v0.0.6'
+                     defaultValue: 'v0.0.10'
         choice(choices: ['test', 'prod'], description: 'Tier to deploy tiles to', name: 'TIER')
     }
     triggers {
