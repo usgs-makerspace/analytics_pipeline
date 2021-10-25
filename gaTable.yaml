@@ -40,8 +40,8 @@
     quality results without having to engage in much of the onerous data clean-up
     otherwise required. The WQP is focused on discrete, ambient water quality data from
     both surface and groundwater.
-  projectContact: "Jim Kreft"
-  projectContactEmail: "jkreft@usgs.gov"
+  projectContact: "Candice Hopkins"
+  projectContactEmail: "chopkins@usgs.gov"
   analyticsContact: "David Watkins"
   analyticsContactEmail: "wwatkins@usgs.gov"
 
@@ -63,8 +63,8 @@
     The NGWMN portal displays status of water levels for NGWMN sites geographically in portal
     using a statistics suite. This project continues to support data providers and develops
     and maintains connections between provider data systems and NGWMN.
-  projectContact: "Jessica Lucido"
-  projectContactEmail: "jlucido@usgs.gov"
+  projectContact: "Candice Hopkins"
+  projectContactEmail: "chopkins@usgs.gov"
   analyticsContact: "David Watkins"
   analyticsContactEmail: "wwatkins@usgs.gov"
 
@@ -412,8 +412,8 @@
     The National Environmental Methods Index (NEMI) is a publicly-accessible searchable
     interface for monitoring methods and their associated
     analytes of interest.
-  projectContact: "Jim Kreft"
-  projectContactEmail: "jkreft@usgs.gov"
+  projectContact: "Candice Hopkins"
+  projectContactEmail: "chopkins@usgs.gov"
   analyticsContact: "David Watkins"
   analyticsContactEmail: "wwatkins@usgs.gov"
 
