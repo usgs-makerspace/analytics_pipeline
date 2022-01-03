@@ -31,7 +31,6 @@ pipeline {
     }
     stage('Checkout repo') {
       steps {
-        sh 'wget -O DOIRootCA2.cer http://sslhelp.doi.net/docs/DOIRootCA2.cer'
         checkout([$class: 'GitSCM',
                           branches: [[name: "${params.BRANCH_TAG}"]],
                           doGenerateSubmoduleConfigurations: false,
