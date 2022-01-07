@@ -1069,7 +1069,7 @@
   websiteUrl: https://labs.waterdata.usgs.gov/visualizations/delaware-basin-story/index.html#/
   botFilteringEnabled: "TRUE"
   description: "A scrollytelling website about water management in the Delaware River Basin"
-  projectContact: "Colleen Nell"
+  projectContact: "Cee Nell"
   projectContactEmail: "cnell@usgs.gov"
   analyticsContact: "David Watkins"
   analyticsContactEmail: "wwatkins@usgs.gov"
@@ -1086,7 +1086,7 @@
   websiteUrl: https://labs.waterdata.usgs.gov/visualizations/fire-hydro/index.html#/
   botFilteringEnabled: "TRUE"
   description: "An interactive website about wildfire impacts to U.S. water supplies"
-  projectContact: "Colleen Nell"
+  projectContact: "Cee Nell"
   projectContactEmail: "cnell@usgs.gov"
   analyticsContact: "David Watkins"
   analyticsContactEmail: "wwatkins@usgs.gov"
@@ -1103,7 +1103,7 @@
   websiteUrl: https://labs.waterdata.usgs.gov/visualizations/snow-to-flow/index.html#/
   botFilteringEnabled: "TRUE"
   description: "An interactive website about snowmelt in the western U.S."
-  projectContact: "Colleen Nell"
+  projectContact: "Cee Nell"
   projectContactEmail: "cnell@usgs.gov"
   analyticsContact: "David Watkins"
   analyticsContactEmail: "wwatkins@usgs.gov"
@@ -1121,7 +1121,7 @@
   websiteUrl: https://labs.waterdata.usgs.gov/visualizations/temperature-prediction/index.html#/
   botFilteringEnabled: "TRUE"
   description: "An interactive site about monitoring and modeling stream temperature in the Delaware River Basin"
-  projectContact: "Colleen Nell"
+  projectContact: "Cee Nell"
   projectContactEmail: "cnell@usgs.gov"
   analyticsContact: "David Watkins"
   analyticsContactEmail: "wwatkins@usgs.gov"
