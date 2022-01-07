@@ -1146,3 +1146,21 @@
   projectContactEmail: 'hvraga@usgs.gov'
   analyticsContact: 'Hans Vraga'
   analyticsContactEmail: 'hvraga@usgs.gov'
+
+- longName: "VizLab: U.S. Groundwater Conditions"
+  shortName: VizLabGroundwaterConditions
+  accountName: U.S. Groundwater Conditions animation
+  viewID: "253991879"
+  accountId: "78530187"
+  webPropertyId: "UA-78530187-21"
+  internalWebPropertyId: ""
+  viewName: "All Web Site Data"
+  timezone: America/Chicago
+  websiteUrl: https://labs.waterdata.usgs.gov/visualizations/gw-conditions/index.html#/
+  botFilteringEnabled: "TRUE"
+  description: "An animation of daily groundwater levels across the U.S."
+  projectContact: "Cee Nell"
+  projectContactEmail: "cnell@usgs.gov"
+  analyticsContact: "David Watkins"
+  analyticsContactEmail: "wwatkins@usgs.gov"
+  
