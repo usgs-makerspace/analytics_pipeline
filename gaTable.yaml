@@ -1163,4 +1163,21 @@
   projectContactEmail: "cnell@usgs.gov"
   analyticsContact: "David Watkins"
   analyticsContactEmail: "wwatkins@usgs.gov"
+
+- longName: "VizLab portfolio"
+  shortName: VizLabHome
+  accountName: VizLab portfolio
+  viewID: "252624310"
+  accountId: "78530187"
+  webPropertyId: "UA-78530187-20"
+  internalWebPropertyId: ""
+  viewName: "All Web Site Data"
+  timezone: America/Chicago
+  websiteUrl: https://labs.waterdata.usgs.gov/visualizations/vizlab-home/index.html#/
+  botFilteringEnabled: "TRUE"
+  description: "Water data visualizations from the USGS VizLab"
+  projectContact: "Cee Nell"
+  projectContactEmail: "cnell@usgs.gov"
+  analyticsContact: "David Watkins"
+  analyticsContactEmail: "wwatkins@usgs.gov"
   
