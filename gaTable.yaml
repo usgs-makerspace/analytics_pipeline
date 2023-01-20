@@ -614,6 +614,8 @@
   viewID: "116153556"
   accountId: "61219868"
   webPropertyId: UA-61219868-6
+  ga4PropertyId: "345250599"
+  ga4CutoverDate: "2023-01-13"
   internalWebPropertyId: "111309349"
   viewName: All Web Site Data
   timezone: America/New_York
@@ -1107,6 +1109,7 @@
   viewID: '244586757'
   accountId: '61219868'
   webPropertyId: 'UA-61219868-49'
+  ga4PropertyId: '275256984'
   internalWebPropertyId: ""
   viewName: All Web Site Data
   timezone: America/New_York
