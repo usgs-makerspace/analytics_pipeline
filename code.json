@@ -19,7 +19,7 @@
     "disclaimerURL": "https://github.com/usgs-makerspace/analytics_pipeline/blob/main/DISCLAIMER.md",
     "repositoryURL": "https://github.com/usgs-makerspace/analytics_pipeline.git",
     "vcs": "git",
-    "laborHours": -1,
+    "laborHours": 80,
     "tags": [
       "R",
       "USGS"
@@ -28,11 +28,11 @@
       "R"
     ],
     "contact": {
-      "name": "wdwatkins",
-      "email": "FILL ME IN"
+      "name": "David Watkins",
+      "email": "wwatkins@usgs.gov"
     },
     "date": {
-      "metadataLastUpdated": "2023-04-07"
+      "metadataLastUpdated": "2023-05-04"
     }
   },
   {
