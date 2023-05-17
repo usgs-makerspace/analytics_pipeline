@@ -1128,6 +1128,8 @@
   viewID: "253991879"
   accountId: "78530187"
   webPropertyId: "UA-78530187-21"
+  ga4PropertyId: "291151238"
+  ga4CutoverDate: "2022-11-09"
   internalWebPropertyId: ""
   viewName: "All Web Site Data"
   timezone: America/Chicago
