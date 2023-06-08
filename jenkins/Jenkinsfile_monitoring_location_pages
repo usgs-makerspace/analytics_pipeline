@@ -68,17 +68,17 @@ pipeline {
   }
       post {
         unstable {
-            mail to: 'mhines@usgs.gov, wwatkins@usgs.gov',
+            mail to: 'mhines@usgs.gov, wwatkins@usgs.gov, cnell@usgs.gov',
             subject: "${TIER} Unstable: ${currentBuild.fullDisplayName}",
             body: "Pipeline is unstable ${env.BUILD_URL}"
         }
         failure {
-            mail to: 'mhines@usgs.gov, wwatkins@usgs.gov',
+            mail to: 'mhines@usgs.gov, wwatkins@usgs.gov, cnell@usgs.gov',
             subject: "${TIER} Failure: ${currentBuild.fullDisplayName}",
             body: "Pipeline failed ${env.BUILD_URL}"
         }
         changed {
-            mail to: 'mhines@usgs.gov, wwatkins@usgs.gov',
+            mail to: 'mhines@usgs.gov, wwatkins@usgs.gov, cnell@usgs.gov',
             subject: "${TIER} Changes: ${currentBuild.fullDisplayName}",
             body: "Pipeline detected changes ${env.BUILD_URL}"
         }
